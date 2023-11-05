@@ -1,3 +1,5 @@
+using GerenciamentoMateriaPrima.Controller;
+
 namespace GerenciamentoMateriaPrima
 {
     internal static class Program
@@ -11,7 +13,10 @@ namespace GerenciamentoMateriaPrima
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            var home = new formHome();
+            var controller = new HomeController(home);
+            home.SetControlador(controller);
+            Application.Run(home);
         }
     }
 }
