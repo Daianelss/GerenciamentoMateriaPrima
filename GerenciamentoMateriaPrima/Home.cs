@@ -24,7 +24,7 @@ namespace GerenciamentoMateriaPrima
             HomeControlador.GravarFuncionario(funcionario);
             IEnumerable<Funcionario> funcionarios = HomeControlador.ListarFuncionarios();
 
-            dtgTeste.DataSource = HomeControlador.PreencherFuncionario(funcionarios);
+            //dtgTeste.DataSource = HomeControlador.PreencherFuncionario(funcionarios);
 
         }
     }
