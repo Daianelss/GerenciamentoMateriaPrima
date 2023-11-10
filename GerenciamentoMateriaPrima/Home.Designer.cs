@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panResumo = new Panel();
+            dtgTeste = new DataGridView();
             lblQuebraPolitriz = new Label();
             lblQuebraPeroxido = new Label();
             lblPolitriz = new Label();
@@ -49,12 +50,15 @@
             btnPolitriz = new Button();
             btnBanca = new Button();
             btnRelatorio = new Button();
+            btnFuncionario = new Button();
             panResumo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgTeste).BeginInit();
             panBotoes.SuspendLayout();
             SuspendLayout();
             // 
             // panResumo
             // 
+            panResumo.Controls.Add(dtgTeste);
             panResumo.Controls.Add(lblQuebraPolitriz);
             panResumo.Controls.Add(lblQuebraPeroxido);
             panResumo.Controls.Add(lblPolitriz);
@@ -68,6 +72,15 @@
             panResumo.Name = "panResumo";
             panResumo.Size = new Size(450, 618);
             panResumo.TabIndex = 0;
+            // 
+            // dtgTeste
+            // 
+            dtgTeste.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgTeste.Location = new Point(72, 354);
+            dtgTeste.Name = "dtgTeste";
+            dtgTeste.RowTemplate.Height = 25;
+            dtgTeste.Size = new Size(240, 150);
+            dtgTeste.TabIndex = 8;
             // 
             // lblQuebraPolitriz
             // 
@@ -181,6 +194,7 @@
             // 
             // panBotoes
             // 
+            panBotoes.Controls.Add(btnFuncionario);
             panBotoes.Controls.Add(btnRodioNegro);
             panBotoes.Controls.Add(btnPurificação);
             panBotoes.Controls.Add(btnMateriaPrima);
@@ -278,6 +292,16 @@
             btnRelatorio.Text = "Relatório";
             btnRelatorio.UseVisualStyleBackColor = true;
             // 
+            // btnFuncionario
+            // 
+            btnFuncionario.Location = new Point(328, 470);
+            btnFuncionario.Name = "btnFuncionario";
+            btnFuncionario.Size = new Size(180, 23);
+            btnFuncionario.TabIndex = 12;
+            btnFuncionario.Text = "Funcionario";
+            btnFuncionario.UseVisualStyleBackColor = true;
+            btnFuncionario.Click += btnFuncionario_Click;
+            // 
             // formHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -290,6 +314,7 @@
             Load += Home_Load;
             panResumo.ResumeLayout(false);
             panResumo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgTeste).EndInit();
             panBotoes.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -317,5 +342,7 @@
         private Button btnPolitriz;
         private Button btnBanca;
         private Button btnRelatorio;
+        private DataGridView dtgTeste;
+        private Button btnFuncionario;
     }
 }

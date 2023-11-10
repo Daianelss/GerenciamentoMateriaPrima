@@ -1,6 +1,7 @@
 using GerenciamentoMateriaPrima.Controller;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
+using GerenciamentoMateriaPrima.View;
 
 namespace GerenciamentoMateriaPrima
 {
@@ -20,12 +21,16 @@ namespace GerenciamentoMateriaPrima
 
         private void Home_Load(object sender, EventArgs e)
         {
-            var funcionario = new Funcionario { Nome = "José Euclides", Status = 0 };
-            HomeControlador.GravarFuncionario(funcionario);
-            IEnumerable<Funcionario> funcionarios = HomeControlador.ListarFuncionarios();
+            
 
-            //dtgTeste.DataSource = HomeControlador.PreencherFuncionario(funcionarios);
+        }
 
+        private void btnFuncionario_Click(object sender, EventArgs e)
+        {
+            var funcionario = new FormFuncionario();
+            var controller = new FuncionarioController(funcionario);
+            funcionario.SetControlador(controller);
+            funcionario.ShowDialog();
         }
     }
 }
