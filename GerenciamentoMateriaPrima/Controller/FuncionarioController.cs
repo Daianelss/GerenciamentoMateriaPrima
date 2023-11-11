@@ -32,5 +32,11 @@ namespace GerenciamentoMateriaPrima.Controller
         {
             return _funcionarioDal.ListarTodos();
         }
+
+        public void AtualizarFuncionario(Funcionario funcionario)
+        {
+            _funcionarioDal.Atualizar(funcionario);
+        }
+
     }
 }

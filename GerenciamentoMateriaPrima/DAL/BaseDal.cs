@@ -17,11 +17,12 @@ namespace GerenciamentoMateriaPrima.DAL
             {
                 _context.Set<T>().Update(item);
                 return _context.SaveChanges() > 0;
+
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw new Exception("Não foi possível atualizar item!");
+                throw new Exception("Não foi possível atualizar item!" + e.Message);
             }
         }
 

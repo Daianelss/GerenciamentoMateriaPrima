@@ -8,12 +8,13 @@ namespace GerenciamentoMateriaPrima.Context
     {
 
         public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<TipoMateriaPrima> MateriaPrimas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connection = ConfigurationManager.AppSettings["Conexao"];
             var version = new MySqlServerVersion(new Version(8, 0, 33));
-            optionsBuilder.UseMySql(connection, version);
+            optionsBuilder.UseMySql(connection, version).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
     }
 }
