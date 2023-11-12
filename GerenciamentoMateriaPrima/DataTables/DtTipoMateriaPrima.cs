@@ -13,7 +13,8 @@ namespace GerenciamentoMateriaPrima.DataTables
             Dt.Columns.Add("Id", typeof(int));
             Dt.Columns.Add("Nome", typeof(string));
             Dt.Columns.Add("Descricao", typeof(string));
-            Dt.Columns.Add("Status", typeof(int));
+            Dt.Columns.Add("StatusValor", typeof(int));
+            Dt.Columns.Add("Status", typeof(string));
 
         }
 
@@ -22,7 +23,7 @@ namespace GerenciamentoMateriaPrima.DataTables
             SetColunas();
             foreach (var materiaPrima in materiaPrimas)
             {
-                Dt.Rows.Add(materiaPrima.Id, materiaPrima.Nome, materiaPrima.Descricao, materiaPrima.Status);
+                Dt.Rows.Add(materiaPrima.Id, materiaPrima.Nome, materiaPrima.Descricao, materiaPrima.Status, materiaPrima.Status == 1 ? "Ativo" : "Inativo");
             }
 
             return Dt;

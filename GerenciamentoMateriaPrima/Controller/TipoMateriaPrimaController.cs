@@ -9,18 +9,13 @@ namespace GerenciamentoMateriaPrima.Controller
 {
     public class TipoMateriaPrimaController
     {
-        public ITipoMateriaPrima TipoMateriaPrima { get; set; }
+        private readonly ITipoMateriaPrima _iTipoMateriaPrima;
         private readonly TipoMateriaPrimaDal _tipoMateriaPrimaDal;
 
         public TipoMateriaPrimaController(ITipoMateriaPrima tipoMateriaPrima)
         {
-            TipoMateriaPrima = tipoMateriaPrima;
+            _iTipoMateriaPrima = tipoMateriaPrima;
             _tipoMateriaPrimaDal = new TipoMateriaPrimaDal(new GerenciamentoMateriaPrimaContext());
-        }
-
-        public void GravarTipoMateriaPrima(TipoMateriaPrima tipoMateriaPrima)
-        {
-            _tipoMateriaPrimaDal.Salvar(tipoMateriaPrima);
         }
 
         public DataTable PreencherTipoMateriaPrima(IEnumerable<TipoMateriaPrima> tipoMateriaPrimas)
@@ -28,15 +23,34 @@ namespace GerenciamentoMateriaPrima.Controller
             return DtTipoMateriaPrima.PreencherTipoMateriaPrima(tipoMateriaPrimas);
         }
 
-        public IEnumerable<TipoMateriaPrima> ListartipoMateriaPrimas()
+        public IEnumerable<TipoMateriaPrima> ListarTipoMateriaPrimas()
         {
             return _tipoMateriaPrimaDal.ListarTodos();
         }
 
-        public void AtualizartipoMateriaPrima(TipoMateriaPrima tipoMateriaPrima)
+        public void AtualizarTipoMateriaPrima()
         {
+            var tipoMateriaPrima = new TipoMateriaPrima
+            {
+                Id = Convert.ToInt32(_iTipoMateriaPrima.Id),
+                Nome = _iTipoMateriaPrima.Nome,
+                Descricao = _iTipoMateriaPrima.Descricao,
+                Status = Convert.ToInt32(_iTipoMateriaPrima.Status)
+            };
+
             _tipoMateriaPrimaDal.Atualizar(tipoMateriaPrima);
         }
-
+        public void SalvarTipoMateriaPrima()
+        {
+            if (string.IsNullOrEmpty(_iTipoMateriaPrima.Nome))
+                throw new Exception("Necessário preencher nome da materia prima");
+            var tipoMateriaPrima = new TipoMateriaPrima
+            {
+                Nome = _iTipoMateriaPrima.Nome,
+                Descricao = _iTipoMateriaPrima.Descricao,
+                Status = 1
+            };
+            _tipoMateriaPrimaDal.Salvar(tipoMateriaPrima);
+        }
     }
 }

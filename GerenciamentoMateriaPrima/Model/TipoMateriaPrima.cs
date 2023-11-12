@@ -27,5 +27,7 @@ namespace GerenciamentoMateriaPrima.Model
         [Column("TIMP_STATUS")]
         [Description("")]
         public int Status { get; set; }
+
+        public ICollection<MovimentoMateriaPrima> MovimentosMateriaPrima { get;}
     }
 }

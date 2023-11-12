@@ -1,6 +1,7 @@
 ﻿using GerenciamentoMateriaPrima.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using System.Reflection.Emit;
 
 namespace GerenciamentoMateriaPrima.Context
 {
@@ -8,7 +9,8 @@ namespace GerenciamentoMateriaPrima.Context
     {
 
         public DbSet<Funcionario> Funcionarios { get; set; }
-        public DbSet<TipoMateriaPrima> MateriaPrimas { get; set; }
+        public DbSet<TipoMateriaPrima> TipoMateriaPrimas { get; set; }
+        public DbSet<MovimentoMateriaPrima> MovimentoMateriaPrimas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -17,6 +19,15 @@ namespace GerenciamentoMateriaPrima.Context
             optionsBuilder
                 .UseMySql(connection, version)
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<TipoMateriaPrima>()
+                .HasMany(e => e.MovimentosMateriaPrima)
+                .WithOne(e => e.TipoMateriaPrima)
+                .HasForeignKey(e => e.TipoMateriaPrimaId)
+                .HasPrincipalKey(e => e.Id);
         }
     }
 }

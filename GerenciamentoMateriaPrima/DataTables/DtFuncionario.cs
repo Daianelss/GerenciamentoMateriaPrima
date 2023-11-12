@@ -6,15 +6,14 @@ namespace GerenciamentoMateriaPrima.DataTables
     public static class DtFuncionario
     {
 
-        public static DataTable Dt {  get; set; }
+        public static DataTable Dt { get; set; }
         private static void SetColunas()
         {
             Dt = new DataTable();
             Dt.Columns.Add("Id", typeof(int));
             Dt.Columns.Add("Nome", typeof(string));
-            Dt.Columns.Add("Status", typeof(int));
-
-           // Dt.Columns["Id"].ColumnMapping = MappingType.Hidden;
+            Dt.Columns.Add("StatusValor", typeof(int));
+            Dt.Columns.Add("Status", typeof(string));
         }
 
 
@@ -23,7 +22,7 @@ namespace GerenciamentoMateriaPrima.DataTables
             SetColunas();
             foreach (var funcionario in funcionarios)
             {
-                Dt.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Status);
+                Dt.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Status, funcionario.Status == 1 ? "Ativo" : "Inativo");
             }
 
             return Dt;

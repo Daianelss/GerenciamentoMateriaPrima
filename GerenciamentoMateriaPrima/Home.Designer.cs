@@ -38,10 +38,12 @@
             lblBanca = new Label();
             lblQuebraFuncicao = new Label();
             lblFundicao = new Label();
-            btnFundicao = new Button();
+            btnMovimentos = new Button();
             btnPeroxido = new Button();
             btnRodio = new Button();
             panBotoes = new Panel();
+            btnTipoMateriaPrima = new Button();
+            btnFuncionario = new Button();
             btnRodioNegro = new Button();
             btnPurificação = new Button();
             btnMateriaPrima = new Button();
@@ -50,7 +52,6 @@
             btnPolitriz = new Button();
             btnBanca = new Button();
             btnRelatorio = new Button();
-            btnFuncionario = new Button();
             panResumo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgTeste).BeginInit();
             panBotoes.SuspendLayout();
@@ -162,15 +163,16 @@
             lblFundicao.TabIndex = 0;
             lblFundicao.Text = "Fundição:";
             // 
-            // btnFundicao
+            // btnMovimentos
             // 
-            btnFundicao.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFundicao.Location = new Point(93, 138);
-            btnFundicao.Name = "btnFundicao";
-            btnFundicao.Size = new Size(167, 47);
-            btnFundicao.TabIndex = 1;
-            btnFundicao.Text = "Fundição";
-            btnFundicao.UseVisualStyleBackColor = true;
+            btnMovimentos.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMovimentos.Location = new Point(93, 138);
+            btnMovimentos.Name = "btnMovimentos";
+            btnMovimentos.Size = new Size(167, 47);
+            btnMovimentos.TabIndex = 1;
+            btnMovimentos.Text = "Movimentos";
+            btnMovimentos.UseVisualStyleBackColor = true;
+            btnMovimentos.Click += btnMovimentos_Click;
             // 
             // btnPeroxido
             // 
@@ -194,6 +196,7 @@
             // 
             // panBotoes
             // 
+            panBotoes.Controls.Add(btnTipoMateriaPrima);
             panBotoes.Controls.Add(btnFuncionario);
             panBotoes.Controls.Add(btnRodioNegro);
             panBotoes.Controls.Add(btnPurificação);
@@ -205,12 +208,32 @@
             panBotoes.Controls.Add(btnRelatorio);
             panBotoes.Controls.Add(btnRodio);
             panBotoes.Controls.Add(btnPeroxido);
-            panBotoes.Controls.Add(btnFundicao);
+            panBotoes.Controls.Add(btnMovimentos);
             panBotoes.Dock = DockStyle.Fill;
             panBotoes.Location = new Point(0, 0);
             panBotoes.Name = "panBotoes";
             panBotoes.Size = new Size(718, 618);
             panBotoes.TabIndex = 1;
+            // 
+            // btnTipoMateriaPrima
+            // 
+            btnTipoMateriaPrima.Location = new Point(80, 493);
+            btnTipoMateriaPrima.Name = "btnTipoMateriaPrima";
+            btnTipoMateriaPrima.Size = new Size(180, 23);
+            btnTipoMateriaPrima.TabIndex = 13;
+            btnTipoMateriaPrima.Text = "TipoMateriaPrima";
+            btnTipoMateriaPrima.UseVisualStyleBackColor = true;
+            btnTipoMateriaPrima.Click += btnTipoMateriaPrima_Click;
+            // 
+            // btnFuncionario
+            // 
+            btnFuncionario.Location = new Point(328, 470);
+            btnFuncionario.Name = "btnFuncionario";
+            btnFuncionario.Size = new Size(180, 23);
+            btnFuncionario.TabIndex = 12;
+            btnFuncionario.Text = "Funcionario";
+            btnFuncionario.UseVisualStyleBackColor = true;
+            btnFuncionario.Click += btnFuncionario_Click;
             // 
             // btnRodioNegro
             // 
@@ -292,16 +315,6 @@
             btnRelatorio.Text = "Relatório";
             btnRelatorio.UseVisualStyleBackColor = true;
             // 
-            // btnFuncionario
-            // 
-            btnFuncionario.Location = new Point(328, 470);
-            btnFuncionario.Name = "btnFuncionario";
-            btnFuncionario.Size = new Size(180, 23);
-            btnFuncionario.TabIndex = 12;
-            btnFuncionario.Text = "Funcionario";
-            btnFuncionario.UseVisualStyleBackColor = true;
-            btnFuncionario.Click += btnFuncionario_Click;
-            // 
             // formHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -330,7 +343,7 @@
         private Label lblQuebraPeroxido;
         private Label lblPolitriz;
         private Label lblPeroxido;
-        private Button btnFundicao;
+        private Button btnMovimentos;
         private Button btnPeroxido;
         private Button btnRodio;
         private Panel panBotoes;
@@ -344,5 +357,6 @@
         private Button btnRelatorio;
         private DataGridView dtgTeste;
         private Button btnFuncionario;
+        private Button btnTipoMateriaPrima;
     }
 }

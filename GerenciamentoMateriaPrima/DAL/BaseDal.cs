@@ -72,10 +72,10 @@ namespace GerenciamentoMateriaPrima.DAL
             {
                 return _context.Set<T>().ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("Não foi possível listar todos itens!");
+                throw new Exception("Não foi possível listar todos itens!" + ex.Message);
             }
         }
 

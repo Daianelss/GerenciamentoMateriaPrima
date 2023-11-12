@@ -20,8 +20,6 @@ namespace GerenciamentoMateriaPrima.View
         public bool Editando { get; set; }
         #endregion
 
-
-
         public FormFuncionario()
         {
             InitializeComponent();
@@ -85,7 +83,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 Nome = dtgFuncionario.SelectedRows[0].Cells["Nome"].Value.ToString();
                 Id = dtgFuncionario.SelectedRows[0].Cells["Id"].Value.ToString();
-                Status = Convert.ToBoolean(Convert.ToInt32(dtgFuncionario.SelectedRows[0].Cells["Status"].Value.ToString()));
+                Status = Convert.ToBoolean(Convert.ToInt32(dtgFuncionario.SelectedRows[0].Cells["StatusValor"].Value.ToString()));
             }
         }
 
@@ -104,6 +102,13 @@ namespace GerenciamentoMateriaPrima.View
             IEnumerable<Funcionario> funcionarios = Controlador.ListarFuncionarios();
             DtFuncionario = Controlador.PreencherFuncionario(funcionarios);
             dtgFuncionario.DataSource = DtFuncionario;
+            OcultarColunas("StatusValor");
+        }
+
+        private void OcultarColunas(params string[] colunas)
+        {
+            foreach (var coluna in colunas)
+                dtgFuncionario.Columns[coluna].Visible = false;
         }
     }
 }
