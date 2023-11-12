@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             panCadastroFuncionario = new Panel();
-            lblStatusFuncionario = new Label();
-            lblIdFuncionario = new Label();
+            gpbStatus = new GroupBox();
+            chkStatus = new CheckBox();
             btnLimpar = new Button();
-            btnAtivarInativar = new Button();
             btnSalvar = new Button();
-            TxtNomeFuncionario = new TextBox();
+            txtIdFuncionario = new TextBox();
+            txtNomeFuncionario = new TextBox();
+            lblIdFuncionario = new Label();
             lblNome = new Label();
             btnPesquisar = new Button();
             dtgFuncionario = new DataGridView();
@@ -44,6 +45,7 @@
             panFuncionario = new Panel();
             panListaFuncionario = new Panel();
             panCadastroFuncionario.SuspendLayout();
+            gpbStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgFuncionario).BeginInit();
             panBotoes.SuspendLayout();
             panFuncionario.SuspendLayout();
@@ -52,12 +54,12 @@
             // 
             // panCadastroFuncionario
             // 
-            panCadastroFuncionario.Controls.Add(lblStatusFuncionario);
-            panCadastroFuncionario.Controls.Add(lblIdFuncionario);
+            panCadastroFuncionario.Controls.Add(gpbStatus);
             panCadastroFuncionario.Controls.Add(btnLimpar);
-            panCadastroFuncionario.Controls.Add(btnAtivarInativar);
             panCadastroFuncionario.Controls.Add(btnSalvar);
-            panCadastroFuncionario.Controls.Add(TxtNomeFuncionario);
+            panCadastroFuncionario.Controls.Add(txtIdFuncionario);
+            panCadastroFuncionario.Controls.Add(txtNomeFuncionario);
+            panCadastroFuncionario.Controls.Add(lblIdFuncionario);
             panCadastroFuncionario.Controls.Add(lblNome);
             panCadastroFuncionario.Dock = DockStyle.Top;
             panCadastroFuncionario.Location = new Point(0, 0);
@@ -65,27 +67,29 @@
             panCadastroFuncionario.Size = new Size(1168, 76);
             panCadastroFuncionario.TabIndex = 0;
             // 
-            // lblStatusFuncionario
+            // gpbStatus
             // 
-            lblStatusFuncionario.AutoSize = true;
-            lblStatusFuncionario.Location = new Point(172, 6);
-            lblStatusFuncionario.Name = "lblStatusFuncionario";
-            lblStatusFuncionario.Size = new Size(115, 15);
-            lblStatusFuncionario.TabIndex = 7;
-            lblStatusFuncionario.Text = "lblStatusFuncionario";
+            gpbStatus.Controls.Add(chkStatus);
+            gpbStatus.Location = new Point(641, 9);
+            gpbStatus.Name = "gpbStatus";
+            gpbStatus.Size = new Size(94, 48);
+            gpbStatus.TabIndex = 9;
+            gpbStatus.TabStop = false;
+            gpbStatus.Text = "Status";
             // 
-            // lblIdFuncionario
+            // chkStatus
             // 
-            lblIdFuncionario.AutoSize = true;
-            lblIdFuncionario.Location = new Point(27, 8);
-            lblIdFuncionario.Name = "lblIdFuncionario";
-            lblIdFuncionario.Size = new Size(93, 15);
-            lblIdFuncionario.TabIndex = 6;
-            lblIdFuncionario.Text = "lblIdFuncionario";
+            chkStatus.AutoSize = true;
+            chkStatus.Location = new Point(20, 20);
+            chkStatus.Name = "chkStatus";
+            chkStatus.Size = new Size(54, 19);
+            chkStatus.TabIndex = 8;
+            chkStatus.Text = "Ativo";
+            chkStatus.UseVisualStyleBackColor = true;
             // 
             // btnLimpar
             // 
-            btnLimpar.Location = new Point(1015, 32);
+            btnLimpar.Location = new Point(1067, 32);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(75, 23);
             btnLimpar.TabIndex = 5;
@@ -93,21 +97,10 @@
             btnLimpar.UseVisualStyleBackColor = true;
             btnLimpar.Click += btnLimpar_Click;
             // 
-            // btnAtivarInativar
-            // 
-            btnAtivarInativar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAtivarInativar.Location = new Point(620, 19);
-            btnAtivarInativar.Name = "btnAtivarInativar";
-            btnAtivarInativar.Size = new Size(157, 48);
-            btnAtivarInativar.TabIndex = 4;
-            btnAtivarInativar.Text = "Ativar";
-            btnAtivarInativar.UseVisualStyleBackColor = true;
-            btnAtivarInativar.Click += btnAtivarInativar_Click;
-            // 
             // btnSalvar
             // 
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalvar.Location = new Point(810, 19);
+            btnSalvar.Location = new Point(904, 10);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(157, 48);
             btnSalvar.TabIndex = 2;
@@ -115,19 +108,38 @@
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
-            // TxtNomeFuncionario
+            // txtIdFuncionario
             // 
-            TxtNomeFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtNomeFuncionario.Location = new Point(114, 25);
-            TxtNomeFuncionario.Name = "TxtNomeFuncionario";
-            TxtNomeFuncionario.Size = new Size(489, 36);
-            TxtNomeFuncionario.TabIndex = 1;
+            txtIdFuncionario.Enabled = false;
+            txtIdFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            txtIdFuncionario.Location = new Point(52, 18);
+            txtIdFuncionario.Name = "txtIdFuncionario";
+            txtIdFuncionario.Size = new Size(84, 36);
+            txtIdFuncionario.TabIndex = 1;
+            // 
+            // txtNomeFuncionario
+            // 
+            txtNomeFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNomeFuncionario.Location = new Point(256, 21);
+            txtNomeFuncionario.Name = "txtNomeFuncionario";
+            txtNomeFuncionario.Size = new Size(377, 36);
+            txtNomeFuncionario.TabIndex = 1;
+            // 
+            // lblIdFuncionario
+            // 
+            lblIdFuncionario.AutoSize = true;
+            lblIdFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lblIdFuncionario.Location = new Point(9, 21);
+            lblIdFuncionario.Name = "lblIdFuncionario";
+            lblIdFuncionario.Size = new Size(37, 30);
+            lblIdFuncionario.TabIndex = 0;
+            lblIdFuncionario.Text = "Id:";
             // 
             // lblNome
             // 
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNome.Location = new Point(30, 28);
+            lblNome.Location = new Point(161, 21);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(78, 30);
             lblNome.TabIndex = 0;
@@ -145,14 +157,21 @@
             // 
             // dtgFuncionario
             // 
+            dtgFuncionario.AllowUserToAddRows = false;
+            dtgFuncionario.AllowUserToDeleteRows = false;
+            dtgFuncionario.AllowUserToResizeColumns = false;
+            dtgFuncionario.AllowUserToResizeRows = false;
             dtgFuncionario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgFuncionario.Dock = DockStyle.Fill;
             dtgFuncionario.Location = new Point(20, 20);
+            dtgFuncionario.MultiSelect = false;
             dtgFuncionario.Name = "dtgFuncionario";
+            dtgFuncionario.ReadOnly = true;
             dtgFuncionario.RowTemplate.Height = 25;
+            dtgFuncionario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgFuncionario.Size = new Size(1128, 431);
             dtgFuncionario.TabIndex = 0;
-            dtgFuncionario.CellDoubleClick += dtgFuncionario_CellDoubleClick;
+            dtgFuncionario.CellClick += dtgFuncionario_CellClick;
             // 
             // btnVoltar
             // 
@@ -216,6 +235,8 @@
             Load += FormFuncionario_Load;
             panCadastroFuncionario.ResumeLayout(false);
             panCadastroFuncionario.PerformLayout();
+            gpbStatus.ResumeLayout(false);
+            gpbStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgFuncionario).EndInit();
             panBotoes.ResumeLayout(false);
             panFuncionario.ResumeLayout(false);
@@ -227,8 +248,7 @@
 
         private Panel panCadastroFuncionario;
         private Label lblNome;
-        private TextBox TxtNomeFuncionario;
-        private Button btnAtivarInativar;
+        private TextBox txtNomeFuncionario;
         private Button btnPesquisar;
         private Button btnSalvar;
         private Button btnVoltar;
@@ -236,9 +256,11 @@
         private Panel panBotoes;
         private Button btnAtualizar;
         private Panel panFuncionario;
-        private Label lblStatusFuncionario;
-        private Label lblIdFuncionario;
         private Button btnLimpar;
         private Panel panListaFuncionario;
+        private CheckBox chkStatus;
+        private TextBox txtIdFuncionario;
+        private Label lblIdFuncionario;
+        private GroupBox gpbStatus;
     }
 }

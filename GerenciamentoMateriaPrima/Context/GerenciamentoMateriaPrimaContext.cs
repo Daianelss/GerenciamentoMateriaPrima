@@ -4,7 +4,7 @@ using System.Configuration;
 
 namespace GerenciamentoMateriaPrima.Context
 {
-    public class GerenciamentoMateriaPrimaContext : DbContext   
+    public class GerenciamentoMateriaPrimaContext : DbContext
     {
 
         public DbSet<Funcionario> Funcionarios { get; set; }
@@ -14,7 +14,9 @@ namespace GerenciamentoMateriaPrima.Context
         {
             var connection = ConfigurationManager.AppSettings["Conexao"];
             var version = new MySqlServerVersion(new Version(8, 0, 33));
-            optionsBuilder.UseMySql(connection, version).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            optionsBuilder
+                .UseMySql(connection, version)
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
     }
 }

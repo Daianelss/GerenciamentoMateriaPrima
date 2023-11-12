@@ -9,18 +9,13 @@ namespace GerenciamentoMateriaPrima.Controller
 {
     public class FuncionarioController
     {
-        public IFuncionario Funcionario { get; set; }
+        private readonly IFuncionario _iFuncionario;
         private readonly FuncionarioDal _funcionarioDal;
 
         public FuncionarioController(IFuncionario funcionario)
         {
-            Funcionario = funcionario;
+            _iFuncionario = funcionario;
             _funcionarioDal = new FuncionarioDal(new GerenciamentoMateriaPrimaContext());
-        }
-
-        public void GravarFuncionario(Funcionario funcionario)
-        {
-            _funcionarioDal.Salvar(funcionario);
         }
 
         public DataTable PreencherFuncionario(IEnumerable<Funcionario> funcionarios)
@@ -33,10 +28,29 @@ namespace GerenciamentoMateriaPrima.Controller
             return _funcionarioDal.ListarTodos();
         }
 
-        public void AtualizarFuncionario(Funcionario funcionario)
+
+        public void AtualizarFuncionario()
         {
+            var funcionario = new Funcionario { 
+                Id = Convert.ToInt32(_iFuncionario.Id),
+                Nome = _iFuncionario.Nome,
+                Status = Convert.ToInt32(_iFuncionario.Status)
+            };
+
             _funcionarioDal.Atualizar(funcionario);
         }
 
+        public void SalvarFuncionario()
+        {
+            if (string.IsNullOrEmpty(_iFuncionario.Nome))
+                throw new Exception("Necessário preencher nome de funcionário");
+
+            var funcionario = new Funcionario { 
+                Nome = _iFuncionario.Nome,
+                Status = 1
+            };
+
+            _funcionarioDal.Salvar(funcionario);
+        }
     }
 }

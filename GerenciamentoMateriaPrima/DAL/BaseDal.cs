@@ -16,12 +16,11 @@ namespace GerenciamentoMateriaPrima.DAL
             try
             {
                 _context.Set<T>().Update(item);
-                return _context.SaveChanges() > 0;
+                return Persistir(item);
 
             }
             catch (Exception e)
             {
-
                 throw new Exception("Não foi possível atualizar item!" + e.Message);
             }
         }
@@ -45,7 +44,7 @@ namespace GerenciamentoMateriaPrima.DAL
             try
             {
                 _context.Set<T>().Remove(item);
-                return _context.SaveChanges() > 0;
+                return Persistir(item);
             }
             catch (Exception)
             {
@@ -85,7 +84,7 @@ namespace GerenciamentoMateriaPrima.DAL
             try
             {
                 _context.Set<T>().Add(item);
-                return _context.SaveChanges() > 0;
+                return Persistir(item);
             }
             catch (Exception)
             {
@@ -104,6 +103,13 @@ namespace GerenciamentoMateriaPrima.DAL
             {
                 throw new Exception("Não foi possível salvar os itens!");
             }
+        }
+
+        private bool Persistir(T item)
+        {
+            bool retorno = _context.SaveChanges() > 0;
+            _context.Set<T>().Entry(item).State = EntityState.Detached;
+            return retorno;
         }
     }
 }

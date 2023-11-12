@@ -1,100 +1,109 @@
 ﻿using GerenciamentoMateriaPrima.Controller;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GerenciamentoMateriaPrima.View
 {
     public partial class FormFuncionario : Form, IFuncionario
     {
-        public FuncionarioController FuncionarioControlador { get; set; }
+        public FuncionarioController Controlador { get; set; }
+
+        #region Elemento Tela
+        public string Nome { get => txtNomeFuncionario.Text; set => txtNomeFuncionario.Text = value; }
+        public string Id { get => txtIdFuncionario.Text; set => txtIdFuncionario.Text = value; }
+        public bool Status { get => chkStatus.Checked; set => chkStatus.Checked = value; }
+        #endregion
+
+        #region Elementos de Controle
+        public DataTable DtFuncionario { get; set; }
+        public bool Editando { get; set; }
+        #endregion
+
+
+
         public FormFuncionario()
         {
             InitializeComponent();
         }
         public void SetControlador(FuncionarioController funcionarioControlador)
         {
-            FuncionarioControlador = funcionarioControlador;
+            Controlador = funcionarioControlador;
         }
 
         private void FormFuncionario_Load(object sender, EventArgs e)
         {
-            IEnumerable<Funcionario> funcionarios = FuncionarioControlador.ListarFuncionarios();
-            dtgFuncionario.DataSource = FuncionarioControlador.PreencherFuncionario(funcionarios);
+            CarregarDataGridView();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (lblIdFuncionario.Text != "lblIdFuncionario")
+            if (Editando)
             {
-                var funcionario = new Funcionario { Id = int.Parse(lblIdFuncionario.Text), Nome = TxtNomeFuncionario.Text, Status = int.Parse(lblStatusFuncionario.Text) };
-                FuncionarioControlador.AtualizarFuncionario(funcionario);
-                IEnumerable<Funcionario> funcionarios = FuncionarioControlador.ListarFuncionarios();
-                dtgFuncionario.DataSource = FuncionarioControlador.PreencherFuncionario(funcionarios);
-            }
+                try
+                {
+                    Controlador.AtualizarFuncionario();
+                    CarregarDataGridView();
+                }
+                catch (Exception ex)
+                {
 
+                    MessageBox.Show($"Houve um erro ao tentar alterar o funcionário. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
             else
             {
-
-                var funcionario = new Funcionario { Nome = TxtNomeFuncionario.Text, Status = 0 };
-                FuncionarioControlador.GravarFuncionario(funcionario);
-                IEnumerable<Funcionario> funcionarios = FuncionarioControlador.ListarFuncionarios();
-                dtgFuncionario.DataSource = FuncionarioControlador.PreencherFuncionario(funcionarios);
-
+                try
+                {
+                    Controlador.SalvarFuncionario();
+                    CarregarDataGridView();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Houve um erro ao tentar salvar o funcionário. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            // dtgFuncionario.Update();
+
+            Editando = false;
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            TxtNomeFuncionario.Clear();
-            lblIdFuncionario.Text = "";
-            lblStatusFuncionario.Text = "";
-        }
-
-        private void btnAtivarInativar_Click(object sender, EventArgs e)
-        {
-            if (lblStatusFuncionario.Text == "0")
-            {
-                var funcionario = new Funcionario { Id = int.Parse(lblIdFuncionario.Text), Nome = TxtNomeFuncionario.Text, Status = 1 };
-                FuncionarioControlador.AtualizarFuncionario(funcionario);
-                IEnumerable<Funcionario> funcionarios = FuncionarioControlador.ListarFuncionarios();
-                dtgFuncionario.DataSource = FuncionarioControlador.PreencherFuncionario(funcionarios);
-            }
-
-            else
-            {
-                var funcionario = new Funcionario { Id = int.Parse(lblIdFuncionario.Text), Nome = TxtNomeFuncionario.Text, Status = 0 };
-                FuncionarioControlador.AtualizarFuncionario(funcionario);
-                IEnumerable<Funcionario> funcionarios = FuncionarioControlador.ListarFuncionarios();
-                dtgFuncionario.DataSource = FuncionarioControlador.PreencherFuncionario(funcionarios);
-            }
-
-
-        }
-
-        private void dtgFuncionario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                DataGridViewRow selecionado = dtgFuncionario.Rows[e.RowIndex];
-                lblIdFuncionario.Text = selecionado.Cells["Id"].Value.ToString();
-                lblStatusFuncionario.Text = selecionado.Cells["Status"].Value.ToString();
-                TxtNomeFuncionario.Text = selecionado.Cells["Nome"].Value.ToString();
-            }
+            Limpar();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dtgFuncionario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Editando = true;
+
+            if (dtgFuncionario.SelectedRows.Count > 0)
+            {
+                Nome = dtgFuncionario.SelectedRows[0].Cells["Nome"].Value.ToString();
+                Id = dtgFuncionario.SelectedRows[0].Cells["Id"].Value.ToString();
+                Status = Convert.ToBoolean(Convert.ToInt32(dtgFuncionario.SelectedRows[0].Cells["Status"].Value.ToString()));
+            }
+        }
+
+        private void Limpar()
+        {
+            Nome = string.Empty;
+            Id = string.Empty;
+            Status = false;
+            Editando = false;
+            DtFuncionario = null;
+        }
+
+        public void CarregarDataGridView()
+        {
+            Limpar();
+            IEnumerable<Funcionario> funcionarios = Controlador.ListarFuncionarios();
+            DtFuncionario = Controlador.PreencherFuncionario(funcionarios);
+            dtgFuncionario.DataSource = DtFuncionario;
         }
     }
 }
