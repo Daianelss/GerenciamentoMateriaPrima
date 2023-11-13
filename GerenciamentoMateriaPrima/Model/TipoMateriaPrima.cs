@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GerenciamentoMateriaPrima.Model
 {
@@ -27,7 +22,5 @@ namespace GerenciamentoMateriaPrima.Model
         [Column("TIMP_STATUS")]
         [Description("")]
         public int Status { get; set; }
-
-        public ICollection<MovimentoMateriaPrima> MovimentosMateriaPrima { get;}
     }
 }

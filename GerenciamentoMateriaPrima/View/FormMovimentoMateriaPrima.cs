@@ -16,7 +16,18 @@ namespace GerenciamentoMateriaPrima.View
         public string Peso { get => txtPeso.Text; set => txtPeso.Text = value; }
         public string Descricao { get => txtDescricao.Text; set => txtDescricao.Text = value; }
         public bool Entrada { get => rdbEntrada.Checked; set => rdbEntrada.Checked = value; }
-        public string TipoMateriaPrimaId { get => txtId.Text; set => txtId.Text = value; }
+        public bool Saida { get => rdbSaida.Checked; set => rdbSaida.Checked = value; }
+        public string TipoMateriaPrimaId
+        {
+            get => cmbTipoMateriaPrima.SelectedValue?.ToString();
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    cmbTipoMateriaPrima.SelectedIndex = -1;
+                else
+                    cmbTipoMateriaPrima.SelectedValue = Convert.ToInt32(value);
+            }
+        }
         #endregion
 
         #region Elementos de Controle
@@ -76,7 +87,7 @@ namespace GerenciamentoMateriaPrima.View
             Limpar();
         }
 
-        private void dtgListaMovimentoMateriaPrima_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgListaMovimento_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Editando = true;
             if (dtgListaMovimento.SelectedRows.Count > 0)
@@ -86,6 +97,7 @@ namespace GerenciamentoMateriaPrima.View
                 Peso = dtgListaMovimento.SelectedRows[0].Cells["Peso"].Value.ToString();
                 Descricao = dtgListaMovimento.SelectedRows[0].Cells["Descricao"].Value.ToString();
                 Entrada = Convert.ToBoolean(Convert.ToInt32(dtgListaMovimento.SelectedRows[0].Cells["EntradaSaidaValor"].Value.ToString()));
+                Saida = !Convert.ToBoolean(Convert.ToInt32(dtgListaMovimento.SelectedRows[0].Cells["EntradaSaidaValor"].Value.ToString()));
                 TipoMateriaPrimaId = dtgListaMovimento.SelectedRows[0].Cells["TipoMateriaPrimaId"].Value.ToString();
             }
         }
@@ -95,6 +107,7 @@ namespace GerenciamentoMateriaPrima.View
             Data = DateTime.Now;
             Peso = string.Empty;
             Descricao = string.Empty;
+            Editando = false;
             Entrada = true;
             TipoMateriaPrimaId = string.Empty;
             DtMovimento = null;

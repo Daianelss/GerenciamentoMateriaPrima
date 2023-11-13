@@ -1,18 +1,37 @@
 ﻿using GerenciamentoMateriaPrima.Model;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GerenciamentoMateriaPrima.DAL
 {
 
-    internal class MovimentoMateriaPrimaDal : BaseDal<MovimentoMateriaPrima>
+    public class MovimentoMateriaPrimaDal : BaseDal<MovimentoMateriaPrima>
     {
+        private readonly DbContext _context;
         public MovimentoMateriaPrimaDal(DbContext context) : base(context)
         {
+            _context = context;
+        }
+
+        public override List<MovimentoMateriaPrima> ListarTodos()
+        {
+            try
+            {
+                return _context.Set<MovimentoMateriaPrima>()
+                    .Include("TipoMateriaPrima")                    
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Não foi possível listar todos itens!" + ex.Message);
+            }
+        }
+
+        public override bool Persistir(MovimentoMateriaPrima item)
+        {
+            bool retorno = _context.SaveChanges() > 0;
+            _context.Set<MovimentoMateriaPrima>().Entry(item).State = EntityState.Detached;
+            return retorno;
         }
     }
 }

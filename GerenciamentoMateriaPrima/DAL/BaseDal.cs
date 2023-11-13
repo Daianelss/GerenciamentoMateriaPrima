@@ -11,7 +11,7 @@ namespace GerenciamentoMateriaPrima.DAL
             _context = context;
         }
 
-        public bool Atualizar(T item)
+        public virtual bool Atualizar(T item)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace GerenciamentoMateriaPrima.DAL
             }
         }
 
-        public bool AtualizarTodos(IEnumerable<T> itens)
+        public virtual bool AtualizarTodos(IEnumerable<T> itens)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace GerenciamentoMateriaPrima.DAL
             }
         }
 
-        public bool Excluir(T item)
+        public virtual bool Excluir(T item)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace GerenciamentoMateriaPrima.DAL
             }
         }
 
-        public T ListarPorId(int id)
+        public virtual T ListarPorId(int id)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace GerenciamentoMateriaPrima.DAL
             }
         }
 
-        public List<T> ListarTodos()
+        public virtual List<T> ListarTodos()
         {
             try
             {
@@ -79,7 +79,7 @@ namespace GerenciamentoMateriaPrima.DAL
             }
         }
 
-        public bool Salvar(T item)
+        public virtual bool Salvar(T item)
         {
             try
             {
@@ -92,7 +92,7 @@ namespace GerenciamentoMateriaPrima.DAL
             }
         }
 
-        public bool SalvarTodos(IEnumerable<T> itens)
+        public virtual bool SalvarTodos(IEnumerable<T> itens)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace GerenciamentoMateriaPrima.DAL
             }
         }
 
-        private bool Persistir(T item)
+        public virtual bool Persistir(T item)
         {
             bool retorno = _context.SaveChanges() > 0;
             _context.Set<T>().Entry(item).State = EntityState.Detached;
