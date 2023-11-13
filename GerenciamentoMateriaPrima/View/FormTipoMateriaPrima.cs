@@ -11,8 +11,8 @@ namespace GerenciamentoMateriaPrima.View
         public TipoMateriaPrimaController Controlador { get; set; }
 
         #region Elemento Tela
-        public string Nome { get => txtNomeTipoMateriaPrima.Text; set => txtNomeTipoMateriaPrima.Text = value; }
         public string Id { get => txtIdTipoMateriaPrima.Text; set => txtIdTipoMateriaPrima.Text = value; }
+        public string Nome { get => txtNomeTipoMateriaPrima.Text; set => txtNomeTipoMateriaPrima.Text = value; }
         public string Descricao { get => txtDescricaoTipoMateriaPrima.Text; set => txtDescricaoTipoMateriaPrima.Text = value; }
         public bool Status { get => chkStatus.Checked; set => chkStatus.Checked = value; }
         #endregion
@@ -20,7 +20,6 @@ namespace GerenciamentoMateriaPrima.View
         #region Elementos de Controle
         public DataTable DtTipoMateriaPrima { get; set; }
         public bool Editando { get; set; }
-        public string ID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         #endregion
 
 
@@ -33,6 +32,7 @@ namespace GerenciamentoMateriaPrima.View
         {
             Controlador = controller;
         }
+
         #region Acoes
         private void FormTipoMateriaPrima_Load(object sender, EventArgs e)
         {

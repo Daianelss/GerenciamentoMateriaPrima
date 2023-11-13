@@ -34,14 +34,6 @@ namespace GerenciamentoMateriaPrima
             funcionario.ShowDialog();
         }
 
-        private void btnTipoMateriaPrima_Click(object sender, EventArgs e)
-        {
-            var tipoMateriaPrima = new FormTipoMateriaPrima();
-            var controller = new TipoMateriaPrimaController(tipoMateriaPrima);
-            tipoMateriaPrima.SetControlador(controller);
-            tipoMateriaPrima.ShowDialog();
-        }
-
         private void btnMovimentos_Click(object sender, EventArgs e)
         {
             var movimentoMateriaPrima = new FormMovimentoMateriaPrima();
@@ -50,6 +42,32 @@ namespace GerenciamentoMateriaPrima
             var controllerTipo = new TipoMateriaPrimaController(tipoMateriaPrima);
             movimentoMateriaPrima.SetControlador(controller, controllerTipo);
             movimentoMateriaPrima.ShowDialog();
+        }
+
+        private void btnMateriaPrima_Click(object sender, EventArgs e)
+        {
+            var tipoMateriaPrima = new FormTipoMateriaPrima();
+            var controller = new TipoMateriaPrimaController(tipoMateriaPrima);
+            tipoMateriaPrima.SetControlador(controller);
+            tipoMateriaPrima.ShowDialog();
+        }
+
+        private void btnBanca_Click(object sender, EventArgs e)
+        {
+           /* var movimento = new FormMovimento();
+            var controller = new TipoMateriaPrimaController(movimento);
+            movimento.SetControlador(controller);
+            movimento.ShowDialog();
+           */
+
+        }
+
+        private void btnProcesso_Click(object sender, EventArgs e)
+        {
+            var tipoProcesso = new FormTipoProcesso();
+            var controller = new TipoProcessoController(tipoProcesso);
+            tipoProcesso.SetControlador(controller);
+            tipoProcesso.ShowDialog();
         }
     }
 }

@@ -40,18 +40,14 @@
             lblFundicao = new Label();
             btnMovimentos = new Button();
             btnPeroxido = new Button();
-            btnRodio = new Button();
             panBotoes = new Panel();
-            btnTipoMateriaPrima = new Button();
             btnFuncionario = new Button();
             btnRodioNegro = new Button();
             btnPurificação = new Button();
             btnMateriaPrima = new Button();
-            btnCadastro = new Button();
-            btnMagneto = new Button();
+            btnProcesso = new Button();
             btnPolitriz = new Button();
             btnBanca = new Button();
-            btnRelatorio = new Button();
             panResumo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgTeste).BeginInit();
             panBotoes.SuspendLayout();
@@ -166,47 +162,33 @@
             // btnMovimentos
             // 
             btnMovimentos.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnMovimentos.Location = new Point(93, 138);
+            btnMovimentos.Location = new Point(64, 138);
             btnMovimentos.Name = "btnMovimentos";
-            btnMovimentos.Size = new Size(167, 47);
+            btnMovimentos.Size = new Size(167, 66);
             btnMovimentos.TabIndex = 1;
-            btnMovimentos.Text = "Movimentos";
+            btnMovimentos.Text = "Entrada / Saída";
             btnMovimentos.UseVisualStyleBackColor = true;
             btnMovimentos.Click += btnMovimentos_Click;
             // 
             // btnPeroxido
             // 
             btnPeroxido.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPeroxido.Location = new Point(93, 210);
+            btnPeroxido.Location = new Point(244, 468);
             btnPeroxido.Name = "btnPeroxido";
             btnPeroxido.Size = new Size(167, 47);
             btnPeroxido.TabIndex = 2;
             btnPeroxido.Text = "Peróxido";
             btnPeroxido.UseVisualStyleBackColor = true;
             // 
-            // btnRodio
-            // 
-            btnRodio.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRodio.Location = new Point(93, 282);
-            btnRodio.Name = "btnRodio";
-            btnRodio.Size = new Size(167, 47);
-            btnRodio.TabIndex = 3;
-            btnRodio.Text = "Ródio";
-            btnRodio.UseVisualStyleBackColor = true;
-            // 
             // panBotoes
             // 
-            panBotoes.Controls.Add(btnTipoMateriaPrima);
             panBotoes.Controls.Add(btnFuncionario);
             panBotoes.Controls.Add(btnRodioNegro);
             panBotoes.Controls.Add(btnPurificação);
             panBotoes.Controls.Add(btnMateriaPrima);
-            panBotoes.Controls.Add(btnCadastro);
-            panBotoes.Controls.Add(btnMagneto);
+            panBotoes.Controls.Add(btnProcesso);
             panBotoes.Controls.Add(btnPolitriz);
             panBotoes.Controls.Add(btnBanca);
-            panBotoes.Controls.Add(btnRelatorio);
-            panBotoes.Controls.Add(btnRodio);
             panBotoes.Controls.Add(btnPeroxido);
             panBotoes.Controls.Add(btnMovimentos);
             panBotoes.Dock = DockStyle.Fill;
@@ -215,21 +197,12 @@
             panBotoes.Size = new Size(718, 618);
             panBotoes.TabIndex = 1;
             // 
-            // btnTipoMateriaPrima
-            // 
-            btnTipoMateriaPrima.Location = new Point(80, 493);
-            btnTipoMateriaPrima.Name = "btnTipoMateriaPrima";
-            btnTipoMateriaPrima.Size = new Size(180, 23);
-            btnTipoMateriaPrima.TabIndex = 13;
-            btnTipoMateriaPrima.Text = "TipoMateriaPrima";
-            btnTipoMateriaPrima.UseVisualStyleBackColor = true;
-            btnTipoMateriaPrima.Click += btnTipoMateriaPrima_Click;
-            // 
             // btnFuncionario
             // 
-            btnFuncionario.Location = new Point(328, 470);
+            btnFuncionario.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFuncionario.Location = new Point(507, 305);
             btnFuncionario.Name = "btnFuncionario";
-            btnFuncionario.Size = new Size(180, 23);
+            btnFuncionario.Size = new Size(167, 66);
             btnFuncionario.TabIndex = 12;
             btnFuncionario.Text = "Funcionario";
             btnFuncionario.UseVisualStyleBackColor = true;
@@ -238,7 +211,7 @@
             // btnRodioNegro
             // 
             btnRodioNegro.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRodioNegro.Location = new Point(459, 282);
+            btnRodioNegro.Location = new Point(536, 423);
             btnRodioNegro.Name = "btnRodioNegro";
             btnRodioNegro.Size = new Size(167, 47);
             btnRodioNegro.TabIndex = 11;
@@ -248,7 +221,7 @@
             // btnPurificação
             // 
             btnPurificação.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPurificação.Location = new Point(459, 210);
+            btnPurificação.Location = new Point(55, 468);
             btnPurificação.Name = "btnPurificação";
             btnPurificação.Size = new Size(167, 47);
             btnPurificação.TabIndex = 10;
@@ -257,38 +230,30 @@
             // 
             // btnMateriaPrima
             // 
-            btnMateriaPrima.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            btnMateriaPrima.Location = new Point(459, 138);
+            btnMateriaPrima.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMateriaPrima.Location = new Point(64, 305);
             btnMateriaPrima.Name = "btnMateriaPrima";
-            btnMateriaPrima.Size = new Size(167, 47);
+            btnMateriaPrima.Size = new Size(167, 66);
             btnMateriaPrima.TabIndex = 9;
             btnMateriaPrima.Text = "Matéria Prima";
             btnMateriaPrima.UseVisualStyleBackColor = true;
+            btnMateriaPrima.Click += btnMateriaPrima_Click;
             // 
-            // btnCadastro
+            // btnProcesso
             // 
-            btnCadastro.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCadastro.Location = new Point(276, 354);
-            btnCadastro.Name = "btnCadastro";
-            btnCadastro.Size = new Size(167, 47);
-            btnCadastro.TabIndex = 8;
-            btnCadastro.Text = "Cadastro";
-            btnCadastro.UseVisualStyleBackColor = true;
-            // 
-            // btnMagneto
-            // 
-            btnMagneto.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnMagneto.Location = new Point(276, 282);
-            btnMagneto.Name = "btnMagneto";
-            btnMagneto.Size = new Size(167, 47);
-            btnMagneto.TabIndex = 7;
-            btnMagneto.Text = "Magneto";
-            btnMagneto.UseVisualStyleBackColor = true;
+            btnProcesso.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnProcesso.Location = new Point(285, 305);
+            btnProcesso.Name = "btnProcesso";
+            btnProcesso.Size = new Size(167, 66);
+            btnProcesso.TabIndex = 7;
+            btnProcesso.Text = "Processo";
+            btnProcesso.UseVisualStyleBackColor = true;
+            btnProcesso.Click += btnProcesso_Click;
             // 
             // btnPolitriz
             // 
             btnPolitriz.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPolitriz.Location = new Point(276, 210);
+            btnPolitriz.Location = new Point(487, 486);
             btnPolitriz.Name = "btnPolitriz";
             btnPolitriz.Size = new Size(167, 47);
             btnPolitriz.TabIndex = 6;
@@ -298,22 +263,13 @@
             // btnBanca
             // 
             btnBanca.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBanca.Location = new Point(276, 138);
+            btnBanca.Location = new Point(275, 138);
             btnBanca.Name = "btnBanca";
-            btnBanca.Size = new Size(167, 47);
+            btnBanca.Size = new Size(167, 66);
             btnBanca.TabIndex = 5;
             btnBanca.Text = "Banca";
             btnBanca.UseVisualStyleBackColor = true;
-            // 
-            // btnRelatorio
-            // 
-            btnRelatorio.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRelatorio.Location = new Point(93, 354);
-            btnRelatorio.Name = "btnRelatorio";
-            btnRelatorio.Size = new Size(167, 47);
-            btnRelatorio.TabIndex = 4;
-            btnRelatorio.Text = "Relatório";
-            btnRelatorio.UseVisualStyleBackColor = true;
+            btnBanca.Click += btnBanca_Click;
             // 
             // formHome
             // 
@@ -345,18 +301,14 @@
         private Label lblPeroxido;
         private Button btnMovimentos;
         private Button btnPeroxido;
-        private Button btnRodio;
         private Panel panBotoes;
         private Button btnRodioNegro;
         private Button btnPurificação;
         private Button btnMateriaPrima;
-        private Button btnCadastro;
-        private Button btnMagneto;
+        private Button btnProcesso;
         private Button btnPolitriz;
         private Button btnBanca;
-        private Button btnRelatorio;
         private DataGridView dtgTeste;
         private Button btnFuncionario;
-        private Button btnTipoMateriaPrima;
     }
 }

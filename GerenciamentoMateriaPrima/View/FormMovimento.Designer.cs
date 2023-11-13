@@ -1,6 +1,6 @@
 ﻿namespace GerenciamentoMateriaPrima.View
 {
-    partial class FormGerenciamento
+    partial class FormMovimento
     {
         /// <summary>
         /// Required designer variable.

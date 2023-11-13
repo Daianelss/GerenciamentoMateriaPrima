@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GerenciamentoMateriaPrima.View
 {
-    public partial class FormRelatorio : Form
+    public partial class FormMovimento : Form
     {
-        public FormRelatorio()
+        public FormMovimento()
         {
             InitializeComponent();
         }
