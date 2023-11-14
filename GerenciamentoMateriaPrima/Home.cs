@@ -37,10 +37,8 @@ namespace GerenciamentoMateriaPrima
         private void btnMovimentos_Click(object sender, EventArgs e)
         {
             var movimentoMateriaPrima = new FormMovimentoMateriaPrima();
-            var tipoMateriaPrima = new FormTipoMateriaPrima();
             var controller = new MovimentoMateriaPrimaController(movimentoMateriaPrima);
-            var controllerTipo = new TipoMateriaPrimaController(tipoMateriaPrima);
-            movimentoMateriaPrima.SetControlador(controller, controllerTipo);
+            movimentoMateriaPrima.SetControlador(controller);
             movimentoMateriaPrima.ShowDialog();
         }
 
@@ -54,11 +52,10 @@ namespace GerenciamentoMateriaPrima
 
         private void btnBanca_Click(object sender, EventArgs e)
         {
-           /* var movimento = new FormMovimento();
-            var controller = new TipoMateriaPrimaController(movimento);
+            var movimento = new FormMovimento();
+            var controller = new MovimentoController(movimento);
             movimento.SetControlador(controller);
             movimento.ShowDialog();
-           */
 
         }
 

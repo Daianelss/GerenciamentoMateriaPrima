@@ -11,6 +11,7 @@ namespace GerenciamentoMateriaPrima.Context
         public DbSet<TipoMateriaPrima> TipoMateriaPrimas { get; set; }
         public DbSet<MovimentoMateriaPrima> MovimentoMateriaPrimas { get; set; }
         public DbSet<TipoProcesso> TipoProcessos { get; set; }
+        public DbSet<Movimento> Movimentos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -9,7 +9,6 @@ namespace GerenciamentoMateriaPrima.View
     public partial class FormMovimentoMateriaPrima : Form, IMovimentoMateriaPrima
     {
         public MovimentoMateriaPrimaController Controlador { get; set; }
-        public TipoMateriaPrimaController ControladorTipoMateriaPrima { get; set; }
         #region Elementos de tela
         public string Id { get => txtId.Text; set => txtId.Text = value; }
         public DateTime Data { get => dtData.Value; set => dtData.Value = value; }
@@ -38,11 +37,9 @@ namespace GerenciamentoMateriaPrima.View
         {
             InitializeComponent();
         }
-        public void SetControlador(MovimentoMateriaPrimaController controller, TipoMateriaPrimaController ControlleTipoMateriaPrima)
+        public void SetControlador(MovimentoMateriaPrimaController controller)
         {
             Controlador = controller;
-            ControladorTipoMateriaPrima = ControlleTipoMateriaPrima;
-
         }
         private void FormMovimentoMateriaPrima_Load(object sender, EventArgs e)
         {
@@ -101,6 +98,8 @@ namespace GerenciamentoMateriaPrima.View
                 TipoMateriaPrimaId = dtgListaMovimento.SelectedRows[0].Cells["TipoMateriaPrimaId"].Value.ToString();
             }
         }
+
+
         private void Limpar()
         {
             Id = string.Empty;
@@ -124,17 +123,13 @@ namespace GerenciamentoMateriaPrima.View
 
         public void CarregarTiposMateriaPrima()
         {
-            var dados = ControladorTipoMateriaPrima.ListarTipoMateriaPrimas();
+            var dados = Controlador.ListarTipoMateriaPrimas();
             cmbTipoMateriaPrima.DataSource = dados;
             cmbTipoMateriaPrima.DisplayMember = "Nome";
             cmbTipoMateriaPrima.ValueMember = "Id";
             cmbTipoMateriaPrima.SelectedIndex = -1;
         }
 
-        public void SetControlador(MovimentoMateriaPrimaController controller)
-        {
-            Controlador = controller;
-        }
 
         private void OcultarColunas(params string[] colunas)
         {

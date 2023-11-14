@@ -3,21 +3,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GerenciamentoMateriaPrima.DAL
 {
-
-    public class MovimentoMateriaPrimaDal : BaseDal<MovimentoMateriaPrima>
+    public class MovimentoDal : BaseDal<Movimento>
     {
         private readonly DbContext _context;
-        public MovimentoMateriaPrimaDal(DbContext context) : base(context)
+        public MovimentoDal(DbContext context) : base(context)
         {
             _context = context;
         }
-
-        public override List<MovimentoMateriaPrima> ListarTodos()
+        public override List<Movimento> ListarTodos()
         {
             try
             {
-                return _context.Set<MovimentoMateriaPrima>()
-                    .Include("TipoMateriaPrima")                    
+                return _context.Set<Movimento>()
+                    .Include("Funcionario")
+                    .Include("TipoProcesso")
                     .ToList();
             }
             catch (Exception ex)
@@ -26,5 +25,6 @@ namespace GerenciamentoMateriaPrima.DAL
                 throw new Exception("Não foi possível listar todos itens!" + ex.Message);
             }
         }
+
     }
 }

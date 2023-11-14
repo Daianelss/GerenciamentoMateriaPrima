@@ -18,6 +18,6 @@ namespace GerenciamentoMateriaPrima.Interfaces
         public DataTable DtMovimento { get; set; }
         public bool Editando { get; set; }
         #endregion
-        public void SetControlador(MovimentoMateriaPrimaController controller, TipoMateriaPrimaController ControlleTipoMateriaPrima);
+        public void SetControlador(MovimentoMateriaPrimaController controller);
     }
 }

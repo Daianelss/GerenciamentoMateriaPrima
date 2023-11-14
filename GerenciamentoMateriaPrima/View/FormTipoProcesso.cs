@@ -35,35 +35,6 @@ namespace GerenciamentoMateriaPrima.View
         {
             CarregarDataGridView();
         }
-        #endregion
-
-
-        #region Metodos
-        public void CarregarDataGridView()
-        {
-            Limpar();
-            IEnumerable<TipoProcesso> tipoProcessos = Controlador.ListarTipoProcessos();
-            DtTipoProcesso = Controlador.PreencherTipoProcesso(tipoProcessos);
-            dtgTipoProcesso.DataSource = DtTipoProcesso;
-            OcultarColunas("StatusValor");
-        }
-
-        private void OcultarColunas(params string[] colunas)
-        {
-            foreach (var coluna in colunas)
-                dtgTipoProcesso.Columns[coluna].Visible = false;
-
-        }
-
-        private void Limpar()
-        {
-            Id = string.Empty;
-            Nome = string.Empty;
-            Status = false;
-            Descricao = string.Empty;
-        }
-        #endregion
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (Editando)
@@ -93,17 +64,14 @@ namespace GerenciamentoMateriaPrima.View
             }
             Editando = false;
         }
-
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             Limpar();
         }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void dtgTipoProcesso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Editando =true;
@@ -116,5 +84,37 @@ namespace GerenciamentoMateriaPrima.View
 
             }
         }
+        #endregion
+
+
+        #region Metodos
+        public void CarregarDataGridView()
+        {
+            Limpar();
+            IEnumerable<TipoProcesso> tipoProcessos = Controlador.ListarTipoProcessos();
+            DtTipoProcesso = Controlador.PreencherTipoProcesso(tipoProcessos);
+            dtgTipoProcesso.DataSource = DtTipoProcesso;
+            OcultarColunas("StatusValor");
+        }
+
+        private void OcultarColunas(params string[] colunas)
+        {
+            foreach (var coluna in colunas)
+                dtgTipoProcesso.Columns[coluna].Visible = false;
+
+        }
+
+        private void Limpar()
+        {
+            Id = string.Empty;
+            Nome = string.Empty;
+            Status = false;
+            Descricao = string.Empty;
+        }
+        #endregion
+
+
+
+
     }
 }

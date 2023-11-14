@@ -16,7 +16,7 @@ namespace GerenciamentoMateriaPrima.DataTables
             Dt.Columns.Add("EntradaSaidaValor", typeof(int));
             Dt.Columns.Add("EntradaSaida", typeof(string));
             Dt.Columns.Add("TipoMateriaPrimaId", typeof(int));
-            Dt.Columns.Add("TipoMateriaPrima", typeof(TipoMateriaPrima));
+            Dt.Columns.Add("TipoMateriaPrima", typeof(string));
 
         }
 
@@ -34,7 +34,7 @@ namespace GerenciamentoMateriaPrima.DataTables
                         movimentoMateriaPrima.EntradaSaida,
                         movimentoMateriaPrima.EntradaSaida == 1 ? "Entrada" : "Saída",
                         movimentoMateriaPrima.TipoMateriaPrimaId,
-                        movimentoMateriaPrima.TipoMateriaPrima
+                        movimentoMateriaPrima.TipoMateriaPrima.Nome
                     );
             }
             return Dt;

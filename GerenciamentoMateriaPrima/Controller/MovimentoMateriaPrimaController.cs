@@ -11,11 +11,13 @@ namespace GerenciamentoMateriaPrima.Controller
     {
         private readonly IMovimentoMateriaPrima _iMovimentoMateriaPrima;
         private readonly MovimentoMateriaPrimaDal _movimentoMateriaPrimaDal;
+        private readonly TipoMateriaPrimaDal _tipoMateriaPrimaDal;
 
         public MovimentoMateriaPrimaController(IMovimentoMateriaPrima movimentoMateriaPrima)
         {
             _iMovimentoMateriaPrima = movimentoMateriaPrima;
             _movimentoMateriaPrimaDal = new MovimentoMateriaPrimaDal(new GerenciamentoMateriaPrimaContext());
+            _tipoMateriaPrimaDal = new TipoMateriaPrimaDal(new GerenciamentoMateriaPrimaContext());
         }
 
         public DataTable PreencherMovimentoMateriaPrima(IEnumerable<MovimentoMateriaPrima> movimentoMateriaPrimas)
@@ -42,8 +44,8 @@ namespace GerenciamentoMateriaPrima.Controller
 
         public void SalvarMovimentoMateriaPrima()
         {
-            if (string.IsNullOrEmpty(_iMovimentoMateriaPrima.Descricao))
-                throw new Exception("Necessário Preencher Todos os dados");
+            if (string.IsNullOrEmpty(_iMovimentoMateriaPrima.Descricao) && string.IsNullOrEmpty(_iMovimentoMateriaPrima.Peso))
+                throw new Exception("Necessário Preencher Todos os dados.");
 
             var movimentoMateriaPrima = new MovimentoMateriaPrima
             {
@@ -56,5 +58,9 @@ namespace GerenciamentoMateriaPrima.Controller
             _movimentoMateriaPrimaDal.Salvar(movimentoMateriaPrima);
         }
 
+        public object ListarTipoMateriaPrimas()
+        {
+            return _tipoMateriaPrimaDal.ListarTodos();
+        }
     }
 }

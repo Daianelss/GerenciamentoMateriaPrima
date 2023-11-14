@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             panCadastro = new Panel();
-            lblTipoMovimento = new Label();
-            cmbTipoMovimento = new ComboBox();
+            btnLimpar = new Button();
+            txtId = new TextBox();
+            lblId = new Label();
+            lblProcesso = new Label();
+            cmbProcesso = new ComboBox();
             btnSalvar = new Button();
             txtPesoSaida = new TextBox();
             txtPesoEntrada = new TextBox();
@@ -42,22 +45,25 @@
             lblData = new Label();
             cmbFuncionario = new ComboBox();
             lblFuncionario = new Label();
-            panGridGerenciamento = new Panel();
-            dtgGerenciamento = new DataGridView();
+            panGridMovimento = new Panel();
+            dtgMovimento = new DataGridView();
             panBotoes = new Panel();
             btnRelatorio = new Button();
             btnAtualizar = new Button();
             btnVoltar = new Button();
             panCadastro.SuspendLayout();
-            panGridGerenciamento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgGerenciamento).BeginInit();
+            panGridMovimento.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgMovimento).BeginInit();
             panBotoes.SuspendLayout();
             SuspendLayout();
             // 
             // panCadastro
             // 
-            panCadastro.Controls.Add(lblTipoMovimento);
-            panCadastro.Controls.Add(cmbTipoMovimento);
+            panCadastro.Controls.Add(btnLimpar);
+            panCadastro.Controls.Add(txtId);
+            panCadastro.Controls.Add(lblId);
+            panCadastro.Controls.Add(lblProcesso);
+            panCadastro.Controls.Add(cmbProcesso);
             panCadastro.Controls.Add(btnSalvar);
             panCadastro.Controls.Add(txtPesoSaida);
             panCadastro.Controls.Add(txtPesoEntrada);
@@ -76,32 +82,61 @@
             panCadastro.Size = new Size(1168, 195);
             panCadastro.TabIndex = 0;
             // 
-            // lblTipoMovimento
+            // btnLimpar
             // 
-            lblTipoMovimento.AutoSize = true;
-            lblTipoMovimento.Location = new Point(607, 35);
-            lblTipoMovimento.Name = "lblTipoMovimento";
-            lblTipoMovimento.Size = new Size(179, 30);
-            lblTipoMovimento.TabIndex = 13;
-            lblTipoMovimento.Text = "Tipo Movimento:";
+            btnLimpar.Location = new Point(883, 136);
+            btnLimpar.Name = "btnLimpar";
+            btnLimpar.Size = new Size(103, 41);
+            btnLimpar.TabIndex = 14;
+            btnLimpar.Text = "Limpar";
+            btnLimpar.UseVisualStyleBackColor = true;
+            btnLimpar.Click += btnLimpar_Click;
             // 
-            // cmbTipoMovimento
+            // txtId
             // 
-            cmbTipoMovimento.FormattingEnabled = true;
-            cmbTipoMovimento.Location = new Point(787, 31);
-            cmbTipoMovimento.Name = "cmbTipoMovimento";
-            cmbTipoMovimento.Size = new Size(350, 38);
-            cmbTipoMovimento.TabIndex = 12;
-            cmbTipoMovimento.Text = "Selecione";
+            txtId.Enabled = false;
+            txtId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            txtId.Location = new Point(409, 80);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(84, 36);
+            txtId.TabIndex = 4;
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lblId.Location = new Point(366, 83);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(37, 30);
+            lblId.TabIndex = 3;
+            lblId.Text = "Id:";
+            // 
+            // lblProcesso
+            // 
+            lblProcesso.AutoSize = true;
+            lblProcesso.Location = new Point(607, 35);
+            lblProcesso.Name = "lblProcesso";
+            lblProcesso.Size = new Size(104, 30);
+            lblProcesso.TabIndex = 13;
+            lblProcesso.Text = "Processo:";
+            // 
+            // cmbProcesso
+            // 
+            cmbProcesso.FormattingEnabled = true;
+            cmbProcesso.Location = new Point(787, 31);
+            cmbProcesso.Name = "cmbProcesso";
+            cmbProcesso.Size = new Size(350, 38);
+            cmbProcesso.TabIndex = 12;
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(1053, 136);
+            btnSalvar.Location = new Point(1045, 136);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(103, 41);
             btnSalvar.TabIndex = 11;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // txtPesoSaida
             // 
@@ -137,15 +172,15 @@
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(158, 138);
+            txtDescricao.Location = new Point(139, 141);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(886, 36);
+            txtDescricao.Size = new Size(710, 36);
             txtDescricao.TabIndex = 5;
             // 
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(41, 141);
+            lblDescricao.Location = new Point(22, 144);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(111, 30);
             lblDescricao.TabIndex = 4;
@@ -153,7 +188,8 @@
             // 
             // dtsData
             // 
-            dtsData.CustomFormat = "";
+            dtsData.CustomFormat = "dd/MM/yyyy";
+            dtsData.Format = DateTimePickerFormat.Short;
             dtsData.Location = new Point(109, 80);
             dtsData.Name = "dtsData";
             dtsData.Size = new Size(212, 36);
@@ -187,24 +223,33 @@
             lblFuncionario.TabIndex = 0;
             lblFuncionario.Text = "Funcionario";
             // 
-            // panGridGerenciamento
+            // panGridMovimento
             // 
-            panGridGerenciamento.Controls.Add(dtgGerenciamento);
-            panGridGerenciamento.Dock = DockStyle.Fill;
-            panGridGerenciamento.Location = new Point(0, 195);
-            panGridGerenciamento.Name = "panGridGerenciamento";
-            panGridGerenciamento.Size = new Size(1168, 423);
-            panGridGerenciamento.TabIndex = 1;
+            panGridMovimento.Controls.Add(dtgMovimento);
+            panGridMovimento.Dock = DockStyle.Fill;
+            panGridMovimento.Location = new Point(0, 195);
+            panGridMovimento.Name = "panGridMovimento";
+            panGridMovimento.Padding = new Padding(20);
+            panGridMovimento.Size = new Size(1168, 423);
+            panGridMovimento.TabIndex = 1;
             // 
-            // dtgGerenciamento
+            // dtgMovimento
             // 
-            dtgGerenciamento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgGerenciamento.Dock = DockStyle.Fill;
-            dtgGerenciamento.Location = new Point(0, 0);
-            dtgGerenciamento.Name = "dtgGerenciamento";
-            dtgGerenciamento.RowTemplate.Height = 25;
-            dtgGerenciamento.Size = new Size(1168, 423);
-            dtgGerenciamento.TabIndex = 0;
+            dtgMovimento.AllowUserToAddRows = false;
+            dtgMovimento.AllowUserToDeleteRows = false;
+            dtgMovimento.AllowUserToResizeColumns = false;
+            dtgMovimento.AllowUserToResizeRows = false;
+            dtgMovimento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgMovimento.Dock = DockStyle.Fill;
+            dtgMovimento.Location = new Point(20, 20);
+            dtgMovimento.MultiSelect = false;
+            dtgMovimento.Name = "dtgMovimento";
+            dtgMovimento.ReadOnly = true;
+            dtgMovimento.RowTemplate.Height = 25;
+            dtgMovimento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgMovimento.Size = new Size(1128, 383);
+            dtgMovimento.TabIndex = 0;
+            dtgMovimento.CellClick += dtgMovimento_CellClick;
             // 
             // panBotoes
             // 
@@ -244,20 +289,21 @@
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
             // 
-            // FormGerenciamento
+            // FormMovimento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1168, 618);
             Controls.Add(panBotoes);
-            Controls.Add(panGridGerenciamento);
+            Controls.Add(panGridMovimento);
             Controls.Add(panCadastro);
-            Name = "FormGerenciamento";
-            Text = "FormGerenciamento";
+            Name = "FormMovimento";
+            Text = "FormMovimento";
+            Load += FormMovimento_Load;
             panCadastro.ResumeLayout(false);
             panCadastro.PerformLayout();
-            panGridGerenciamento.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtgGerenciamento).EndInit();
+            panGridMovimento.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtgMovimento).EndInit();
             panBotoes.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -265,7 +311,7 @@
         #endregion
 
         private Panel panCadastro;
-        private Panel panGridGerenciamento;
+        private Panel panGridMovimento;
         private TextBox txtPesoEntrada;
         private Label lblPesoSaida;
         private Label lblPesoEntrada;
@@ -278,12 +324,15 @@
         private Label lblFuncionario;
         private Button btnSalvar;
         private TextBox txtPesoSaida;
-        private DataGridView dtgGerenciamento;
+        private DataGridView dtgMovimento;
         private Panel panBotoes;
         private Button btnRelatorio;
         private Button btnAtualizar;
         private Button btnVoltar;
-        private ComboBox cmbTipoMovimento;
-        private Label lblTipoMovimento;
+        private ComboBox cmbProcesso;
+        private Label lblProcesso;
+        private TextBox txtId;
+        private Label lblId;
+        private Button btnLimpar;
     }
 }
