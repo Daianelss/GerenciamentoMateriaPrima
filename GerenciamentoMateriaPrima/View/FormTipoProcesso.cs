@@ -74,8 +74,8 @@ namespace GerenciamentoMateriaPrima.View
         }
         private void dtgTipoProcesso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Editando =true;
-            if (dtgTipoProcesso.SelectedRows.Count >0)
+            Editando = true;
+            if (dtgTipoProcesso.SelectedRows.Count > 0)
             {
                 Nome = dtgTipoProcesso.SelectedRows[0].Cells["Nome"].Value.ToString();
                 Id = dtgTipoProcesso.SelectedRows[0].Cells["Id"].Value.ToString();

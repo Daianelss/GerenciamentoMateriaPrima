@@ -35,8 +35,6 @@
             btnPesquisar = new Button();
             panCadastroMovimento = new Panel();
             dtData = new DateTimePicker();
-            lblTipoMateriaPrima = new Label();
-            cmbTipoMateriaPrima = new ComboBox();
             btnLimpar = new Button();
             btnSalvar = new Button();
             txtDescricao = new TextBox();
@@ -49,6 +47,9 @@
             lblPeso = new Label();
             lblData = new Label();
             lblId = new Label();
+            btnVoltar = new Button();
+            lblTipoMateriaPrima = new Label();
+            cmbTipoMateriaPrima = new ComboBox();
             panFundo.SuspendLayout();
             panListaMovimento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaMovimento).BeginInit();
@@ -72,10 +73,10 @@
             // 
             panListaMovimento.Controls.Add(dtgListaMovimento);
             panListaMovimento.Dock = DockStyle.Fill;
-            panListaMovimento.Location = new Point(0, 200);
+            panListaMovimento.Location = new Point(0, 194);
             panListaMovimento.Name = "panListaMovimento";
             panListaMovimento.Padding = new Padding(20);
-            panListaMovimento.Size = new Size(1168, 318);
+            panListaMovimento.Size = new Size(1168, 339);
             panListaMovimento.TabIndex = 2;
             // 
             // dtgListaMovimento
@@ -90,24 +91,26 @@
             dtgListaMovimento.ReadOnly = true;
             dtgListaMovimento.RowTemplate.Height = 25;
             dtgListaMovimento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgListaMovimento.Size = new Size(1128, 278);
+            dtgListaMovimento.Size = new Size(1128, 299);
             dtgListaMovimento.TabIndex = 0;
             dtgListaMovimento.CellClick += dtgListaMovimento_CellClick;
             // 
             // panOpcoes
             // 
+            panOpcoes.Controls.Add(btnVoltar);
             panOpcoes.Controls.Add(btnPesquisar);
             panOpcoes.Dock = DockStyle.Bottom;
-            panOpcoes.Location = new Point(0, 518);
+            panOpcoes.Location = new Point(0, 533);
             panOpcoes.Name = "panOpcoes";
-            panOpcoes.Size = new Size(1168, 100);
+            panOpcoes.Size = new Size(1168, 85);
             panOpcoes.TabIndex = 1;
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Location = new Point(862, 47);
+            btnPesquisar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPesquisar.Location = new Point(823, 20);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(75, 23);
+            btnPesquisar.Size = new Size(157, 48);
             btnPesquisar.TabIndex = 0;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
@@ -131,42 +134,24 @@
             panCadastroMovimento.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             panCadastroMovimento.Location = new Point(0, 0);
             panCadastroMovimento.Name = "panCadastroMovimento";
-            panCadastroMovimento.Size = new Size(1168, 200);
+            panCadastroMovimento.Size = new Size(1168, 194);
             panCadastroMovimento.TabIndex = 0;
             // 
             // dtData
             // 
             dtData.CustomFormat = "dd/MM/yyyy";
             dtData.Format = DateTimePickerFormat.Short;
-            dtData.Location = new Point(94, 77);
+            dtData.Location = new Point(466, 29);
             dtData.Name = "dtData";
-            dtData.Size = new Size(200, 39);
+            dtData.Size = new Size(164, 39);
             dtData.TabIndex = 13;
             dtData.Value = new DateTime(2023, 11, 12, 16, 5, 34, 0);
             // 
-            // lblTipoMateriaPrima
-            // 
-            lblTipoMateriaPrima.AutoSize = true;
-            lblTipoMateriaPrima.Location = new Point(359, 67);
-            lblTipoMateriaPrima.Name = "lblTipoMateriaPrima";
-            lblTipoMateriaPrima.Size = new Size(155, 32);
-            lblTipoMateriaPrima.TabIndex = 12;
-            lblTipoMateriaPrima.Text = "MateriaPrima";
-            // 
-            // cmbTipoMateriaPrima
-            // 
-            cmbTipoMateriaPrima.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTipoMateriaPrima.FormattingEnabled = true;
-            cmbTipoMateriaPrima.Location = new Point(520, 65);
-            cmbTipoMateriaPrima.Name = "cmbTipoMateriaPrima";
-            cmbTipoMateriaPrima.Size = new Size(121, 40);
-            cmbTipoMateriaPrima.TabIndex = 11;
-            // 
             // btnLimpar
             // 
-            btnLimpar.Location = new Point(1035, 65);
+            btnLimpar.Location = new Point(985, 76);
             btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(113, 47);
+            btnLimpar.Size = new Size(157, 48);
             btnLimpar.TabIndex = 10;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
@@ -174,9 +159,9 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(1035, 12);
+            btnSalvar.Location = new Point(985, 19);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(113, 47);
+            btnSalvar.Size = new Size(157, 48);
             btnSalvar.TabIndex = 9;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
@@ -184,23 +169,24 @@
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(144, 138);
+            txtDescricao.Location = new Point(144, 137);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(961, 39);
             txtDescricao.TabIndex = 8;
             // 
             // txtPeso
             // 
-            txtPeso.Location = new Point(306, 25);
+            txtPeso.Location = new Point(219, 29);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(100, 39);
             txtPeso.TabIndex = 6;
             // 
             // txtId
             // 
-            txtId.Location = new Point(62, 28);
+            txtId.Enabled = false;
+            txtId.Location = new Point(51, 29);
             txtId.Name = "txtId";
-            txtId.Size = new Size(100, 39);
+            txtId.Size = new Size(79, 39);
             txtId.TabIndex = 5;
             // 
             // gpbTipoMovimento
@@ -208,7 +194,7 @@
             gpbTipoMovimento.Controls.Add(rdbSaida);
             gpbTipoMovimento.Controls.Add(rdbEntrada);
             gpbTipoMovimento.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            gpbTipoMovimento.Location = new Point(706, 12);
+            gpbTipoMovimento.Location = new Point(711, 19);
             gpbTipoMovimento.Name = "gpbTipoMovimento";
             gpbTipoMovimento.Size = new Size(243, 105);
             gpbTipoMovimento.TabIndex = 4;
@@ -240,7 +226,7 @@
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(17, 140);
+            lblDescricao.Location = new Point(9, 140);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(121, 32);
             lblDescricao.TabIndex = 3;
@@ -249,7 +235,7 @@
             // lblPeso
             // 
             lblPeso.AutoSize = true;
-            lblPeso.Location = new Point(232, 28);
+            lblPeso.Location = new Point(145, 32);
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(68, 32);
             lblPeso.TabIndex = 2;
@@ -258,7 +244,7 @@
             // lblData
             // 
             lblData.AutoSize = true;
-            lblData.Location = new Point(20, 77);
+            lblData.Location = new Point(392, 32);
             lblData.Name = "lblData";
             lblData.Size = new Size(68, 32);
             lblData.TabIndex = 1;
@@ -267,11 +253,39 @@
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(24, 28);
+            lblId.Location = new Point(13, 32);
             lblId.Name = "lblId";
             lblId.Size = new Size(42, 32);
             lblId.TabIndex = 0;
             lblId.Text = "ID:";
+            // 
+            // btnVoltar
+            // 
+            btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVoltar.Location = new Point(999, 20);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(157, 48);
+            btnVoltar.TabIndex = 6;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = true;
+            // 
+            // lblTipoMateriaPrima
+            // 
+            lblTipoMateriaPrima.AutoSize = true;
+            lblTipoMateriaPrima.Location = new Point(17, 86);
+            lblTipoMateriaPrima.Name = "lblTipoMateriaPrima";
+            lblTipoMateriaPrima.Size = new Size(155, 32);
+            lblTipoMateriaPrima.TabIndex = 12;
+            lblTipoMateriaPrima.Text = "MateriaPrima";
+            // 
+            // cmbTipoMateriaPrima
+            // 
+            cmbTipoMateriaPrima.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipoMateriaPrima.FormattingEnabled = true;
+            cmbTipoMateriaPrima.Location = new Point(178, 82);
+            cmbTipoMateriaPrima.Name = "cmbTipoMateriaPrima";
+            cmbTipoMateriaPrima.Size = new Size(502, 40);
+            cmbTipoMateriaPrima.TabIndex = 11;
             // 
             // FormMovimentoMateriaPrima
             // 
@@ -313,8 +327,9 @@
         private Button btnSalvar;
         private Button btnLimpar;
         private Button btnPesquisar;
+        private DateTimePicker dtData;
+        private Button btnVoltar;
         private Label lblTipoMateriaPrima;
         private ComboBox cmbTipoMateriaPrima;
-        private DateTimePicker dtData;
     }
 }

@@ -34,7 +34,6 @@
             lblDescricao = new Label();
             gpbStatus = new GroupBox();
             chkStatus = new CheckBox();
-            btnAtualizar = new Button();
             btnLimpar = new Button();
             btnSalvar = new Button();
             txtId = new TextBox();
@@ -120,20 +119,12 @@
             chkStatus.Text = "Ativo";
             chkStatus.UseVisualStyleBackColor = true;
             // 
-            // btnAtualizar
-            // 
-            btnAtualizar.Location = new Point(972, 16);
-            btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new Size(75, 23);
-            btnAtualizar.TabIndex = 6;
-            btnAtualizar.Text = "Atualizar";
-            btnAtualizar.UseVisualStyleBackColor = true;
-            // 
             // btnLimpar
             // 
-            btnLimpar.Location = new Point(1067, 32);
+            btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpar.Location = new Point(972, 9);
             btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(75, 23);
+            btnLimpar.Size = new Size(157, 48);
             btnLimpar.TabIndex = 5;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
@@ -142,7 +133,7 @@
             // btnSalvar
             // 
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalvar.Location = new Point(904, 10);
+            btnSalvar.Location = new Point(803, 9);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(157, 48);
             btnSalvar.TabIndex = 2;
@@ -161,7 +152,6 @@
             // 
             // panBotoes
             // 
-            panBotoes.Controls.Add(btnAtualizar);
             panBotoes.Controls.Add(btnPesquisar);
             panBotoes.Controls.Add(btnVoltar);
             panBotoes.Dock = DockStyle.Bottom;
@@ -173,7 +163,7 @@
             // btnPesquisar
             // 
             btnPesquisar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(787, 11);
+            btnPesquisar.Location = new Point(825, 11);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(157, 48);
             btnPesquisar.TabIndex = 3;
@@ -182,9 +172,10 @@
             // 
             // btnVoltar
             // 
-            btnVoltar.Location = new Point(1069, 16);
+            btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVoltar.Location = new Point(996, 11);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(75, 23);
+            btnVoltar.Size = new Size(157, 48);
             btnVoltar.TabIndex = 5;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
@@ -193,7 +184,7 @@
             // txtNome
             // 
             txtNome.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNome.Location = new Point(256, 21);
+            txtNome.Location = new Point(256, 18);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(377, 36);
             txtNome.TabIndex = 1;
@@ -253,7 +244,7 @@
             ClientSize = new Size(1168, 618);
             Controls.Add(panTipoProcesso);
             Name = "FormTipoProcesso";
-            Text = "FormTipoProcesso";
+            Text = "Processo";
             Load += FormTipoProcesso_Load;
             panLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgTipoProcesso).EndInit();
@@ -274,7 +265,6 @@
         private Label lblDescricao;
         private GroupBox gpbStatus;
         private CheckBox chkStatus;
-        private Button btnAtualizar;
         private Button btnLimpar;
         private Button btnSalvar;
         private TextBox txtId;
