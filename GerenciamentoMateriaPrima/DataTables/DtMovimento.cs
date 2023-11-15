@@ -23,6 +23,7 @@ namespace GerenciamentoMateriaPrima.DataTables
             Dt.Columns.Add("TipoProcesso", typeof(string));
             Dt.Columns.Add("FuncionarioId", typeof(int));
             Dt.Columns.Add("Funcionario", typeof(string));
+            Dt.Columns.Add("Quebra", typeof(string));
         }
 
         public static DataTable PreencherMovimento(IEnumerable<Movimento> movimentos)
@@ -39,7 +40,8 @@ namespace GerenciamentoMateriaPrima.DataTables
                     movimento.TipoProcessoId,
                     movimento.TipoProcesso.Nome,
                     movimento.FuncionarioId,
-                    movimento.Funcionario.Nome
+                    movimento.Funcionario.Nome,
+                    movimento.Quebra
                     );
             }
             return Dt;

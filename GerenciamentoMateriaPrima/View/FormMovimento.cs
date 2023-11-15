@@ -11,9 +11,6 @@ namespace GerenciamentoMateriaPrima.View
         public MovimentoController Controlador { get; set; }
 
         #region Elemento Tela
-
-
-
         public string Id { get => txtId.Text; set => txtId.Text = value; }
         public DateTime Data { get => dtsData.Value; set => dtsData.Value = value; }
         public string PesoEntrada { get => txtPesoEntrada.Text; set => txtPesoEntrada.Text = value; }
@@ -52,12 +49,12 @@ namespace GerenciamentoMateriaPrima.View
         {
             InitializeComponent();
         }
-        #region Acoes
         public void SetControlador(MovimentoController controller)
         {
             Controlador = controller;
         }
 
+        #region Acoes
         private void FormMovimento_Load(object sender, EventArgs e)
         {
             CarregarTipoProcesso();
@@ -111,8 +108,20 @@ namespace GerenciamentoMateriaPrima.View
                 FuncionarioId = dtgMovimento.SelectedRows[0].Cells["FuncionarioId"].Value.ToString();
             }
         }
-
+        private void txtPesoSaida_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidarNumeros(sender, e);
+        }
+        private void txtPesoEntrada_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidarNumeros(sender, e);
+        }
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         #endregion
+
         #region Metodos
         private void Limpar()
         {
@@ -134,8 +143,8 @@ namespace GerenciamentoMateriaPrima.View
             IEnumerable<Movimento> movimentos = Controlador.ListarMovimento();
             DtMovimento = Controlador.PreencherMovimento(movimentos);
             dtgMovimento.DataSource = DtMovimento;
+            OcultarColunas("FuncionarioId", "TipoProcessoId");
         }
-
         public void CarregarTipoProcesso()
         {
             var dados = Controlador.ListarTiposProcessos();
@@ -144,7 +153,6 @@ namespace GerenciamentoMateriaPrima.View
             cmbProcesso.ValueMember = "Id";
             cmbProcesso.SelectedIndex = -1;
         }
-
         public void CarregarFuncionario()
         {
             var dados = Controlador.ListarFuncionarios();
@@ -153,14 +161,11 @@ namespace GerenciamentoMateriaPrima.View
             cmbFuncionario.ValueMember = "Id";
             cmbFuncionario.SelectedIndex = -1;
         }
-
-
         private void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgMovimento.Columns[coluna].Visible = false;
         }
-
         private DateTime ConverterTextoParaData(string data, string padrao)
         {
 
@@ -173,13 +178,20 @@ namespace GerenciamentoMateriaPrima.View
                 return DateTime.Now;
             }
         }
-
         private void CarregarValoresDefault()
         {
             dtsData.Value = DateTime.Now;
         }
+        private void ValidarNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
 
+        }
         #endregion
+
 
 
 

@@ -43,7 +43,6 @@
             dtgTipoMateriaPrima = new DataGridView();
             btnVoltar = new Button();
             panBotoes = new Panel();
-            btnAtualizar = new Button();
             panTipoMateriaPrima = new Panel();
             panListaTipoMateriaPrima = new Panel();
             panCadastroTipoMateriaPrima.SuspendLayout();
@@ -68,7 +67,7 @@
             panCadastroTipoMateriaPrima.Dock = DockStyle.Top;
             panCadastroTipoMateriaPrima.Location = new Point(0, 0);
             panCadastroTipoMateriaPrima.Name = "panCadastroTipoMateriaPrima";
-            panCadastroTipoMateriaPrima.Size = new Size(1168, 133);
+            panCadastroTipoMateriaPrima.Size = new Size(1184, 133);
             panCadastroTipoMateriaPrima.TabIndex = 0;
             // 
             // txtDescricaoTipoMateriaPrima
@@ -92,7 +91,7 @@
             // gpbStatus
             // 
             gpbStatus.Controls.Add(chkStatus);
-            gpbStatus.Location = new Point(641, 9);
+            gpbStatus.Location = new Point(726, 12);
             gpbStatus.Name = "gpbStatus";
             gpbStatus.Size = new Size(94, 48);
             gpbStatus.TabIndex = 9;
@@ -111,9 +110,10 @@
             // 
             // btnLimpar
             // 
-            btnLimpar.Location = new Point(1067, 32);
+            btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpar.Location = new Point(999, 12);
             btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(75, 23);
+            btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 5;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
@@ -122,9 +122,9 @@
             // btnSalvar
             // 
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalvar.Location = new Point(904, 10);
+            btnSalvar.Location = new Point(836, 12);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(157, 48);
+            btnSalvar.Size = new Size(160, 50);
             btnSalvar.TabIndex = 2;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
@@ -136,15 +136,15 @@
             txtIdTipoMateriaPrima.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             txtIdTipoMateriaPrima.Location = new Point(52, 18);
             txtIdTipoMateriaPrima.Name = "txtIdTipoMateriaPrima";
-            txtIdTipoMateriaPrima.Size = new Size(84, 36);
+            txtIdTipoMateriaPrima.Size = new Size(85, 36);
             txtIdTipoMateriaPrima.TabIndex = 1;
             // 
             // txtNomeTipoMateriaPrima
             // 
             txtNomeTipoMateriaPrima.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNomeTipoMateriaPrima.Location = new Point(256, 21);
+            txtNomeTipoMateriaPrima.Location = new Point(210, 21);
             txtNomeTipoMateriaPrima.Name = "txtNomeTipoMateriaPrima";
-            txtNomeTipoMateriaPrima.Size = new Size(377, 36);
+            txtNomeTipoMateriaPrima.Size = new Size(500, 36);
             txtNomeTipoMateriaPrima.TabIndex = 1;
             // 
             // lblIdTipoMateriaPrima
@@ -161,7 +161,7 @@
             // 
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNome.Location = new Point(161, 21);
+            lblNome.Location = new Point(126, 21);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(78, 30);
             lblNome.TabIndex = 0;
@@ -170,9 +170,9 @@
             // btnPesquisar
             // 
             btnPesquisar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(787, 11);
+            btnPesquisar.Location = new Point(841, 6);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(157, 48);
+            btnPesquisar.Size = new Size(160, 50);
             btnPesquisar.TabIndex = 3;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
@@ -191,15 +191,16 @@
             dtgTipoMateriaPrima.ReadOnly = true;
             dtgTipoMateriaPrima.RowTemplate.Height = 25;
             dtgTipoMateriaPrima.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgTipoMateriaPrima.Size = new Size(1128, 374);
+            dtgTipoMateriaPrima.Size = new Size(1144, 383);
             dtgTipoMateriaPrima.TabIndex = 0;
             dtgTipoMateriaPrima.CellClick += dtgTipoMateriaPrima_CellClick;
             // 
             // btnVoltar
             // 
-            btnVoltar.Location = new Point(1069, 16);
+            btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVoltar.Location = new Point(1004, 6);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(75, 23);
+            btnVoltar.Size = new Size(160, 50);
             btnVoltar.TabIndex = 5;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
@@ -207,23 +208,13 @@
             // 
             // panBotoes
             // 
-            panBotoes.Controls.Add(btnAtualizar);
             panBotoes.Controls.Add(btnPesquisar);
             panBotoes.Controls.Add(btnVoltar);
             panBotoes.Dock = DockStyle.Bottom;
-            panBotoes.Location = new Point(0, 547);
+            panBotoes.Location = new Point(0, 556);
             panBotoes.Name = "panBotoes";
-            panBotoes.Size = new Size(1168, 71);
+            panBotoes.Size = new Size(1184, 65);
             panBotoes.TabIndex = 2;
-            // 
-            // btnAtualizar
-            // 
-            btnAtualizar.Location = new Point(972, 16);
-            btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new Size(75, 23);
-            btnAtualizar.TabIndex = 6;
-            btnAtualizar.Text = "Atualizar";
-            btnAtualizar.UseVisualStyleBackColor = true;
             // 
             // panTipoMateriaPrima
             // 
@@ -233,7 +224,7 @@
             panTipoMateriaPrima.Dock = DockStyle.Fill;
             panTipoMateriaPrima.Location = new Point(0, 0);
             panTipoMateriaPrima.Name = "panTipoMateriaPrima";
-            panTipoMateriaPrima.Size = new Size(1168, 618);
+            panTipoMateriaPrima.Size = new Size(1184, 621);
             panTipoMateriaPrima.TabIndex = 4;
             // 
             // panListaTipoMateriaPrima
@@ -243,14 +234,14 @@
             panListaTipoMateriaPrima.Location = new Point(0, 133);
             panListaTipoMateriaPrima.Name = "panListaTipoMateriaPrima";
             panListaTipoMateriaPrima.Padding = new Padding(20);
-            panListaTipoMateriaPrima.Size = new Size(1168, 414);
+            panListaTipoMateriaPrima.Size = new Size(1184, 423);
             panListaTipoMateriaPrima.TabIndex = 3;
             // 
             // FormTipoMateriaPrima
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1168, 618);
+            ClientSize = new Size(1184, 621);
             Controls.Add(panTipoMateriaPrima);
             Name = "FormTipoMateriaPrima";
             Text = "FormTipoMateriaPrima";
@@ -281,7 +272,6 @@
         private DataGridView dtgTipoMateriaPrima;
         private Button btnVoltar;
         private Panel panBotoes;
-        private Button btnAtualizar;
         private Panel panTipoMateriaPrima;
         private Panel panListaTipoMateriaPrima;
         private TextBox txtDescricaoTipoMateriaPrima;

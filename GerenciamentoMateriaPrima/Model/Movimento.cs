@@ -41,6 +41,8 @@ namespace GerenciamentoMateriaPrima.Model
         [ForeignKey("FuncionarioId")]
         public virtual Funcionario Funcionario { get; set; }
 
+        [NotMapped]
+        public double Quebra { get => PesoEntrada - PesoSaida; }
 
 
 

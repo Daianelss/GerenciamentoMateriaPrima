@@ -41,13 +41,14 @@ namespace GerenciamentoMateriaPrima.View
         {
             Controlador = controller;
         }
+
+        #region Acoes
         private void FormMovimentoMateriaPrima_Load(object sender, EventArgs e)
         {
             CarregarTiposMateriaPrima();
             CarregarValoresDefault();
             CarregarDataGridView();
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (Editando)
@@ -78,12 +79,10 @@ namespace GerenciamentoMateriaPrima.View
                 }
             }
         }
-
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             Limpar();
         }
-
         private void dtgListaMovimento_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Editando = true;
@@ -98,8 +97,17 @@ namespace GerenciamentoMateriaPrima.View
                 TipoMateriaPrimaId = dtgListaMovimento.SelectedRows[0].Cells["TipoMateriaPrimaId"].Value.ToString();
             }
         }
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidarNumeros(sender, e);
+        }
+        #endregion
 
-
+        #region Metodos
         private void Limpar()
         {
             Id = string.Empty;
@@ -118,9 +126,8 @@ namespace GerenciamentoMateriaPrima.View
             IEnumerable<MovimentoMateriaPrima> movimentoMateriaPrimas = Controlador.ListarMovimentoMateriaPrima();
             DtMovimento = Controlador.PreencherMovimentoMateriaPrima(movimentoMateriaPrimas);
             dtgListaMovimento.DataSource = DtMovimento;
-            OcultarColunas("EntradaSaidaValor");
+            OcultarColunas("EntradaSaidaValor", "TipoMateriaPrimaId");
         }
-
         public void CarregarTiposMateriaPrima()
         {
             var dados = Controlador.ListarTipoMateriaPrimas();
@@ -129,14 +136,11 @@ namespace GerenciamentoMateriaPrima.View
             cmbTipoMateriaPrima.ValueMember = "Id";
             cmbTipoMateriaPrima.SelectedIndex = -1;
         }
-
-
         private void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgListaMovimento.Columns[coluna].Visible = false;
         }
-
         private DateTime ConverterTextoParaData(string data, string padrao)
         {
 
@@ -149,10 +153,19 @@ namespace GerenciamentoMateriaPrima.View
                 return DateTime.Now;
             }
         }
-
         private void CarregarValoresDefault()
         {
             dtData.Value = DateTime.Now;
         }
+        private void ValidarNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        #endregion
     }
 }

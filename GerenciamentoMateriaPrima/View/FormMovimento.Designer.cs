@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             Panel panFundo;
+            panGrid = new Panel();
+            dtgMovimento = new DataGridView();
+            panBotoes = new Panel();
+            btnRelatorio = new Button();
+            btnVoltar = new Button();
             panCadastro = new Panel();
             btnLimpar = new Button();
             txtId = new TextBox();
@@ -46,18 +51,83 @@
             lblData = new Label();
             cmbFuncionario = new ComboBox();
             lblFuncionario = new Label();
-            panGridMovimento = new Panel();
-            dtgMovimento = new DataGridView();
-            panBotoes = new Panel();
-            btnRelatorio = new Button();
-            btnVoltar = new Button();
             panFundo = new Panel();
-            panCadastro.SuspendLayout();
-            panGridMovimento.SuspendLayout();
+            panFundo.SuspendLayout();
+            panGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgMovimento).BeginInit();
             panBotoes.SuspendLayout();
-            panFundo.SuspendLayout();
+            panCadastro.SuspendLayout();
             SuspendLayout();
+            // 
+            // panFundo
+            // 
+            panFundo.Controls.Add(panGrid);
+            panFundo.Controls.Add(panBotoes);
+            panFundo.Controls.Add(panCadastro);
+            panFundo.Dock = DockStyle.Fill;
+            panFundo.Location = new Point(0, 0);
+            panFundo.Name = "panFundo";
+            panFundo.Size = new Size(1184, 621);
+            panFundo.TabIndex = 0;
+            // 
+            // panGrid
+            // 
+            panGrid.Controls.Add(dtgMovimento);
+            panGrid.Dock = DockStyle.Fill;
+            panGrid.Location = new Point(0, 179);
+            panGrid.Name = "panGrid";
+            panGrid.Padding = new Padding(20);
+            panGrid.Size = new Size(1184, 377);
+            panGrid.TabIndex = 4;
+            // 
+            // dtgMovimento
+            // 
+            dtgMovimento.AllowUserToAddRows = false;
+            dtgMovimento.AllowUserToDeleteRows = false;
+            dtgMovimento.AllowUserToResizeColumns = false;
+            dtgMovimento.AllowUserToResizeRows = false;
+            dtgMovimento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgMovimento.Dock = DockStyle.Fill;
+            dtgMovimento.Location = new Point(20, 20);
+            dtgMovimento.MultiSelect = false;
+            dtgMovimento.Name = "dtgMovimento";
+            dtgMovimento.ReadOnly = true;
+            dtgMovimento.RowTemplate.Height = 25;
+            dtgMovimento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgMovimento.Size = new Size(1144, 337);
+            dtgMovimento.TabIndex = 0;
+            dtgMovimento.CellClick += dtgMovimento_CellClick;
+            // 
+            // panBotoes
+            // 
+            panBotoes.Controls.Add(btnRelatorio);
+            panBotoes.Controls.Add(btnVoltar);
+            panBotoes.Dock = DockStyle.Bottom;
+            panBotoes.Location = new Point(0, 556);
+            panBotoes.Name = "panBotoes";
+            panBotoes.Size = new Size(1184, 65);
+            panBotoes.TabIndex = 2;
+            // 
+            // btnRelatorio
+            // 
+            btnRelatorio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRelatorio.Location = new Point(838, 6);
+            btnRelatorio.Name = "btnRelatorio";
+            btnRelatorio.Size = new Size(160, 50);
+            btnRelatorio.TabIndex = 2;
+            btnRelatorio.Text = "Relatorio";
+            btnRelatorio.UseVisualStyleBackColor = true;
+            // 
+            // btnVoltar
+            // 
+            btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVoltar.Location = new Point(1004, 6);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(160, 50);
+            btnVoltar.TabIndex = 0;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = true;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // panCadastro
             // 
@@ -81,15 +151,15 @@
             panCadastro.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             panCadastro.Location = new Point(0, 0);
             panCadastro.Name = "panCadastro";
-            panCadastro.Size = new Size(1168, 179);
-            panCadastro.TabIndex = 0;
+            panCadastro.Size = new Size(1184, 179);
+            panCadastro.TabIndex = 1;
             // 
             // btnLimpar
             // 
             btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             btnLimpar.Location = new Point(832, 112);
             btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(157, 48);
+            btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 14;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
@@ -99,16 +169,16 @@
             // 
             txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtId.Location = new Point(59, 12);
+            txtId.Location = new Point(54, 15);
             txtId.Name = "txtId";
-            txtId.Size = new Size(84, 36);
+            txtId.Size = new Size(85, 36);
             txtId.TabIndex = 4;
             // 
             // lblId
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblId.Location = new Point(25, 15);
+            lblId.Location = new Point(20, 18);
             lblId.Name = "lblId";
             lblId.Size = new Size(37, 30);
             lblId.TabIndex = 3;
@@ -117,7 +187,7 @@
             // lblProcesso
             // 
             lblProcesso.AutoSize = true;
-            lblProcesso.Location = new Point(25, 69);
+            lblProcesso.Location = new Point(20, 72);
             lblProcesso.Name = "lblProcesso";
             lblProcesso.Size = new Size(104, 30);
             lblProcesso.TabIndex = 13;
@@ -126,7 +196,7 @@
             // cmbProcesso
             // 
             cmbProcesso.FormattingEnabled = true;
-            cmbProcesso.Location = new Point(138, 65);
+            cmbProcesso.Location = new Point(133, 68);
             cmbProcesso.Name = "cmbProcesso";
             cmbProcesso.Size = new Size(397, 38);
             cmbProcesso.TabIndex = 12;
@@ -136,7 +206,7 @@
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             btnSalvar.Location = new Point(1001, 112);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(157, 48);
+            btnSalvar.Size = new Size(160, 50);
             btnSalvar.TabIndex = 11;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
@@ -148,6 +218,7 @@
             txtPesoSaida.Name = "txtPesoSaida";
             txtPesoSaida.Size = new Size(145, 36);
             txtPesoSaida.TabIndex = 10;
+            txtPesoSaida.KeyPress += txtPesoSaida_KeyPress;
             // 
             // txtPesoEntrada
             // 
@@ -155,6 +226,7 @@
             txtPesoEntrada.Name = "txtPesoEntrada";
             txtPesoEntrada.Size = new Size(145, 36);
             txtPesoEntrada.TabIndex = 9;
+            txtPesoEntrada.KeyPress += txtPesoEntrada_KeyPress;
             // 
             // lblPesoSaida
             // 
@@ -176,7 +248,7 @@
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(147, 120);
+            txtDescricao.Location = new Point(142, 123);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(671, 36);
             txtDescricao.TabIndex = 5;
@@ -184,7 +256,7 @@
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(25, 123);
+            lblDescricao.Location = new Point(20, 126);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(111, 30);
             lblDescricao.TabIndex = 4;
@@ -194,7 +266,7 @@
             // 
             dtsData.CustomFormat = "dd/MM/yyyy";
             dtsData.Format = DateTimePickerFormat.Short;
-            dtsData.Location = new Point(229, 12);
+            dtsData.Location = new Point(213, 15);
             dtsData.Name = "dtsData";
             dtsData.Size = new Size(150, 36);
             dtsData.TabIndex = 3;
@@ -203,7 +275,7 @@
             // lblData
             // 
             lblData.AutoSize = true;
-            lblData.Location = new Point(161, 15);
+            lblData.Location = new Point(145, 18);
             lblData.Name = "lblData";
             lblData.Size = new Size(62, 30);
             lblData.TabIndex = 2;
@@ -212,111 +284,42 @@
             // cmbFuncionario
             // 
             cmbFuncionario.FormattingEnabled = true;
-            cmbFuncionario.Location = new Point(555, 11);
+            cmbFuncionario.Location = new Point(505, 14);
             cmbFuncionario.Name = "cmbFuncionario";
-            cmbFuncionario.Size = new Size(581, 38);
+            cmbFuncionario.Size = new Size(631, 38);
             cmbFuncionario.TabIndex = 1;
             cmbFuncionario.Text = "Selecione o Funcionario";
             // 
             // lblFuncionario
             // 
             lblFuncionario.AutoSize = true;
-            lblFuncionario.Location = new Point(422, 15);
+            lblFuncionario.Location = new Point(369, 18);
             lblFuncionario.Name = "lblFuncionario";
             lblFuncionario.Size = new Size(130, 30);
             lblFuncionario.TabIndex = 0;
             lblFuncionario.Text = "Funcionario:";
             // 
-            // panGridMovimento
-            // 
-            panGridMovimento.Controls.Add(dtgMovimento);
-            panGridMovimento.Location = new Point(0, 197);
-            panGridMovimento.Name = "panGridMovimento";
-            panGridMovimento.Padding = new Padding(20);
-            panGridMovimento.Size = new Size(1168, 333);
-            panGridMovimento.TabIndex = 3;
-            // 
-            // dtgMovimento
-            // 
-            dtgMovimento.AllowUserToAddRows = false;
-            dtgMovimento.AllowUserToDeleteRows = false;
-            dtgMovimento.AllowUserToResizeColumns = false;
-            dtgMovimento.AllowUserToResizeRows = false;
-            dtgMovimento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgMovimento.Dock = DockStyle.Fill;
-            dtgMovimento.Location = new Point(20, 20);
-            dtgMovimento.MultiSelect = false;
-            dtgMovimento.Name = "dtgMovimento";
-            dtgMovimento.ReadOnly = true;
-            dtgMovimento.RowTemplate.Height = 25;
-            dtgMovimento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgMovimento.Size = new Size(1128, 293);
-            dtgMovimento.TabIndex = 0;
-            dtgMovimento.CellClick += dtgMovimento_CellClick;
-            // 
-            // panBotoes
-            // 
-            panBotoes.Controls.Add(btnRelatorio);
-            panBotoes.Controls.Add(btnVoltar);
-            panBotoes.Dock = DockStyle.Bottom;
-            panBotoes.Location = new Point(0, 533);
-            panBotoes.Name = "panBotoes";
-            panBotoes.Size = new Size(1168, 85);
-            panBotoes.TabIndex = 2;
-            // 
-            // btnRelatorio
-            // 
-            btnRelatorio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRelatorio.Location = new Point(979, 17);
-            btnRelatorio.Name = "btnRelatorio";
-            btnRelatorio.Size = new Size(157, 48);
-            btnRelatorio.TabIndex = 2;
-            btnRelatorio.Text = "Relatorio";
-            btnRelatorio.UseVisualStyleBackColor = true;
-            // 
-            // btnVoltar
-            // 
-            btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVoltar.Location = new Point(748, 17);
-            btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(157, 48);
-            btnVoltar.TabIndex = 0;
-            btnVoltar.Text = "Voltar";
-            btnVoltar.UseVisualStyleBackColor = true;
-            // 
-            // panFundo
-            // 
-            panFundo.Controls.Add(panBotoes);
-            panFundo.Controls.Add(panCadastro);
-            panFundo.Controls.Add(panGridMovimento);
-            panFundo.Dock = DockStyle.Fill;
-            panFundo.Location = new Point(0, 0);
-            panFundo.Name = "panFundo";
-            panFundo.Size = new Size(1168, 618);
-            panFundo.TabIndex = 0;
-            // 
             // FormMovimento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1168, 618);
+            ClientSize = new Size(1184, 621);
             Controls.Add(panFundo);
             Name = "FormMovimento";
             Text = "FormMovimento";
             Load += FormMovimento_Load;
-            panCadastro.ResumeLayout(false);
-            panCadastro.PerformLayout();
-            panGridMovimento.ResumeLayout(false);
+            panFundo.ResumeLayout(false);
+            panGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgMovimento).EndInit();
             panBotoes.ResumeLayout(false);
-            panFundo.ResumeLayout(false);
+            panCadastro.ResumeLayout(false);
+            panCadastro.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panCadastro;
-        private Panel panGridMovimento;
         private TextBox txtPesoEntrada;
         private Label lblPesoSaida;
         private Label lblPesoEntrada;
@@ -338,5 +341,6 @@
         private TextBox txtId;
         private Label lblId;
         private Button btnLimpar;
+        private Panel panGrid;
     }
 }

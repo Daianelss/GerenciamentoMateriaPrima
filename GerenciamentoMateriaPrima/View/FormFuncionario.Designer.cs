@@ -63,7 +63,7 @@
             panCadastroFuncionario.Dock = DockStyle.Top;
             panCadastroFuncionario.Location = new Point(0, 0);
             panCadastroFuncionario.Name = "panCadastroFuncionario";
-            panCadastroFuncionario.Size = new Size(1168, 76);
+            panCadastroFuncionario.Size = new Size(1184, 76);
             panCadastroFuncionario.TabIndex = 0;
             // 
             // gpbStatus
@@ -91,7 +91,7 @@
             btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             btnLimpar.Location = new Point(999, 15);
             btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(157, 48);
+            btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 5;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             btnSalvar.Location = new Point(836, 15);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(157, 48);
+            btnSalvar.Size = new Size(160, 50);
             btnSalvar.TabIndex = 2;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
@@ -114,15 +114,15 @@
             txtIdFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             txtIdFuncionario.Location = new Point(52, 21);
             txtIdFuncionario.Name = "txtIdFuncionario";
-            txtIdFuncionario.Size = new Size(84, 36);
+            txtIdFuncionario.Size = new Size(85, 36);
             txtIdFuncionario.TabIndex = 1;
             // 
             // txtNomeFuncionario
             // 
             txtNomeFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNomeFuncionario.Location = new Point(256, 21);
+            txtNomeFuncionario.Location = new Point(227, 21);
             txtNomeFuncionario.Name = "txtNomeFuncionario";
-            txtNomeFuncionario.Size = new Size(463, 36);
+            txtNomeFuncionario.Size = new Size(492, 36);
             txtNomeFuncionario.TabIndex = 1;
             // 
             // lblIdFuncionario
@@ -139,7 +139,7 @@
             // 
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNome.Location = new Point(161, 24);
+            lblNome.Location = new Point(143, 24);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(78, 30);
             lblNome.TabIndex = 0;
@@ -148,9 +148,9 @@
             // btnPesquisar
             // 
             btnPesquisar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(836, 15);
+            btnPesquisar.Location = new Point(838, 6);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(157, 48);
+            btnPesquisar.Size = new Size(160, 50);
             btnPesquisar.TabIndex = 3;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
@@ -169,16 +169,16 @@
             dtgFuncionario.ReadOnly = true;
             dtgFuncionario.RowTemplate.Height = 25;
             dtgFuncionario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgFuncionario.Size = new Size(1128, 417);
+            dtgFuncionario.Size = new Size(1144, 440);
             dtgFuncionario.TabIndex = 0;
             dtgFuncionario.CellClick += dtgFuncionario_CellClick;
             // 
             // btnVoltar
             // 
             btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVoltar.Location = new Point(999, 15);
+            btnVoltar.Location = new Point(1004, 6);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(157, 48);
+            btnVoltar.Size = new Size(160, 50);
             btnVoltar.TabIndex = 5;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
@@ -189,9 +189,9 @@
             panBotoes.Controls.Add(btnPesquisar);
             panBotoes.Controls.Add(btnVoltar);
             panBotoes.Dock = DockStyle.Bottom;
-            panBotoes.Location = new Point(0, 533);
+            panBotoes.Location = new Point(0, 556);
             panBotoes.Name = "panBotoes";
-            panBotoes.Size = new Size(1168, 85);
+            panBotoes.Size = new Size(1184, 65);
             panBotoes.TabIndex = 2;
             // 
             // panFuncionario
@@ -202,7 +202,7 @@
             panFuncionario.Dock = DockStyle.Fill;
             panFuncionario.Location = new Point(0, 0);
             panFuncionario.Name = "panFuncionario";
-            panFuncionario.Size = new Size(1168, 618);
+            panFuncionario.Size = new Size(1184, 621);
             panFuncionario.TabIndex = 3;
             // 
             // panListaFuncionario
@@ -212,14 +212,14 @@
             panListaFuncionario.Location = new Point(0, 76);
             panListaFuncionario.Name = "panListaFuncionario";
             panListaFuncionario.Padding = new Padding(20);
-            panListaFuncionario.Size = new Size(1168, 457);
+            panListaFuncionario.Size = new Size(1184, 480);
             panListaFuncionario.TabIndex = 3;
             // 
             // FormFuncionario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1168, 618);
+            ClientSize = new Size(1184, 621);
             Controls.Add(panFuncionario);
             Name = "FormFuncionario";
             Text = "Funcionario";

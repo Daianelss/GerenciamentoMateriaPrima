@@ -107,7 +107,6 @@ namespace GerenciamentoMateriaPrima.View
             dtgTipoMateriaPrima.DataSource = DtTipoMateriaPrima;
             OcultarColunas("StatusValor");
         }
-
         private void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)

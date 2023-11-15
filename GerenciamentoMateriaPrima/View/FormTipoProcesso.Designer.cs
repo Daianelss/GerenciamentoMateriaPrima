@@ -60,7 +60,7 @@
             panLista.Location = new Point(0, 133);
             panLista.Name = "panLista";
             panLista.Padding = new Padding(20);
-            panLista.Size = new Size(1168, 414);
+            panLista.Size = new Size(1184, 423);
             panLista.TabIndex = 3;
             // 
             // dtgTipoProcesso
@@ -77,7 +77,7 @@
             dtgTipoProcesso.ReadOnly = true;
             dtgTipoProcesso.RowTemplate.Height = 25;
             dtgTipoProcesso.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgTipoProcesso.Size = new Size(1128, 374);
+            dtgTipoProcesso.Size = new Size(1144, 383);
             dtgTipoProcesso.TabIndex = 0;
             dtgTipoProcesso.CellClick += dtgTipoProcesso_CellClick;
             // 
@@ -124,7 +124,7 @@
             btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             btnLimpar.Location = new Point(972, 9);
             btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(157, 48);
+            btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 5;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             btnSalvar.Location = new Point(803, 9);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(157, 48);
+            btnSalvar.Size = new Size(160, 50);
             btnSalvar.TabIndex = 2;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             txtId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             txtId.Location = new Point(52, 18);
             txtId.Name = "txtId";
-            txtId.Size = new Size(84, 36);
+            txtId.Size = new Size(85, 36);
             txtId.TabIndex = 1;
             // 
             // panBotoes
@@ -155,17 +155,18 @@
             panBotoes.Controls.Add(btnPesquisar);
             panBotoes.Controls.Add(btnVoltar);
             panBotoes.Dock = DockStyle.Bottom;
-            panBotoes.Location = new Point(0, 547);
+            panBotoes.Location = new Point(0, 556);
             panBotoes.Name = "panBotoes";
-            panBotoes.Size = new Size(1168, 71);
+            panBotoes.Padding = new Padding(0, 0, 0, 17);
+            panBotoes.Size = new Size(1184, 65);
             panBotoes.TabIndex = 2;
             // 
             // btnPesquisar
             // 
             btnPesquisar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(825, 11);
+            btnPesquisar.Location = new Point(838, 6);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(157, 48);
+            btnPesquisar.Size = new Size(160, 50);
             btnPesquisar.TabIndex = 3;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
@@ -173,9 +174,9 @@
             // btnVoltar
             // 
             btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVoltar.Location = new Point(996, 11);
+            btnVoltar.Location = new Point(1004, 6);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(157, 48);
+            btnVoltar.Size = new Size(160, 50);
             btnVoltar.TabIndex = 5;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
@@ -217,7 +218,7 @@
             panTipoProcesso.Dock = DockStyle.Fill;
             panTipoProcesso.Location = new Point(0, 0);
             panTipoProcesso.Name = "panTipoProcesso";
-            panTipoProcesso.Size = new Size(1168, 618);
+            panTipoProcesso.Size = new Size(1184, 621);
             panTipoProcesso.TabIndex = 5;
             // 
             // panCadastro
@@ -234,14 +235,14 @@
             panCadastro.Dock = DockStyle.Top;
             panCadastro.Location = new Point(0, 0);
             panCadastro.Name = "panCadastro";
-            panCadastro.Size = new Size(1168, 133);
+            panCadastro.Size = new Size(1184, 133);
             panCadastro.TabIndex = 0;
             // 
             // FormTipoProcesso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1168, 618);
+            ClientSize = new Size(1184, 621);
             Controls.Add(panTipoProcesso);
             Name = "FormTipoProcesso";
             Text = "Processo";

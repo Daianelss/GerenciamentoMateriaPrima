@@ -86,7 +86,6 @@ namespace GerenciamentoMateriaPrima.View
         }
         #endregion
 
-
         #region Metodos
         public void CarregarDataGridView()
         {
@@ -96,14 +95,12 @@ namespace GerenciamentoMateriaPrima.View
             dtgTipoProcesso.DataSource = DtTipoProcesso;
             OcultarColunas("StatusValor");
         }
-
         private void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgTipoProcesso.Columns[coluna].Visible = false;
 
         }
-
         private void Limpar()
         {
             Id = string.Empty;
@@ -112,9 +109,6 @@ namespace GerenciamentoMateriaPrima.View
             Descricao = string.Empty;
         }
         #endregion
-
-
-
 
     }
 }

@@ -19,21 +19,19 @@ namespace GerenciamentoMateriaPrima.View
         public DataTable DtFuncionario { get; set; }
         public bool Editando { get; set; }
         #endregion
-
-        public FormFuncionario()
-        {
-            InitializeComponent();
-        }
         public void SetControlador(FuncionarioController funcionarioControlador)
         {
             Controlador = funcionarioControlador;
         }
-
+        public FormFuncionario()
+        {
+            InitializeComponent();
+        }
+        #region Acoes
         private void FormFuncionario_Load(object sender, EventArgs e)
         {
             CarregarDataGridView();
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (Editando)
@@ -64,17 +62,14 @@ namespace GerenciamentoMateriaPrima.View
 
             Editando = false;
         }
-
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             Limpar();
         }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void dtgFuncionario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Editando = true;
@@ -86,7 +81,9 @@ namespace GerenciamentoMateriaPrima.View
                 Status = Convert.ToBoolean(Convert.ToInt32(dtgFuncionario.SelectedRows[0].Cells["StatusValor"].Value.ToString()));
             }
         }
+        #endregion
 
+        #region Metodos
         private void Limpar()
         {
             Nome = string.Empty;
@@ -95,7 +92,6 @@ namespace GerenciamentoMateriaPrima.View
             Editando = false;
             DtFuncionario = null;
         }
-
         public void CarregarDataGridView()
         {
             Limpar();
@@ -104,11 +100,22 @@ namespace GerenciamentoMateriaPrima.View
             dtgFuncionario.DataSource = DtFuncionario;
             OcultarColunas("StatusValor");
         }
-
         private void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgFuncionario.Columns[coluna].Visible = false;
         }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
     }
 }

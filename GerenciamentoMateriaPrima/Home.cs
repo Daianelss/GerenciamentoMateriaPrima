@@ -66,5 +66,10 @@ namespace GerenciamentoMateriaPrima
             tipoProcesso.SetControlador(controller);
             tipoProcesso.ShowDialog();
         }
+
+        private void listarQuebra()
+        {
+
+        }
     }
 }

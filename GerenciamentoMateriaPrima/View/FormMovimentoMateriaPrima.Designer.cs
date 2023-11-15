@@ -32,9 +32,12 @@
             panListaMovimento = new Panel();
             dtgListaMovimento = new DataGridView();
             panOpcoes = new Panel();
+            btnVoltar = new Button();
             btnPesquisar = new Button();
             panCadastroMovimento = new Panel();
             dtData = new DateTimePicker();
+            lblTipoMateriaPrima = new Label();
+            cmbTipoMateriaPrima = new ComboBox();
             btnLimpar = new Button();
             btnSalvar = new Button();
             txtDescricao = new TextBox();
@@ -47,9 +50,6 @@
             lblPeso = new Label();
             lblData = new Label();
             lblId = new Label();
-            btnVoltar = new Button();
-            lblTipoMateriaPrima = new Label();
-            cmbTipoMateriaPrima = new ComboBox();
             panFundo.SuspendLayout();
             panListaMovimento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaMovimento).BeginInit();
@@ -66,7 +66,7 @@
             panFundo.Dock = DockStyle.Fill;
             panFundo.Location = new Point(0, 0);
             panFundo.Name = "panFundo";
-            panFundo.Size = new Size(1168, 618);
+            panFundo.Size = new Size(1184, 621);
             panFundo.TabIndex = 0;
             // 
             // panListaMovimento
@@ -76,7 +76,7 @@
             panListaMovimento.Location = new Point(0, 194);
             panListaMovimento.Name = "panListaMovimento";
             panListaMovimento.Padding = new Padding(20);
-            panListaMovimento.Size = new Size(1168, 339);
+            panListaMovimento.Size = new Size(1184, 362);
             panListaMovimento.TabIndex = 2;
             // 
             // dtgListaMovimento
@@ -91,7 +91,7 @@
             dtgListaMovimento.ReadOnly = true;
             dtgListaMovimento.RowTemplate.Height = 25;
             dtgListaMovimento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgListaMovimento.Size = new Size(1128, 299);
+            dtgListaMovimento.Size = new Size(1144, 322);
             dtgListaMovimento.TabIndex = 0;
             dtgListaMovimento.CellClick += dtgListaMovimento_CellClick;
             // 
@@ -100,17 +100,28 @@
             panOpcoes.Controls.Add(btnVoltar);
             panOpcoes.Controls.Add(btnPesquisar);
             panOpcoes.Dock = DockStyle.Bottom;
-            panOpcoes.Location = new Point(0, 533);
+            panOpcoes.Location = new Point(0, 556);
             panOpcoes.Name = "panOpcoes";
-            panOpcoes.Size = new Size(1168, 85);
+            panOpcoes.Size = new Size(1184, 65);
             panOpcoes.TabIndex = 1;
+            // 
+            // btnVoltar
+            // 
+            btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVoltar.Location = new Point(1004, 6);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(160, 50);
+            btnVoltar.TabIndex = 6;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = true;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // btnPesquisar
             // 
             btnPesquisar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(823, 20);
+            btnPesquisar.Location = new Point(838, 6);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(157, 48);
+            btnPesquisar.Size = new Size(160, 50);
             btnPesquisar.TabIndex = 0;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
@@ -134,7 +145,7 @@
             panCadastroMovimento.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             panCadastroMovimento.Location = new Point(0, 0);
             panCadastroMovimento.Name = "panCadastroMovimento";
-            panCadastroMovimento.Size = new Size(1168, 194);
+            panCadastroMovimento.Size = new Size(1184, 194);
             panCadastroMovimento.TabIndex = 0;
             // 
             // dtData
@@ -147,11 +158,29 @@
             dtData.TabIndex = 13;
             dtData.Value = new DateTime(2023, 11, 12, 16, 5, 34, 0);
             // 
+            // lblTipoMateriaPrima
+            // 
+            lblTipoMateriaPrima.AutoSize = true;
+            lblTipoMateriaPrima.Location = new Point(17, 86);
+            lblTipoMateriaPrima.Name = "lblTipoMateriaPrima";
+            lblTipoMateriaPrima.Size = new Size(155, 32);
+            lblTipoMateriaPrima.TabIndex = 12;
+            lblTipoMateriaPrima.Text = "MateriaPrima";
+            // 
+            // cmbTipoMateriaPrima
+            // 
+            cmbTipoMateriaPrima.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipoMateriaPrima.FormattingEnabled = true;
+            cmbTipoMateriaPrima.Location = new Point(178, 82);
+            cmbTipoMateriaPrima.Name = "cmbTipoMateriaPrima";
+            cmbTipoMateriaPrima.Size = new Size(502, 40);
+            cmbTipoMateriaPrima.TabIndex = 11;
+            // 
             // btnLimpar
             // 
             btnLimpar.Location = new Point(985, 76);
             btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(157, 48);
+            btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 10;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
@@ -161,7 +190,7 @@
             // 
             btnSalvar.Location = new Point(985, 19);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(157, 48);
+            btnSalvar.Size = new Size(160, 50);
             btnSalvar.TabIndex = 9;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
@@ -180,13 +209,14 @@
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(100, 39);
             txtPeso.TabIndex = 6;
+            txtPeso.KeyPress += txtPeso_KeyPress;
             // 
             // txtId
             // 
             txtId.Enabled = false;
             txtId.Location = new Point(51, 29);
             txtId.Name = "txtId";
-            txtId.Size = new Size(79, 39);
+            txtId.Size = new Size(85, 39);
             txtId.TabIndex = 5;
             // 
             // gpbTipoMovimento
@@ -255,43 +285,15 @@
             lblId.AutoSize = true;
             lblId.Location = new Point(13, 32);
             lblId.Name = "lblId";
-            lblId.Size = new Size(42, 32);
+            lblId.Size = new Size(39, 32);
             lblId.TabIndex = 0;
-            lblId.Text = "ID:";
-            // 
-            // btnVoltar
-            // 
-            btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVoltar.Location = new Point(999, 20);
-            btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(157, 48);
-            btnVoltar.TabIndex = 6;
-            btnVoltar.Text = "Voltar";
-            btnVoltar.UseVisualStyleBackColor = true;
-            // 
-            // lblTipoMateriaPrima
-            // 
-            lblTipoMateriaPrima.AutoSize = true;
-            lblTipoMateriaPrima.Location = new Point(17, 86);
-            lblTipoMateriaPrima.Name = "lblTipoMateriaPrima";
-            lblTipoMateriaPrima.Size = new Size(155, 32);
-            lblTipoMateriaPrima.TabIndex = 12;
-            lblTipoMateriaPrima.Text = "MateriaPrima";
-            // 
-            // cmbTipoMateriaPrima
-            // 
-            cmbTipoMateriaPrima.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTipoMateriaPrima.FormattingEnabled = true;
-            cmbTipoMateriaPrima.Location = new Point(178, 82);
-            cmbTipoMateriaPrima.Name = "cmbTipoMateriaPrima";
-            cmbTipoMateriaPrima.Size = new Size(502, 40);
-            cmbTipoMateriaPrima.TabIndex = 11;
+            lblId.Text = "Id:";
             // 
             // FormMovimentoMateriaPrima
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1168, 618);
+            ClientSize = new Size(1184, 621);
             Controls.Add(panFundo);
             Name = "FormMovimentoMateriaPrima";
             Text = "FormMovimentoMateriaPrima";
