@@ -1,12 +1,12 @@
 ﻿using GerenciamentoMateriaPrima.Controller;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
+using GerenciamentoMateriaPrima.Utils;
 using System.Data;
-using System.Globalization;
 
 namespace GerenciamentoMateriaPrima.View
 {
-    public partial class FormMovimentoMateriaPrima : Form, IMovimentoMateriaPrima
+    public partial class FormMovimentoMateriaPrima : Form, IMovimentoMateriaPrima, IBaseForm
     {
         public MovimentoMateriaPrimaController Controlador { get; set; }
         #region Elementos de tela
@@ -89,7 +89,7 @@ namespace GerenciamentoMateriaPrima.View
             if (dtgListaMovimento.SelectedRows.Count > 0)
             {
                 Id = dtgListaMovimento.SelectedRows[0].Cells["Id"].Value.ToString();
-                Data = ConverterTextoParaData(dtgListaMovimento.SelectedRows[0].Cells["Data"].Value.ToString(), "dd/MM/yyyy HH:mm:ss");
+                Data = Conversoes.ConverterTextoParaData(dtgListaMovimento.SelectedRows[0].Cells["Data"].Value.ToString(), "dd/MM/yyyy HH:mm:ss");
                 Peso = dtgListaMovimento.SelectedRows[0].Cells["Peso"].Value.ToString();
                 Descricao = dtgListaMovimento.SelectedRows[0].Cells["Descricao"].Value.ToString();
                 Entrada = Convert.ToBoolean(Convert.ToInt32(dtgListaMovimento.SelectedRows[0].Cells["EntradaSaidaValor"].Value.ToString()));
@@ -103,12 +103,12 @@ namespace GerenciamentoMateriaPrima.View
         }
         private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ValidarNumeros(sender, e);
+            ValidarNumero(sender, e);
         }
         #endregion
 
         #region Metodos
-        private void Limpar()
+        public void Limpar()
         {
             Id = string.Empty;
             Data = DateTime.Now;
@@ -136,34 +136,18 @@ namespace GerenciamentoMateriaPrima.View
             cmbTipoMateriaPrima.ValueMember = "Id";
             cmbTipoMateriaPrima.SelectedIndex = -1;
         }
-        private void OcultarColunas(params string[] colunas)
+        public void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgListaMovimento.Columns[coluna].Visible = false;
-        }
-        private DateTime ConverterTextoParaData(string data, string padrao)
-        {
-
-            try
-            {
-                return DateTime.ParseExact(data, padrao, CultureInfo.InvariantCulture);
-            }
-            catch (Exception)
-            {
-                return DateTime.Now;
-            }
         }
         private void CarregarValoresDefault()
         {
             dtData.Value = DateTime.Now;
         }
-        private void ValidarNumeros(object sender, KeyPressEventArgs e)
+        public void ValidarNumero(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
+           // Validacao.ValidarNumeros(sender, e);
         }
 
         #endregion

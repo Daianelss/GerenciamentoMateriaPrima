@@ -1,23 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GerenciamentoMateriaPrima.Utils
+﻿namespace GerenciamentoMateriaPrima.Utils
 {
-    public class Validacao
+    public static class Validacao
     {
-        public object sender;
-        public KeyPressEventArgs e;
-
-        private void ValidarNumeros(object sender, KeyPressEventArgs e)
+        public static void ValidarNumeros(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            var textBox = sender as TextBox;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+                e.Handled = true;
+
+            if ((e.KeyChar == ',') && (textBox.Text.Contains(',')))
+                e.Handled = true;
+
+            if (!e.Handled && !char.IsControl(e.KeyChar))
             {
+                textBox.Text += e.KeyChar;
                 e.Handled = true;
             }
 
+            if (textBox.Text.FirstOrDefault() == ',')
+                textBox.Text = "0" + textBox.Text;
+
+            textBox.SelectionStart = textBox.Text.Length;
         }
     }
 }

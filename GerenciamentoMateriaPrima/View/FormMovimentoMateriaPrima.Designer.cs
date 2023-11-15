@@ -73,10 +73,10 @@
             // 
             panListaMovimento.Controls.Add(dtgListaMovimento);
             panListaMovimento.Dock = DockStyle.Fill;
-            panListaMovimento.Location = new Point(0, 194);
+            panListaMovimento.Location = new Point(0, 169);
             panListaMovimento.Name = "panListaMovimento";
             panListaMovimento.Padding = new Padding(20);
-            panListaMovimento.Size = new Size(1184, 362);
+            panListaMovimento.Size = new Size(1184, 387);
             panListaMovimento.TabIndex = 2;
             // 
             // dtgListaMovimento
@@ -91,7 +91,7 @@
             dtgListaMovimento.ReadOnly = true;
             dtgListaMovimento.RowTemplate.Height = 25;
             dtgListaMovimento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgListaMovimento.Size = new Size(1144, 322);
+            dtgListaMovimento.Size = new Size(1144, 347);
             dtgListaMovimento.TabIndex = 0;
             dtgListaMovimento.CellClick += dtgListaMovimento_CellClick;
             // 
@@ -119,7 +119,7 @@
             // btnPesquisar
             // 
             btnPesquisar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(838, 6);
+            btnPesquisar.Location = new Point(837, 6);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(160, 50);
             btnPesquisar.TabIndex = 0;
@@ -145,14 +145,14 @@
             panCadastroMovimento.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             panCadastroMovimento.Location = new Point(0, 0);
             panCadastroMovimento.Name = "panCadastroMovimento";
-            panCadastroMovimento.Size = new Size(1184, 194);
+            panCadastroMovimento.Size = new Size(1184, 169);
             panCadastroMovimento.TabIndex = 0;
             // 
             // dtData
             // 
             dtData.CustomFormat = "dd/MM/yyyy";
             dtData.Format = DateTimePickerFormat.Short;
-            dtData.Location = new Point(466, 29);
+            dtData.Location = new Point(466, 17);
             dtData.Name = "dtData";
             dtData.Size = new Size(164, 39);
             dtData.TabIndex = 13;
@@ -161,7 +161,7 @@
             // lblTipoMateriaPrima
             // 
             lblTipoMateriaPrima.AutoSize = true;
-            lblTipoMateriaPrima.Location = new Point(17, 86);
+            lblTipoMateriaPrima.Location = new Point(20, 74);
             lblTipoMateriaPrima.Name = "lblTipoMateriaPrima";
             lblTipoMateriaPrima.Size = new Size(155, 32);
             lblTipoMateriaPrima.TabIndex = 12;
@@ -171,14 +171,14 @@
             // 
             cmbTipoMateriaPrima.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipoMateriaPrima.FormattingEnabled = true;
-            cmbTipoMateriaPrima.Location = new Point(178, 82);
+            cmbTipoMateriaPrima.Location = new Point(178, 70);
             cmbTipoMateriaPrima.Name = "cmbTipoMateriaPrima";
             cmbTipoMateriaPrima.Size = new Size(502, 40);
             cmbTipoMateriaPrima.TabIndex = 11;
             // 
             // btnLimpar
             // 
-            btnLimpar.Location = new Point(985, 76);
+            btnLimpar.Location = new Point(985, 64);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 10;
@@ -188,7 +188,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(985, 19);
+            btnSalvar.Location = new Point(985, 7);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(160, 50);
             btnSalvar.TabIndex = 9;
@@ -198,14 +198,14 @@
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(144, 137);
+            txtDescricao.Location = new Point(144, 125);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(961, 39);
             txtDescricao.TabIndex = 8;
             // 
             // txtPeso
             // 
-            txtPeso.Location = new Point(219, 29);
+            txtPeso.Location = new Point(219, 17);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(100, 39);
             txtPeso.TabIndex = 6;
@@ -214,7 +214,7 @@
             // txtId
             // 
             txtId.Enabled = false;
-            txtId.Location = new Point(51, 29);
+            txtId.Location = new Point(56, 17);
             txtId.Name = "txtId";
             txtId.Size = new Size(85, 39);
             txtId.TabIndex = 5;
@@ -224,7 +224,7 @@
             gpbTipoMovimento.Controls.Add(rdbSaida);
             gpbTipoMovimento.Controls.Add(rdbEntrada);
             gpbTipoMovimento.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            gpbTipoMovimento.Location = new Point(711, 19);
+            gpbTipoMovimento.Location = new Point(711, 7);
             gpbTipoMovimento.Name = "gpbTipoMovimento";
             gpbTipoMovimento.Size = new Size(243, 105);
             gpbTipoMovimento.TabIndex = 4;
@@ -256,7 +256,7 @@
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(9, 140);
+            lblDescricao.Location = new Point(20, 128);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(121, 32);
             lblDescricao.TabIndex = 3;
@@ -265,7 +265,7 @@
             // lblPeso
             // 
             lblPeso.AutoSize = true;
-            lblPeso.Location = new Point(145, 32);
+            lblPeso.Location = new Point(145, 20);
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(68, 32);
             lblPeso.TabIndex = 2;
@@ -274,7 +274,7 @@
             // lblData
             // 
             lblData.AutoSize = true;
-            lblData.Location = new Point(392, 32);
+            lblData.Location = new Point(392, 20);
             lblData.Name = "lblData";
             lblData.Size = new Size(68, 32);
             lblData.TabIndex = 1;
@@ -283,7 +283,7 @@
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(13, 32);
+            lblId.Location = new Point(20, 20);
             lblId.Name = "lblId";
             lblId.Size = new Size(39, 32);
             lblId.TabIndex = 0;
@@ -296,7 +296,7 @@
             ClientSize = new Size(1184, 621);
             Controls.Add(panFundo);
             Name = "FormMovimentoMateriaPrima";
-            Text = "FormMovimentoMateriaPrima";
+            Text = "Entrada / Saída";
             Load += FormMovimentoMateriaPrima_Load;
             panFundo.ResumeLayout(false);
             panListaMovimento.ResumeLayout(false);

@@ -89,7 +89,7 @@
             // btnLimpar
             // 
             btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpar.Location = new Point(999, 15);
+            btnLimpar.Location = new Point(1004, 15);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 5;
@@ -129,7 +129,7 @@
             // 
             lblIdFuncionario.AutoSize = true;
             lblIdFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblIdFuncionario.Location = new Point(9, 24);
+            lblIdFuncionario.Location = new Point(20, 24);
             lblIdFuncionario.Name = "lblIdFuncionario";
             lblIdFuncionario.Size = new Size(37, 30);
             lblIdFuncionario.TabIndex = 0;

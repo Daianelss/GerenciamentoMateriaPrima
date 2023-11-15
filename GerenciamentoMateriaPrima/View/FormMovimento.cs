@@ -1,12 +1,12 @@
 ﻿using GerenciamentoMateriaPrima.Controller;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
+using GerenciamentoMateriaPrima.Utils;
 using System.Data;
-using System.Globalization;
 
 namespace GerenciamentoMateriaPrima.View
 {
-    public partial class FormMovimento : Form, IMovimento
+    public partial class FormMovimento : Form, IMovimento, IBaseForm
     {
         public MovimentoController Controlador { get; set; }
 
@@ -100,7 +100,7 @@ namespace GerenciamentoMateriaPrima.View
             if (dtgMovimento.SelectedRows.Count > 0)
             {
                 Id = dtgMovimento.SelectedRows[0].Cells["Id"].Value.ToString();
-                Data = ConverterTextoParaData(dtgMovimento.SelectedRows[0].Cells["Data"].Value.ToString(), "dd/MM/yyyy HH:mm:ss");
+                Data = Conversoes.ConverterTextoParaData(dtgMovimento.SelectedRows[0].Cells["Data"].Value.ToString(), "dd/MM/yyyy HH:mm:ss");
                 PesoEntrada = dtgMovimento.SelectedRows[0].Cells["PesoEntrada"].Value.ToString();
                 PesoSaida = dtgMovimento.SelectedRows[0].Cells["PesoSaida"].Value.ToString();
                 Descricao = dtgMovimento.SelectedRows[0].Cells["Descricao"].Value.ToString();
@@ -108,14 +108,7 @@ namespace GerenciamentoMateriaPrima.View
                 FuncionarioId = dtgMovimento.SelectedRows[0].Cells["FuncionarioId"].Value.ToString();
             }
         }
-        private void txtPesoSaida_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ValidarNumeros(sender, e);
-        }
-        private void txtPesoEntrada_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ValidarNumeros(sender, e);
-        }
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -123,7 +116,7 @@ namespace GerenciamentoMateriaPrima.View
         #endregion
 
         #region Metodos
-        private void Limpar()
+        public void Limpar()
         {
             Id = string.Empty;
             Data = DateTime.Now;
@@ -161,39 +154,32 @@ namespace GerenciamentoMateriaPrima.View
             cmbFuncionario.ValueMember = "Id";
             cmbFuncionario.SelectedIndex = -1;
         }
-        private void OcultarColunas(params string[] colunas)
+        public void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgMovimento.Columns[coluna].Visible = false;
-        }
-        private DateTime ConverterTextoParaData(string data, string padrao)
-        {
-
-            try
-            {
-                return DateTime.ParseExact(data, padrao, CultureInfo.InvariantCulture);
-            }
-            catch (Exception)
-            {
-                return DateTime.Now;
-            }
         }
         private void CarregarValoresDefault()
         {
             dtsData.Value = DateTime.Now;
         }
-        private void ValidarNumeros(object sender, KeyPressEventArgs e)
+        public void ValidarNumero(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
+            Validacao.ValidarNumeros(sender, e);
         }
         #endregion
 
+        private void txtPesoEntrada_Leave(object sender, EventArgs e)
+        {
+            var textBox = sender as TextBox;
 
+            if (string.IsNullOrEmpty(textBox?.Text))
+                textBox.Text = "0,00";
+            else if (textBox.Text.LastOrDefault() == ',')
+                textBox.Text = Convert.ToDouble(textBox.Text + '0').ToString("F2");
+            else
+                textBox.Text = Convert.ToDouble(textBox.Text).ToString("F2");
 
-
+        }
     }
 }

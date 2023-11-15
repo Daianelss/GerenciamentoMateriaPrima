@@ -75,14 +75,14 @@
             txtDescricaoTipoMateriaPrima.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             txtDescricaoTipoMateriaPrima.Location = new Point(126, 70);
             txtDescricaoTipoMateriaPrima.Name = "txtDescricaoTipoMateriaPrima";
-            txtDescricaoTipoMateriaPrima.Size = new Size(1016, 36);
+            txtDescricaoTipoMateriaPrima.Size = new Size(1038, 36);
             txtDescricaoTipoMateriaPrima.TabIndex = 11;
             // 
             // lblDescricaoTipoMateriaPrima
             // 
             lblDescricaoTipoMateriaPrima.AutoSize = true;
             lblDescricaoTipoMateriaPrima.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDescricaoTipoMateriaPrima.Location = new Point(9, 73);
+            lblDescricaoTipoMateriaPrima.Location = new Point(20, 73);
             lblDescricaoTipoMateriaPrima.Name = "lblDescricaoTipoMateriaPrima";
             lblDescricaoTipoMateriaPrima.Size = new Size(111, 30);
             lblDescricaoTipoMateriaPrima.TabIndex = 10;
@@ -91,7 +91,7 @@
             // gpbStatus
             // 
             gpbStatus.Controls.Add(chkStatus);
-            gpbStatus.Location = new Point(726, 12);
+            gpbStatus.Location = new Point(726, 10);
             gpbStatus.Name = "gpbStatus";
             gpbStatus.Size = new Size(94, 48);
             gpbStatus.TabIndex = 9;
@@ -111,7 +111,7 @@
             // btnLimpar
             // 
             btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpar.Location = new Point(999, 12);
+            btnLimpar.Location = new Point(1004, 12);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 5;
@@ -122,7 +122,7 @@
             // btnSalvar
             // 
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalvar.Location = new Point(836, 12);
+            btnSalvar.Location = new Point(838, 12);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(160, 50);
             btnSalvar.TabIndex = 2;
@@ -134,7 +134,7 @@
             // 
             txtIdTipoMateriaPrima.Enabled = false;
             txtIdTipoMateriaPrima.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtIdTipoMateriaPrima.Location = new Point(52, 18);
+            txtIdTipoMateriaPrima.Location = new Point(57, 19);
             txtIdTipoMateriaPrima.Name = "txtIdTipoMateriaPrima";
             txtIdTipoMateriaPrima.Size = new Size(85, 36);
             txtIdTipoMateriaPrima.TabIndex = 1;
@@ -142,16 +142,16 @@
             // txtNomeTipoMateriaPrima
             // 
             txtNomeTipoMateriaPrima.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNomeTipoMateriaPrima.Location = new Point(210, 21);
+            txtNomeTipoMateriaPrima.Location = new Point(227, 19);
             txtNomeTipoMateriaPrima.Name = "txtNomeTipoMateriaPrima";
-            txtNomeTipoMateriaPrima.Size = new Size(500, 36);
+            txtNomeTipoMateriaPrima.Size = new Size(483, 36);
             txtNomeTipoMateriaPrima.TabIndex = 1;
             // 
             // lblIdTipoMateriaPrima
             // 
             lblIdTipoMateriaPrima.AutoSize = true;
             lblIdTipoMateriaPrima.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblIdTipoMateriaPrima.Location = new Point(9, 21);
+            lblIdTipoMateriaPrima.Location = new Point(20, 22);
             lblIdTipoMateriaPrima.Name = "lblIdTipoMateriaPrima";
             lblIdTipoMateriaPrima.Size = new Size(37, 30);
             lblIdTipoMateriaPrima.TabIndex = 0;
@@ -161,7 +161,7 @@
             // 
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNome.Location = new Point(126, 21);
+            lblNome.Location = new Point(143, 22);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(78, 30);
             lblNome.TabIndex = 0;
@@ -244,7 +244,7 @@
             ClientSize = new Size(1184, 621);
             Controls.Add(panTipoMateriaPrima);
             Name = "FormTipoMateriaPrima";
-            Text = "FormTipoMateriaPrima";
+            Text = "Materia Prima";
             Load += FormTipoMateriaPrima_Load;
             panCadastroTipoMateriaPrima.ResumeLayout(false);
             panCadastroTipoMateriaPrima.PerformLayout();

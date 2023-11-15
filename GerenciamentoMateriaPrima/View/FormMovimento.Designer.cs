@@ -1,4 +1,6 @@
-﻿namespace GerenciamentoMateriaPrima.View
+﻿using GerenciamentoMateriaPrima.Utils;
+
+namespace GerenciamentoMateriaPrima.View
 {
     partial class FormMovimento
     {
@@ -216,17 +218,20 @@
             // 
             txtPesoSaida.Location = new Point(977, 66);
             txtPesoSaida.Name = "txtPesoSaida";
+            txtPesoSaida.RightToLeft = RightToLeft.No;
             txtPesoSaida.Size = new Size(145, 36);
             txtPesoSaida.TabIndex = 10;
-            txtPesoSaida.KeyPress += txtPesoSaida_KeyPress;
+            txtPesoSaida.KeyPress += ValidarNumero;
             // 
             // txtPesoEntrada
             // 
             txtPesoEntrada.Location = new Point(689, 66);
             txtPesoEntrada.Name = "txtPesoEntrada";
+            txtPesoEntrada.RightToLeft = RightToLeft.No;
             txtPesoEntrada.Size = new Size(145, 36);
             txtPesoEntrada.TabIndex = 9;
-            txtPesoEntrada.KeyPress += txtPesoEntrada_KeyPress;
+            txtPesoEntrada.KeyPress += ValidarNumero;
+            txtPesoEntrada.Leave += txtPesoEntrada_Leave;
             // 
             // lblPesoSaida
             // 
@@ -306,7 +311,7 @@
             ClientSize = new Size(1184, 621);
             Controls.Add(panFundo);
             Name = "FormMovimento";
-            Text = "FormMovimento";
+            Text = "Banca";
             Load += FormMovimento_Load;
             panFundo.ResumeLayout(false);
             panGrid.ResumeLayout(false);
