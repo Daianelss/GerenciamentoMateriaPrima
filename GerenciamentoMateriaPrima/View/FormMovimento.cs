@@ -72,7 +72,6 @@ namespace GerenciamentoMateriaPrima.View
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show($"Houve um erro ao tentar alterar o Movimento. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
@@ -149,10 +148,13 @@ namespace GerenciamentoMateriaPrima.View
         public void CarregarFuncionario()
         {
             var dados = Controlador.ListarFuncionarios();
+            cmbFuncionario.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbFuncionario.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbFuncionario.DataSource = dados;
             cmbFuncionario.DisplayMember = "Nome";
             cmbFuncionario.ValueMember = "Id";
             cmbFuncionario.SelectedIndex = -1;
+
         }
         public void OcultarColunas(params string[] colunas)
         {
@@ -179,6 +181,29 @@ namespace GerenciamentoMateriaPrima.View
                 textBox.Text = Convert.ToDouble(textBox.Text + '0').ToString("F2");
             else
                 textBox.Text = Convert.ToDouble(textBox.Text).ToString("F2");
+
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var arquivo = new SaveFileDialog
+                {
+                    Filter = "XLSX | *.xlsx",
+                    Title = "Escolha o local e nome do arquivo para salvar!"
+                };
+
+                arquivo.ShowDialog();
+
+                Controlador.GerarExcel(dtgMovimento, arquivo.FileName, "RelatorioMovimento");
+
+                MessageBox.Show($"Planilha gerada com sucesso!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Houve um erro ao tentar gerar o excel. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
         }
     }
