@@ -1,6 +1,5 @@
 ﻿using GerenciamentoMateriaPrima.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 namespace GerenciamentoMateriaPrima.Context
 {
@@ -15,10 +14,9 @@ namespace GerenciamentoMateriaPrima.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connection = ConfigurationManager.AppSettings["Conexao"];
-            var version = new MySqlServerVersion(new Version(8, 0, 33));
+            var connection = $@"Data Source=banco_gerenciamento.db";
             optionsBuilder
-                .UseMySql(connection, version)
+                .UseSqlite(connection)
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
     }
