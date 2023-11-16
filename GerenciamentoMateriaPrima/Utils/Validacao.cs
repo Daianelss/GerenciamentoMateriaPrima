@@ -23,5 +23,17 @@
 
             textBox.SelectionStart = textBox.Text.Length;
         }
+
+        public static void FormatarCampoNumero(object sender, EventArgs e)
+        {
+            var textBox = sender as TextBox;
+
+            if (string.IsNullOrEmpty(textBox?.Text))
+                textBox.Text = "0,00";
+            else if (textBox.Text.LastOrDefault() == ',')
+                textBox.Text = Convert.ToDouble(textBox.Text + '0').ToString("F2");
+            else
+                textBox.Text = Convert.ToDouble(textBox.Text).ToString("F2");
+        }
     }
 }

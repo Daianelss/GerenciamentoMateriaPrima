@@ -1,4 +1,5 @@
 ﻿using GerenciamentoMateriaPrima.Controller;
+using GerenciamentoMateriaPrima.DataTables;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
 using GerenciamentoMateriaPrima.Utils;
@@ -101,9 +102,9 @@ namespace GerenciamentoMateriaPrima.View
         {
             this.Close();
         }
-        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtPeso_Leave(object sender, EventArgs e)
         {
-            ValidarNumero(sender, e);
+            Validacao.FormatarCampoNumero(sender, e);
         }
         #endregion
 
@@ -131,6 +132,8 @@ namespace GerenciamentoMateriaPrima.View
         public void CarregarTiposMateriaPrima()
         {
             var dados = Controlador.ListarTipoMateriaPrimas();
+            cmbTipoMateriaPrima.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbTipoMateriaPrima.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbTipoMateriaPrima.DataSource = dados;
             cmbTipoMateriaPrima.DisplayMember = "Nome";
             cmbTipoMateriaPrima.ValueMember = "Id";
@@ -147,9 +150,30 @@ namespace GerenciamentoMateriaPrima.View
         }
         public void ValidarNumero(object sender, KeyPressEventArgs e)
         {
-           // Validacao.ValidarNumeros(sender, e);
+            Validacao.ValidarNumeros(sender, e);
         }
 
         #endregion
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var arquivo = new SaveFileDialog
+                {
+                    Filter = "XLSX | *.xlsx",
+                    Title = "Escolha o local e nome do arquivo para salvar!"
+                };
+                arquivo.ShowDialog();
+
+                Controlador.GerarExcel(dtgListaMovimento, arquivo.FileName, "RelatorioMovimento");
+
+                MessageBox.Show($"Planilha gerada com sucesso!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Houve um erro ao tentar gerar o excel. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

@@ -112,6 +112,37 @@ namespace GerenciamentoMateriaPrima.View
         {
             this.Close();
         }
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var arquivo = new SaveFileDialog
+                {
+                    Filter = "XLSX | *.xlsx",
+                    Title = "Escolha o local e nome do arquivo para salvar!"
+                };
+
+                arquivo.ShowDialog();
+
+                Controlador.GerarExcel(dtgMovimento, arquivo.FileName, "RelatorioMovimento");
+
+                MessageBox.Show($"Planilha gerada com sucesso!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Houve um erro ao tentar gerar o excel. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+        private void txtPesoEntrada_Leave(object sender, EventArgs e)
+        {
+            Validacao.FormatarCampoNumero(sender, e);
+
+        }
+        private void txtPesoSaida_Leave(object sender, EventArgs e)
+        {
+            Validacao.FormatarCampoNumero(sender, e);
+        }
         #endregion
 
         #region Metodos
@@ -140,6 +171,8 @@ namespace GerenciamentoMateriaPrima.View
         public void CarregarTipoProcesso()
         {
             var dados = Controlador.ListarTiposProcessos();
+            cmbProcesso.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbProcesso.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbProcesso.DataSource = dados;
             cmbProcesso.DisplayMember = "Nome";
             cmbProcesso.ValueMember = "Id";
@@ -171,40 +204,7 @@ namespace GerenciamentoMateriaPrima.View
         }
         #endregion
 
-        private void txtPesoEntrada_Leave(object sender, EventArgs e)
-        {
-            var textBox = sender as TextBox;
 
-            if (string.IsNullOrEmpty(textBox?.Text))
-                textBox.Text = "0,00";
-            else if (textBox.Text.LastOrDefault() == ',')
-                textBox.Text = Convert.ToDouble(textBox.Text + '0').ToString("F2");
-            else
-                textBox.Text = Convert.ToDouble(textBox.Text).ToString("F2");
 
-        }
-
-        private void btnRelatorio_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var arquivo = new SaveFileDialog
-                {
-                    Filter = "XLSX | *.xlsx",
-                    Title = "Escolha o local e nome do arquivo para salvar!"
-                };
-
-                arquivo.ShowDialog();
-
-                Controlador.GerarExcel(dtgMovimento, arquivo.FileName, "RelatorioMovimento");
-
-                MessageBox.Show($"Planilha gerada com sucesso!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Houve um erro ao tentar gerar o excel. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-        }
     }
 }

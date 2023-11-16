@@ -57,10 +57,10 @@
             // 
             panLista.Controls.Add(dtgTipoProcesso);
             panLista.Dock = DockStyle.Fill;
-            panLista.Location = new Point(0, 133);
+            panLista.Location = new Point(0, 127);
             panLista.Name = "panLista";
             panLista.Padding = new Padding(20);
-            panLista.Size = new Size(1184, 423);
+            panLista.Size = new Size(1184, 429);
             panLista.TabIndex = 3;
             // 
             // dtgTipoProcesso
@@ -77,7 +77,7 @@
             dtgTipoProcesso.ReadOnly = true;
             dtgTipoProcesso.RowTemplate.Height = 25;
             dtgTipoProcesso.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgTipoProcesso.Size = new Size(1144, 383);
+            dtgTipoProcesso.Size = new Size(1144, 389);
             dtgTipoProcesso.TabIndex = 0;
             dtgTipoProcesso.CellClick += dtgTipoProcesso_CellClick;
             // 
@@ -86,7 +86,7 @@
             txtDescricao.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             txtDescricao.Location = new Point(126, 70);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(1016, 36);
+            txtDescricao.Size = new Size(1038, 36);
             txtDescricao.TabIndex = 11;
             // 
             // lblDescricao
@@ -102,7 +102,7 @@
             // gpbStatus
             // 
             gpbStatus.Controls.Add(chkStatus);
-            gpbStatus.Location = new Point(641, 9);
+            gpbStatus.Location = new Point(738, 7);
             gpbStatus.Name = "gpbStatus";
             gpbStatus.Size = new Size(94, 48);
             gpbStatus.TabIndex = 9;
@@ -122,7 +122,7 @@
             // btnLimpar
             // 
             btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpar.Location = new Point(972, 9);
+            btnLimpar.Location = new Point(1004, 9);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 5;
@@ -133,7 +133,7 @@
             // btnSalvar
             // 
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalvar.Location = new Point(803, 9);
+            btnSalvar.Location = new Point(838, 9);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(160, 50);
             btnSalvar.TabIndex = 2;
@@ -145,7 +145,7 @@
             // 
             txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtId.Location = new Point(52, 18);
+            txtId.Location = new Point(52, 16);
             txtId.Name = "txtId";
             txtId.Size = new Size(85, 36);
             txtId.TabIndex = 1;
@@ -185,16 +185,16 @@
             // txtNome
             // 
             txtNome.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNome.Location = new Point(256, 18);
+            txtNome.Location = new Point(230, 16);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(377, 36);
+            txtNome.Size = new Size(502, 36);
             txtNome.TabIndex = 1;
             // 
             // lblId
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblId.Location = new Point(9, 21);
+            lblId.Location = new Point(9, 19);
             lblId.Name = "lblId";
             lblId.Size = new Size(37, 30);
             lblId.TabIndex = 0;
@@ -204,7 +204,7 @@
             // 
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNome.Location = new Point(161, 21);
+            lblNome.Location = new Point(146, 19);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(78, 30);
             lblNome.TabIndex = 0;
@@ -235,7 +235,7 @@
             panCadastro.Dock = DockStyle.Top;
             panCadastro.Location = new Point(0, 0);
             panCadastro.Name = "panCadastro";
-            panCadastro.Size = new Size(1184, 133);
+            panCadastro.Size = new Size(1184, 127);
             panCadastro.TabIndex = 0;
             // 
             // FormTipoProcesso

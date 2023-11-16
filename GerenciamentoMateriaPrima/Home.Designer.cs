@@ -150,7 +150,7 @@
             // btnMovimentos
             // 
             btnMovimentos.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnMovimentos.Location = new Point(139, 65);
+            btnMovimentos.Location = new Point(21, 65);
             btnMovimentos.Name = "btnMovimentos";
             btnMovimentos.Size = new Size(170, 66);
             btnMovimentos.TabIndex = 1;
@@ -230,7 +230,7 @@
             // btnBanca
             // 
             btnBanca.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBanca.Location = new Point(363, 65);
+            btnBanca.Location = new Point(246, 65);
             btnBanca.Name = "btnBanca";
             btnBanca.Size = new Size(170, 66);
             btnBanca.TabIndex = 5;

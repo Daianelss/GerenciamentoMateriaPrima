@@ -69,7 +69,7 @@
             // gpbStatus
             // 
             gpbStatus.Controls.Add(chkStatus);
-            gpbStatus.Location = new Point(725, 12);
+            gpbStatus.Location = new Point(736, 12);
             gpbStatus.Name = "gpbStatus";
             gpbStatus.Size = new Size(94, 48);
             gpbStatus.TabIndex = 9;
@@ -89,7 +89,7 @@
             // btnLimpar
             // 
             btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpar.Location = new Point(1004, 15);
+            btnLimpar.Location = new Point(1002, 15);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(160, 50);
             btnLimpar.TabIndex = 5;
@@ -112,7 +112,7 @@
             // 
             txtIdFuncionario.Enabled = false;
             txtIdFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtIdFuncionario.Location = new Point(52, 21);
+            txtIdFuncionario.Location = new Point(63, 21);
             txtIdFuncionario.Name = "txtIdFuncionario";
             txtIdFuncionario.Size = new Size(85, 36);
             txtIdFuncionario.TabIndex = 1;
@@ -120,7 +120,7 @@
             // txtNomeFuncionario
             // 
             txtNomeFuncionario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNomeFuncionario.Location = new Point(227, 21);
+            txtNomeFuncionario.Location = new Point(238, 21);
             txtNomeFuncionario.Name = "txtNomeFuncionario";
             txtNomeFuncionario.Size = new Size(492, 36);
             txtNomeFuncionario.TabIndex = 1;
@@ -139,7 +139,7 @@
             // 
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNome.Location = new Point(143, 24);
+            lblNome.Location = new Point(154, 24);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(78, 30);
             lblNome.TabIndex = 0;
@@ -148,7 +148,7 @@
             // btnPesquisar
             // 
             btnPesquisar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(838, 6);
+            btnPesquisar.Location = new Point(836, 6);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(160, 50);
             btnPesquisar.TabIndex = 3;

@@ -33,7 +33,7 @@
             dtgListaMovimento = new DataGridView();
             panOpcoes = new Panel();
             btnVoltar = new Button();
-            btnPesquisar = new Button();
+            btnRelatorio = new Button();
             panCadastroMovimento = new Panel();
             dtData = new DateTimePicker();
             lblTipoMateriaPrima = new Label();
@@ -98,7 +98,7 @@
             // panOpcoes
             // 
             panOpcoes.Controls.Add(btnVoltar);
-            panOpcoes.Controls.Add(btnPesquisar);
+            panOpcoes.Controls.Add(btnRelatorio);
             panOpcoes.Dock = DockStyle.Bottom;
             panOpcoes.Location = new Point(0, 556);
             panOpcoes.Name = "panOpcoes";
@@ -111,20 +111,21 @@
             btnVoltar.Location = new Point(1004, 6);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(160, 50);
-            btnVoltar.TabIndex = 6;
+            btnVoltar.TabIndex = 9;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
             btnVoltar.Click += btnVoltar_Click;
             // 
-            // btnPesquisar
+            // btnRelatorio
             // 
-            btnPesquisar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(837, 6);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(160, 50);
-            btnPesquisar.TabIndex = 0;
-            btnPesquisar.Text = "Pesquisar";
-            btnPesquisar.UseVisualStyleBackColor = true;
+            btnRelatorio.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRelatorio.Location = new Point(837, 6);
+            btnRelatorio.Name = "btnRelatorio";
+            btnRelatorio.Size = new Size(160, 50);
+            btnRelatorio.TabIndex = 0;
+            btnRelatorio.Text = "Relatorio";
+            btnRelatorio.UseVisualStyleBackColor = true;
+            btnRelatorio.Click += btnRelatorio_Click;
             // 
             // panCadastroMovimento
             // 
@@ -152,16 +153,16 @@
             // 
             dtData.CustomFormat = "dd/MM/yyyy";
             dtData.Format = DateTimePickerFormat.Short;
-            dtData.Location = new Point(466, 17);
+            dtData.Location = new Point(402, 30);
             dtData.Name = "dtData";
             dtData.Size = new Size(164, 39);
-            dtData.TabIndex = 13;
+            dtData.TabIndex = 2;
             dtData.Value = new DateTime(2023, 11, 12, 16, 5, 34, 0);
             // 
             // lblTipoMateriaPrima
             // 
             lblTipoMateriaPrima.AutoSize = true;
-            lblTipoMateriaPrima.Location = new Point(20, 74);
+            lblTipoMateriaPrima.Location = new Point(20, 83);
             lblTipoMateriaPrima.Name = "lblTipoMateriaPrima";
             lblTipoMateriaPrima.Size = new Size(155, 32);
             lblTipoMateriaPrima.TabIndex = 12;
@@ -171,27 +172,27 @@
             // 
             cmbTipoMateriaPrima.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipoMateriaPrima.FormattingEnabled = true;
-            cmbTipoMateriaPrima.Location = new Point(178, 70);
+            cmbTipoMateriaPrima.Location = new Point(178, 79);
             cmbTipoMateriaPrima.Name = "cmbTipoMateriaPrima";
-            cmbTipoMateriaPrima.Size = new Size(502, 40);
-            cmbTipoMateriaPrima.TabIndex = 11;
+            cmbTipoMateriaPrima.Size = new Size(820, 40);
+            cmbTipoMateriaPrima.TabIndex = 5;
             // 
             // btnLimpar
             // 
-            btnLimpar.Location = new Point(985, 64);
+            btnLimpar.Location = new Point(1004, 67);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(160, 50);
-            btnLimpar.TabIndex = 10;
+            btnLimpar.TabIndex = 8;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
             btnLimpar.Click += btnLimpar_Click;
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(985, 7);
+            btnSalvar.Location = new Point(1004, 7);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(160, 50);
-            btnSalvar.TabIndex = 9;
+            btnSalvar.TabIndex = 7;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
@@ -200,21 +201,22 @@
             // 
             txtDescricao.Location = new Point(144, 125);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(961, 39);
-            txtDescricao.TabIndex = 8;
+            txtDescricao.Size = new Size(1020, 39);
+            txtDescricao.TabIndex = 6;
             // 
             // txtPeso
             // 
-            txtPeso.Location = new Point(219, 17);
+            txtPeso.Location = new Point(221, 30);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(100, 39);
-            txtPeso.TabIndex = 6;
-            txtPeso.KeyPress += txtPeso_KeyPress;
+            txtPeso.TabIndex = 1;
+            txtPeso.KeyPress += ValidarNumero;
+            txtPeso.Leave += txtPeso_Leave;
             // 
             // txtId
             // 
             txtId.Enabled = false;
-            txtId.Location = new Point(56, 17);
+            txtId.Location = new Point(56, 30);
             txtId.Name = "txtId";
             txtId.Size = new Size(85, 39);
             txtId.TabIndex = 5;
@@ -224,9 +226,9 @@
             gpbTipoMovimento.Controls.Add(rdbSaida);
             gpbTipoMovimento.Controls.Add(rdbEntrada);
             gpbTipoMovimento.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            gpbTipoMovimento.Location = new Point(711, 7);
+            gpbTipoMovimento.Location = new Point(572, 7);
             gpbTipoMovimento.Name = "gpbTipoMovimento";
-            gpbTipoMovimento.Size = new Size(243, 105);
+            gpbTipoMovimento.Size = new Size(207, 68);
             gpbTipoMovimento.TabIndex = 4;
             gpbTipoMovimento.TabStop = false;
             gpbTipoMovimento.Text = "Tipo Movimento";
@@ -234,10 +236,10 @@
             // rdbSaida
             // 
             rdbSaida.AutoSize = true;
-            rdbSaida.Location = new Point(21, 58);
+            rdbSaida.Location = new Point(109, 30);
             rdbSaida.Name = "rdbSaida";
             rdbSaida.Size = new Size(78, 32);
-            rdbSaida.TabIndex = 1;
+            rdbSaida.TabIndex = 4;
             rdbSaida.TabStop = true;
             rdbSaida.Text = "Saida";
             rdbSaida.UseVisualStyleBackColor = true;
@@ -245,10 +247,10 @@
             // rdbEntrada
             // 
             rdbEntrada.AutoSize = true;
-            rdbEntrada.Location = new Point(21, 33);
+            rdbEntrada.Location = new Point(6, 30);
             rdbEntrada.Name = "rdbEntrada";
             rdbEntrada.Size = new Size(97, 32);
-            rdbEntrada.TabIndex = 0;
+            rdbEntrada.TabIndex = 3;
             rdbEntrada.TabStop = true;
             rdbEntrada.Text = "Entrada";
             rdbEntrada.UseVisualStyleBackColor = true;
@@ -265,7 +267,7 @@
             // lblPeso
             // 
             lblPeso.AutoSize = true;
-            lblPeso.Location = new Point(145, 20);
+            lblPeso.Location = new Point(147, 33);
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(68, 32);
             lblPeso.TabIndex = 2;
@@ -274,7 +276,7 @@
             // lblData
             // 
             lblData.AutoSize = true;
-            lblData.Location = new Point(392, 20);
+            lblData.Location = new Point(328, 33);
             lblData.Name = "lblData";
             lblData.Size = new Size(68, 32);
             lblData.TabIndex = 1;
@@ -283,7 +285,7 @@
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(20, 20);
+            lblId.Location = new Point(20, 33);
             lblId.Name = "lblId";
             lblId.Size = new Size(39, 32);
             lblId.TabIndex = 0;
@@ -328,7 +330,7 @@
         private DataGridView dtgListaMovimento;
         private Button btnSalvar;
         private Button btnLimpar;
-        private Button btnPesquisar;
+        private Button btnRelatorio;
         private DateTimePicker dtData;
         private Button btnVoltar;
         private Label lblTipoMateriaPrima;

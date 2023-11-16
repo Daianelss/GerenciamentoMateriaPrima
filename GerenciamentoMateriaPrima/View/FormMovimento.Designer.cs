@@ -76,18 +76,17 @@ namespace GerenciamentoMateriaPrima.View
             // 
             panGrid.Controls.Add(dtgMovimento);
             panGrid.Dock = DockStyle.Fill;
-            panGrid.Location = new Point(0, 179);
+            panGrid.Location = new Point(0, 173);
             panGrid.Name = "panGrid";
             panGrid.Padding = new Padding(20);
-            panGrid.Size = new Size(1184, 377);
+            panGrid.Size = new Size(1184, 383);
             panGrid.TabIndex = 4;
             // 
             // dtgMovimento
             // 
             dtgMovimento.AllowUserToAddRows = false;
             dtgMovimento.AllowUserToDeleteRows = false;
-            dtgMovimento.AllowUserToResizeColumns = false;
-            dtgMovimento.AllowUserToResizeRows = false;
+            dtgMovimento.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgMovimento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgMovimento.Dock = DockStyle.Fill;
             dtgMovimento.Location = new Point(20, 20);
@@ -96,7 +95,7 @@ namespace GerenciamentoMateriaPrima.View
             dtgMovimento.ReadOnly = true;
             dtgMovimento.RowTemplate.Height = 25;
             dtgMovimento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgMovimento.Size = new Size(1144, 337);
+            dtgMovimento.Size = new Size(1144, 343);
             dtgMovimento.TabIndex = 0;
             dtgMovimento.CellClick += dtgMovimento_CellClick;
             // 
@@ -116,7 +115,7 @@ namespace GerenciamentoMateriaPrima.View
             btnRelatorio.Location = new Point(838, 6);
             btnRelatorio.Name = "btnRelatorio";
             btnRelatorio.Size = new Size(160, 50);
-            btnRelatorio.TabIndex = 2;
+            btnRelatorio.TabIndex = 9;
             btnRelatorio.Text = "Relatorio";
             btnRelatorio.UseVisualStyleBackColor = true;
             btnRelatorio.Click += btnRelatorio_Click;
@@ -127,7 +126,7 @@ namespace GerenciamentoMateriaPrima.View
             btnVoltar.Location = new Point(1004, 6);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(160, 50);
-            btnVoltar.TabIndex = 0;
+            btnVoltar.TabIndex = 10;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
             btnVoltar.Click += btnVoltar_Click;
@@ -154,16 +153,16 @@ namespace GerenciamentoMateriaPrima.View
             panCadastro.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             panCadastro.Location = new Point(0, 0);
             panCadastro.Name = "panCadastro";
-            panCadastro.Size = new Size(1184, 179);
+            panCadastro.Size = new Size(1184, 173);
             panCadastro.TabIndex = 1;
             // 
             // btnLimpar
             // 
             btnLimpar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpar.Location = new Point(832, 112);
+            btnLimpar.Location = new Point(838, 112);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(160, 50);
-            btnLimpar.TabIndex = 14;
+            btnLimpar.TabIndex = 7;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
             btnLimpar.Click += btnLimpar_Click;
@@ -172,7 +171,7 @@ namespace GerenciamentoMateriaPrima.View
             // 
             txtId.Enabled = false;
             txtId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            txtId.Location = new Point(54, 15);
+            txtId.Location = new Point(61, 15);
             txtId.Name = "txtId";
             txtId.Size = new Size(85, 36);
             txtId.TabIndex = 4;
@@ -199,45 +198,46 @@ namespace GerenciamentoMateriaPrima.View
             // cmbProcesso
             // 
             cmbProcesso.FormattingEnabled = true;
-            cmbProcesso.Location = new Point(133, 68);
+            cmbProcesso.Location = new Point(137, 68);
             cmbProcesso.Name = "cmbProcesso";
-            cmbProcesso.Size = new Size(397, 38);
-            cmbProcesso.TabIndex = 12;
+            cmbProcesso.Size = new Size(447, 38);
+            cmbProcesso.TabIndex = 3;
             // 
             // btnSalvar
             // 
             btnSalvar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalvar.Location = new Point(1001, 112);
+            btnSalvar.Location = new Point(1004, 112);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(160, 50);
-            btnSalvar.TabIndex = 11;
+            btnSalvar.TabIndex = 8;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
             // txtPesoSaida
             // 
-            txtPesoSaida.Location = new Point(977, 66);
+            txtPesoSaida.Location = new Point(1016, 69);
             txtPesoSaida.Name = "txtPesoSaida";
             txtPesoSaida.RightToLeft = RightToLeft.No;
             txtPesoSaida.Size = new Size(145, 36);
-            txtPesoSaida.TabIndex = 10;
+            txtPesoSaida.TabIndex = 5;
             txtPesoSaida.KeyPress += ValidarNumero;
+            txtPesoSaida.Leave += txtPesoSaida_Leave;
             // 
             // txtPesoEntrada
             // 
-            txtPesoEntrada.Location = new Point(689, 66);
+            txtPesoEntrada.Location = new Point(738, 69);
             txtPesoEntrada.Name = "txtPesoEntrada";
             txtPesoEntrada.RightToLeft = RightToLeft.No;
             txtPesoEntrada.Size = new Size(145, 36);
-            txtPesoEntrada.TabIndex = 9;
+            txtPesoEntrada.TabIndex = 4;
             txtPesoEntrada.KeyPress += ValidarNumero;
             txtPesoEntrada.Leave += txtPesoEntrada_Leave;
             // 
             // lblPesoSaida
             // 
             lblPesoSaida.AutoSize = true;
-            lblPesoSaida.Location = new Point(850, 69);
+            lblPesoSaida.Location = new Point(889, 72);
             lblPesoSaida.Name = "lblPesoSaida";
             lblPesoSaida.Size = new Size(121, 30);
             lblPesoSaida.TabIndex = 8;
@@ -246,7 +246,7 @@ namespace GerenciamentoMateriaPrima.View
             // lblPesoEntrada
             // 
             lblPesoEntrada.AutoSize = true;
-            lblPesoEntrada.Location = new Point(541, 69);
+            lblPesoEntrada.Location = new Point(590, 72);
             lblPesoEntrada.Name = "lblPesoEntrada";
             lblPesoEntrada.Size = new Size(142, 30);
             lblPesoEntrada.TabIndex = 7;
@@ -254,15 +254,15 @@ namespace GerenciamentoMateriaPrima.View
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(142, 123);
+            txtDescricao.Location = new Point(137, 119);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(671, 36);
-            txtDescricao.TabIndex = 5;
+            txtDescricao.Size = new Size(695, 36);
+            txtDescricao.TabIndex = 6;
             // 
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(20, 126);
+            lblDescricao.Location = new Point(20, 122);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(111, 30);
             lblDescricao.TabIndex = 4;
@@ -272,16 +272,16 @@ namespace GerenciamentoMateriaPrima.View
             // 
             dtsData.CustomFormat = "dd/MM/yyyy";
             dtsData.Format = DateTimePickerFormat.Short;
-            dtsData.Location = new Point(213, 15);
+            dtsData.Location = new Point(216, 15);
             dtsData.Name = "dtsData";
             dtsData.Size = new Size(150, 36);
-            dtsData.TabIndex = 3;
+            dtsData.TabIndex = 1;
             dtsData.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
             // 
             // lblData
             // 
             lblData.AutoSize = true;
-            lblData.Location = new Point(145, 18);
+            lblData.Location = new Point(150, 18);
             lblData.Name = "lblData";
             lblData.Size = new Size(62, 30);
             lblData.TabIndex = 2;
@@ -290,16 +290,16 @@ namespace GerenciamentoMateriaPrima.View
             // cmbFuncionario
             // 
             cmbFuncionario.FormattingEnabled = true;
-            cmbFuncionario.Location = new Point(505, 14);
+            cmbFuncionario.Location = new Point(504, 14);
             cmbFuncionario.Name = "cmbFuncionario";
-            cmbFuncionario.Size = new Size(631, 38);
-            cmbFuncionario.TabIndex = 1;
+            cmbFuncionario.Size = new Size(659, 38);
+            cmbFuncionario.TabIndex = 2;
             cmbFuncionario.Text = "Selecione o Funcionario";
             // 
             // lblFuncionario
             // 
             lblFuncionario.AutoSize = true;
-            lblFuncionario.Location = new Point(369, 18);
+            lblFuncionario.Location = new Point(370, 18);
             lblFuncionario.Name = "lblFuncionario";
             lblFuncionario.Size = new Size(130, 30);
             lblFuncionario.TabIndex = 0;

@@ -3,6 +3,7 @@ using GerenciamentoMateriaPrima.DAL;
 using GerenciamentoMateriaPrima.DataTables;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
+using GerenciamentoMateriaPrima.Services;
 using System.Data;
 
 namespace GerenciamentoMateriaPrima.Controller
@@ -61,6 +62,13 @@ namespace GerenciamentoMateriaPrima.Controller
         public object ListarTipoMateriaPrimas()
         {
             return _tipoMateriaPrimaDal.ListarTodos();
+        }
+
+        public void GerarExcel(DataGridView dataGridView, string nomeArquivo, string nomePlanilha)
+        {
+            var servico = new PlanilhaService(nomeArquivo, nomePlanilha);
+
+            servico.GerarPlanilhaDoDataGridView(dataGridView);
         }
     }
 }

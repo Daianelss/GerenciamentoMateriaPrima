@@ -75,7 +75,6 @@ namespace GerenciamentoMateriaPrima.Services
                     for (int j = 0; j < colunasDeletar.Count; j++)
                         colunasDeletar[j] -= 1;
                 }
-
                 workBook.SaveAs(_caminhoCompleto);
             }
             catch (Exception ex)
