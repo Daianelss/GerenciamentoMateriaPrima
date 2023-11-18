@@ -116,7 +116,7 @@ namespace GerenciamentoMateriaPrima.View
             btnRelatorio.Name = "btnRelatorio";
             btnRelatorio.Size = new Size(160, 50);
             btnRelatorio.TabIndex = 9;
-            btnRelatorio.Text = "Relatorio";
+            btnRelatorio.Text = "Relatório";
             btnRelatorio.UseVisualStyleBackColor = true;
             btnRelatorio.Click += btnRelatorio_Click;
             // 
@@ -294,7 +294,7 @@ namespace GerenciamentoMateriaPrima.View
             cmbFuncionario.Name = "cmbFuncionario";
             cmbFuncionario.Size = new Size(659, 38);
             cmbFuncionario.TabIndex = 2;
-            cmbFuncionario.Text = "Selecione o Funcionario";
+            cmbFuncionario.Text = "Selecione o Funcionário";
             // 
             // lblFuncionario
             // 
@@ -303,7 +303,7 @@ namespace GerenciamentoMateriaPrima.View
             lblFuncionario.Name = "lblFuncionario";
             lblFuncionario.Size = new Size(130, 30);
             lblFuncionario.TabIndex = 0;
-            lblFuncionario.Text = "Funcionario:";
+            lblFuncionario.Text = "Funcionário:";
             // 
             // FormMovimento
             // 

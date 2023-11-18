@@ -1,7 +1,5 @@
 using GerenciamentoMateriaPrima.Controller;
-using GerenciamentoMateriaPrima.DataTables;
 using GerenciamentoMateriaPrima.Interfaces;
-using GerenciamentoMateriaPrima.Model;
 using GerenciamentoMateriaPrima.View;
 
 namespace GerenciamentoMateriaPrima

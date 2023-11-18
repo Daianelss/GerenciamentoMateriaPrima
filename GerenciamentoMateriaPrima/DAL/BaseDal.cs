@@ -70,7 +70,7 @@ namespace GerenciamentoMateriaPrima.DAL
         {
             try
             {
-                var teste =  _context.Set<T>();
+                var teste = _context.Set<T>();
                 return teste.ToList();
             }
             catch (Exception ex)

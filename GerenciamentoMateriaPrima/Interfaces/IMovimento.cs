@@ -14,7 +14,7 @@ namespace GerenciamentoMateriaPrima.Interfaces
         public string FuncionarioId { get; set; }
 
         public DataTable DtMovimento { get; set; }
-        public bool Editando {  get; set; }
+        public bool Editando { get; set; }
         public void SetControlador(MovimentoController controller);
     }
 }

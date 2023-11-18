@@ -31,7 +31,8 @@ namespace GerenciamentoMateriaPrima.Controller
 
         public void AtualizarFuncionario()
         {
-            var funcionario = new Funcionario { 
+            var funcionario = new Funcionario
+            {
                 Id = Convert.ToInt32(_iFuncionario.Id),
                 Nome = _iFuncionario.Nome,
                 Status = Convert.ToInt32(_iFuncionario.Status)
@@ -45,7 +46,8 @@ namespace GerenciamentoMateriaPrima.Controller
             if (string.IsNullOrEmpty(_iFuncionario.Nome))
                 throw new Exception("Necessário preencher nome de funcionário");
 
-            var funcionario = new Funcionario { 
+            var funcionario = new Funcionario
+            {
                 Nome = _iFuncionario.Nome,
                 Status = 1
             };

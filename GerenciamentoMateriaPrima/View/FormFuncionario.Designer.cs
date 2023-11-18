@@ -37,7 +37,6 @@
             txtNomeFuncionario = new TextBox();
             lblIdFuncionario = new Label();
             lblNome = new Label();
-            btnPesquisar = new Button();
             dtgFuncionario = new DataGridView();
             btnVoltar = new Button();
             panBotoes = new Panel();
@@ -72,7 +71,7 @@
             gpbStatus.Location = new Point(736, 12);
             gpbStatus.Name = "gpbStatus";
             gpbStatus.Size = new Size(94, 48);
-            gpbStatus.TabIndex = 9;
+            gpbStatus.TabIndex = 2;
             gpbStatus.TabStop = false;
             gpbStatus.Text = "Status";
             // 
@@ -92,7 +91,7 @@
             btnLimpar.Location = new Point(1002, 15);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(160, 50);
-            btnLimpar.TabIndex = 5;
+            btnLimpar.TabIndex = 4;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
             btnLimpar.Click += btnLimpar_Click;
@@ -103,7 +102,7 @@
             btnSalvar.Location = new Point(836, 15);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(160, 50);
-            btnSalvar.TabIndex = 2;
+            btnSalvar.TabIndex = 3;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
@@ -145,16 +144,6 @@
             lblNome.TabIndex = 0;
             lblNome.Text = "Nome:";
             // 
-            // btnPesquisar
-            // 
-            btnPesquisar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(836, 6);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(160, 50);
-            btnPesquisar.TabIndex = 3;
-            btnPesquisar.Text = "Pesquisar";
-            btnPesquisar.UseVisualStyleBackColor = true;
-            // 
             // dtgFuncionario
             // 
             dtgFuncionario.AllowUserToAddRows = false;
@@ -186,7 +175,6 @@
             // 
             // panBotoes
             // 
-            panBotoes.Controls.Add(btnPesquisar);
             panBotoes.Controls.Add(btnVoltar);
             panBotoes.Dock = DockStyle.Bottom;
             panBotoes.Location = new Point(0, 556);
@@ -240,7 +228,6 @@
         private Panel panCadastroFuncionario;
         private Label lblNome;
         private TextBox txtNomeFuncionario;
-        private Button btnPesquisar;
         private Button btnSalvar;
         private Button btnVoltar;
         private DataGridView dtgFuncionario;

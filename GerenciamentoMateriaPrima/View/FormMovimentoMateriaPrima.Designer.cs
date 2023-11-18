@@ -123,7 +123,7 @@
             btnRelatorio.Name = "btnRelatorio";
             btnRelatorio.Size = new Size(160, 50);
             btnRelatorio.TabIndex = 0;
-            btnRelatorio.Text = "Relatorio";
+            btnRelatorio.Text = "Relatório";
             btnRelatorio.UseVisualStyleBackColor = true;
             btnRelatorio.Click += btnRelatorio_Click;
             // 
@@ -153,7 +153,7 @@
             // 
             dtData.CustomFormat = "dd/MM/yyyy";
             dtData.Format = DateTimePickerFormat.Short;
-            dtData.Location = new Point(402, 30);
+            dtData.Location = new Point(402, 26);
             dtData.Name = "dtData";
             dtData.Size = new Size(164, 39);
             dtData.TabIndex = 2;
@@ -164,17 +164,17 @@
             lblTipoMateriaPrima.AutoSize = true;
             lblTipoMateriaPrima.Location = new Point(20, 83);
             lblTipoMateriaPrima.Name = "lblTipoMateriaPrima";
-            lblTipoMateriaPrima.Size = new Size(155, 32);
+            lblTipoMateriaPrima.Size = new Size(167, 32);
             lblTipoMateriaPrima.TabIndex = 12;
-            lblTipoMateriaPrima.Text = "MateriaPrima";
+            lblTipoMateriaPrima.Text = "Matéria Prima:";
             // 
             // cmbTipoMateriaPrima
             // 
             cmbTipoMateriaPrima.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipoMateriaPrima.FormattingEnabled = true;
-            cmbTipoMateriaPrima.Location = new Point(178, 79);
+            cmbTipoMateriaPrima.Location = new Point(204, 79);
             cmbTipoMateriaPrima.Name = "cmbTipoMateriaPrima";
-            cmbTipoMateriaPrima.Size = new Size(820, 40);
+            cmbTipoMateriaPrima.Size = new Size(793, 40);
             cmbTipoMateriaPrima.TabIndex = 5;
             // 
             // btnLimpar
@@ -199,14 +199,14 @@
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(144, 125);
+            txtDescricao.Location = new Point(204, 125);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(1020, 39);
+            txtDescricao.Size = new Size(1136, 39);
             txtDescricao.TabIndex = 6;
             // 
             // txtPeso
             // 
-            txtPeso.Location = new Point(221, 30);
+            txtPeso.Location = new Point(221, 26);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(100, 39);
             txtPeso.TabIndex = 1;
@@ -216,7 +216,7 @@
             // txtId
             // 
             txtId.Enabled = false;
-            txtId.Location = new Point(56, 30);
+            txtId.Location = new Point(56, 26);
             txtId.Name = "txtId";
             txtId.Size = new Size(85, 39);
             txtId.TabIndex = 5;
@@ -241,7 +241,7 @@
             rdbSaida.Size = new Size(78, 32);
             rdbSaida.TabIndex = 4;
             rdbSaida.TabStop = true;
-            rdbSaida.Text = "Saida";
+            rdbSaida.Text = "Saída";
             rdbSaida.UseVisualStyleBackColor = true;
             // 
             // rdbEntrada
@@ -258,7 +258,7 @@
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(20, 128);
+            lblDescricao.Location = new Point(66, 128);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(121, 32);
             lblDescricao.TabIndex = 3;
@@ -267,7 +267,7 @@
             // lblPeso
             // 
             lblPeso.AutoSize = true;
-            lblPeso.Location = new Point(147, 33);
+            lblPeso.Location = new Point(147, 29);
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(68, 32);
             lblPeso.TabIndex = 2;
@@ -276,16 +276,16 @@
             // lblData
             // 
             lblData.AutoSize = true;
-            lblData.Location = new Point(328, 33);
+            lblData.Location = new Point(328, 29);
             lblData.Name = "lblData";
             lblData.Size = new Size(68, 32);
-            lblData.TabIndex = 1;
+            lblData.TabIndex = 25;
             lblData.Text = "Data:";
             // 
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(20, 33);
+            lblId.Location = new Point(20, 29);
             lblId.Name = "lblId";
             lblId.Size = new Size(39, 32);
             lblId.TabIndex = 0;

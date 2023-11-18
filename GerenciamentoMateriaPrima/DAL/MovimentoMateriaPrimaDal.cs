@@ -17,7 +17,7 @@ namespace GerenciamentoMateriaPrima.DAL
             try
             {
                 return _context.Set<MovimentoMateriaPrima>()
-                    .Include("TipoMateriaPrima")                    
+                    .Include("TipoMateriaPrima")
                     .ToList();
             }
             catch (Exception ex)

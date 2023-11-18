@@ -39,7 +39,6 @@
             txtNomeTipoMateriaPrima = new TextBox();
             lblIdTipoMateriaPrima = new Label();
             lblNome = new Label();
-            btnPesquisar = new Button();
             dtgTipoMateriaPrima = new DataGridView();
             btnVoltar = new Button();
             panBotoes = new Panel();
@@ -76,7 +75,7 @@
             txtDescricaoTipoMateriaPrima.Location = new Point(126, 70);
             txtDescricaoTipoMateriaPrima.Name = "txtDescricaoTipoMateriaPrima";
             txtDescricaoTipoMateriaPrima.Size = new Size(1038, 36);
-            txtDescricaoTipoMateriaPrima.TabIndex = 11;
+            txtDescricaoTipoMateriaPrima.TabIndex = 3;
             // 
             // lblDescricaoTipoMateriaPrima
             // 
@@ -94,7 +93,7 @@
             gpbStatus.Location = new Point(726, 10);
             gpbStatus.Name = "gpbStatus";
             gpbStatus.Size = new Size(94, 48);
-            gpbStatus.TabIndex = 9;
+            gpbStatus.TabIndex = 2;
             gpbStatus.TabStop = false;
             gpbStatus.Text = "Status";
             // 
@@ -125,7 +124,7 @@
             btnSalvar.Location = new Point(838, 12);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(160, 50);
-            btnSalvar.TabIndex = 2;
+            btnSalvar.TabIndex = 4;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
@@ -167,16 +166,6 @@
             lblNome.TabIndex = 0;
             lblNome.Text = "Nome:";
             // 
-            // btnPesquisar
-            // 
-            btnPesquisar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(841, 6);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(160, 50);
-            btnPesquisar.TabIndex = 3;
-            btnPesquisar.Text = "Pesquisar";
-            btnPesquisar.UseVisualStyleBackColor = true;
-            // 
             // dtgTipoMateriaPrima
             // 
             dtgTipoMateriaPrima.AllowUserToAddRows = false;
@@ -201,14 +190,13 @@
             btnVoltar.Location = new Point(1004, 6);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(160, 50);
-            btnVoltar.TabIndex = 5;
+            btnVoltar.TabIndex = 6;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
             btnVoltar.Click += btnVoltar_Click;
             // 
             // panBotoes
             // 
-            panBotoes.Controls.Add(btnPesquisar);
             panBotoes.Controls.Add(btnVoltar);
             panBotoes.Dock = DockStyle.Bottom;
             panBotoes.Location = new Point(0, 556);
@@ -268,7 +256,6 @@
         private TextBox txtNomeTipoMateriaPrima;
         private Label lblIdTipoMateriaPrima;
         private Label lblNome;
-        private Button btnPesquisar;
         private DataGridView dtgTipoMateriaPrima;
         private Button btnVoltar;
         private Panel panBotoes;

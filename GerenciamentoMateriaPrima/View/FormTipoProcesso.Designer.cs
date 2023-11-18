@@ -38,7 +38,6 @@
             btnSalvar = new Button();
             txtId = new TextBox();
             panBotoes = new Panel();
-            btnPesquisar = new Button();
             btnVoltar = new Button();
             txtNome = new TextBox();
             lblId = new Label();
@@ -87,13 +86,13 @@
             txtDescricao.Location = new Point(126, 70);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(1038, 36);
-            txtDescricao.TabIndex = 11;
+            txtDescricao.TabIndex = 3;
             // 
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
             lblDescricao.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDescricao.Location = new Point(9, 73);
+            lblDescricao.Location = new Point(20, 73);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(111, 30);
             lblDescricao.TabIndex = 10;
@@ -105,7 +104,7 @@
             gpbStatus.Location = new Point(738, 7);
             gpbStatus.Name = "gpbStatus";
             gpbStatus.Size = new Size(94, 48);
-            gpbStatus.TabIndex = 9;
+            gpbStatus.TabIndex = 2;
             gpbStatus.TabStop = false;
             gpbStatus.Text = "Status";
             // 
@@ -136,7 +135,7 @@
             btnSalvar.Location = new Point(838, 9);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(160, 50);
-            btnSalvar.TabIndex = 2;
+            btnSalvar.TabIndex = 4;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
@@ -152,7 +151,6 @@
             // 
             // panBotoes
             // 
-            panBotoes.Controls.Add(btnPesquisar);
             panBotoes.Controls.Add(btnVoltar);
             panBotoes.Dock = DockStyle.Bottom;
             panBotoes.Location = new Point(0, 556);
@@ -161,23 +159,13 @@
             panBotoes.Size = new Size(1184, 65);
             panBotoes.TabIndex = 2;
             // 
-            // btnPesquisar
-            // 
-            btnPesquisar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(838, 6);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(160, 50);
-            btnPesquisar.TabIndex = 3;
-            btnPesquisar.Text = "Pesquisar";
-            btnPesquisar.UseVisualStyleBackColor = true;
-            // 
             // btnVoltar
             // 
             btnVoltar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             btnVoltar.Location = new Point(1004, 6);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(160, 50);
-            btnVoltar.TabIndex = 5;
+            btnVoltar.TabIndex = 6;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
             btnVoltar.Click += btnVoltar_Click;
@@ -194,7 +182,7 @@
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblId.Location = new Point(9, 19);
+            lblId.Location = new Point(20, 19);
             lblId.Name = "lblId";
             lblId.Size = new Size(37, 30);
             lblId.TabIndex = 0;
@@ -270,7 +258,6 @@
         private Button btnSalvar;
         private TextBox txtId;
         private Panel panBotoes;
-        private Button btnPesquisar;
         private Button btnVoltar;
         private TextBox txtNome;
         private Label lblId;
