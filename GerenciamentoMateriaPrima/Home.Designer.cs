@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             panResumo = new Panel();
-            lblQuebraPolitriz = new Label();
-            lblQuebraPeroxido = new Label();
-            lblPolitriz = new Label();
-            lblPeroxido = new Label();
-            lblQuebraBanca = new Label();
-            lblBanca = new Label();
-            lblQuebraFuncicao = new Label();
-            lblFundicao = new Label();
+            lblMaterialNaoUtilizado = new Label();
+            lblSaidaTotal = new Label();
+            lblTitleMaterialNaoUtilizado = new Label();
+            lblTitleSaidaTotal = new Label();
+            lblEntradaTotal = new Label();
+            lblTitleEntradaTotal = new Label();
+            lblQuebraTotal = new Label();
+            lbltotais = new Label();
+            lblTitleQuebraTotal = new Label();
             btnMovimentos = new Button();
             panBotoes = new Panel();
             grpCadastro = new GroupBox();
@@ -45,7 +46,6 @@
             btnMateriaPrima = new Button();
             gprGerenciamento = new GroupBox();
             btnBanca = new Button();
-            lbltotais = new Label();
             panResumo.SuspendLayout();
             panBotoes.SuspendLayout();
             grpCadastro.SuspendLayout();
@@ -54,108 +54,121 @@
             // 
             // panResumo
             // 
-            panResumo.Controls.Add(lblQuebraPolitriz);
-            panResumo.Controls.Add(lblQuebraPeroxido);
-            panResumo.Controls.Add(lblPolitriz);
-            panResumo.Controls.Add(lblPeroxido);
-            panResumo.Controls.Add(lblQuebraBanca);
-            panResumo.Controls.Add(lblBanca);
-            panResumo.Controls.Add(lblQuebraFuncicao);
+            panResumo.Controls.Add(lblMaterialNaoUtilizado);
+            panResumo.Controls.Add(lblSaidaTotal);
+            panResumo.Controls.Add(lblTitleMaterialNaoUtilizado);
+            panResumo.Controls.Add(lblTitleSaidaTotal);
+            panResumo.Controls.Add(lblEntradaTotal);
+            panResumo.Controls.Add(lblTitleEntradaTotal);
+            panResumo.Controls.Add(lblQuebraTotal);
             panResumo.Controls.Add(lbltotais);
-            panResumo.Controls.Add(lblFundicao);
+            panResumo.Controls.Add(lblTitleQuebraTotal);
             panResumo.Dock = DockStyle.Right;
             panResumo.Location = new Point(734, 0);
             panResumo.Name = "panResumo";
             panResumo.Size = new Size(450, 618);
             panResumo.TabIndex = 0;
             // 
-            // lblQuebraPolitriz
+            // lblMaterialNaoUtilizado
             // 
-            lblQuebraPolitriz.BackColor = SystemColors.GradientInactiveCaption;
-            lblQuebraPolitriz.BorderStyle = BorderStyle.FixedSingle;
-            lblQuebraPolitriz.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblQuebraPolitriz.Location = new Point(256, 361);
-            lblQuebraPolitriz.Name = "lblQuebraPolitriz";
-            lblQuebraPolitriz.Size = new Size(182, 35);
-            lblQuebraPolitriz.TabIndex = 7;
-            lblQuebraPolitriz.Text = "15,00";
-            lblQuebraPolitriz.TextAlign = ContentAlignment.MiddleRight;
+            lblMaterialNaoUtilizado.BackColor = SystemColors.GradientInactiveCaption;
+            lblMaterialNaoUtilizado.BorderStyle = BorderStyle.FixedSingle;
+            lblMaterialNaoUtilizado.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMaterialNaoUtilizado.Location = new Point(256, 361);
+            lblMaterialNaoUtilizado.Name = "lblMaterialNaoUtilizado";
+            lblMaterialNaoUtilizado.Size = new Size(182, 35);
+            lblMaterialNaoUtilizado.TabIndex = 7;
+            lblMaterialNaoUtilizado.Text = "9475,00";
+            lblMaterialNaoUtilizado.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblQuebraPeroxido
+            // lblSaidaTotal
             // 
-            lblQuebraPeroxido.BackColor = SystemColors.GradientInactiveCaption;
-            lblQuebraPeroxido.BorderStyle = BorderStyle.FixedSingle;
-            lblQuebraPeroxido.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblQuebraPeroxido.Location = new Point(256, 315);
-            lblQuebraPeroxido.Name = "lblQuebraPeroxido";
-            lblQuebraPeroxido.Size = new Size(182, 35);
-            lblQuebraPeroxido.TabIndex = 6;
-            lblQuebraPeroxido.Text = "10500,00";
-            lblQuebraPeroxido.TextAlign = ContentAlignment.MiddleRight;
+            lblSaidaTotal.BackColor = SystemColors.GradientInactiveCaption;
+            lblSaidaTotal.BorderStyle = BorderStyle.FixedSingle;
+            lblSaidaTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSaidaTotal.Location = new Point(256, 315);
+            lblSaidaTotal.Name = "lblSaidaTotal";
+            lblSaidaTotal.Size = new Size(182, 35);
+            lblSaidaTotal.TabIndex = 6;
+            lblSaidaTotal.Text = "1000,00";
+            lblSaidaTotal.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblPolitriz
+            // lblTitleMaterialNaoUtilizado
             // 
-            lblPolitriz.AutoSize = true;
-            lblPolitriz.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPolitriz.Location = new Point(6, 362);
-            lblPolitriz.Name = "lblPolitriz";
-            lblPolitriz.Size = new Size(251, 32);
-            lblPolitriz.TabIndex = 5;
-            lblPolitriz.Text = "Material não utilizado:";
+            lblTitleMaterialNaoUtilizado.AutoSize = true;
+            lblTitleMaterialNaoUtilizado.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitleMaterialNaoUtilizado.Location = new Point(6, 362);
+            lblTitleMaterialNaoUtilizado.Name = "lblTitleMaterialNaoUtilizado";
+            lblTitleMaterialNaoUtilizado.Size = new Size(251, 32);
+            lblTitleMaterialNaoUtilizado.TabIndex = 5;
+            lblTitleMaterialNaoUtilizado.Text = "Material não utilizado:";
             // 
-            // lblPeroxido
+            // lblTitleSaidaTotal
             // 
-            lblPeroxido.AutoSize = true;
-            lblPeroxido.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPeroxido.Location = new Point(6, 316);
-            lblPeroxido.Name = "lblPeroxido";
-            lblPeroxido.Size = new Size(134, 32);
-            lblPeroxido.TabIndex = 4;
-            lblPeroxido.Text = "Saída Total:";
+            lblTitleSaidaTotal.AutoSize = true;
+            lblTitleSaidaTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitleSaidaTotal.Location = new Point(6, 316);
+            lblTitleSaidaTotal.Name = "lblTitleSaidaTotal";
+            lblTitleSaidaTotal.Size = new Size(134, 32);
+            lblTitleSaidaTotal.TabIndex = 4;
+            lblTitleSaidaTotal.Text = "Saída Total:";
             // 
-            // lblQuebraBanca
+            // lblEntradaTotal
             // 
-            lblQuebraBanca.BackColor = SystemColors.GradientInactiveCaption;
-            lblQuebraBanca.BorderStyle = BorderStyle.FixedSingle;
-            lblQuebraBanca.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblQuebraBanca.Location = new Point(256, 269);
-            lblQuebraBanca.Name = "lblQuebraBanca";
-            lblQuebraBanca.Size = new Size(182, 35);
-            lblQuebraBanca.TabIndex = 3;
-            lblQuebraBanca.Text = "500,00";
-            lblQuebraBanca.TextAlign = ContentAlignment.MiddleRight;
+            lblEntradaTotal.BackColor = SystemColors.GradientInactiveCaption;
+            lblEntradaTotal.BorderStyle = BorderStyle.FixedSingle;
+            lblEntradaTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEntradaTotal.Location = new Point(256, 269);
+            lblEntradaTotal.Name = "lblEntradaTotal";
+            lblEntradaTotal.Size = new Size(182, 35);
+            lblEntradaTotal.TabIndex = 3;
+            lblEntradaTotal.Text = "10500,00";
+            lblEntradaTotal.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblBanca
+            // lblTitleEntradaTotal
             // 
-            lblBanca.AutoSize = true;
-            lblBanca.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblBanca.Location = new Point(6, 270);
-            lblBanca.Name = "lblBanca";
-            lblBanca.Size = new Size(157, 32);
-            lblBanca.TabIndex = 2;
-            lblBanca.Text = "Entrada Total:";
+            lblTitleEntradaTotal.AutoSize = true;
+            lblTitleEntradaTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitleEntradaTotal.Location = new Point(6, 270);
+            lblTitleEntradaTotal.Name = "lblTitleEntradaTotal";
+            lblTitleEntradaTotal.Size = new Size(157, 32);
+            lblTitleEntradaTotal.TabIndex = 2;
+            lblTitleEntradaTotal.Text = "Entrada Total:";
             // 
-            // lblQuebraFuncicao
+            // lblQuebraTotal
             // 
-            lblQuebraFuncicao.BackColor = SystemColors.GradientInactiveCaption;
-            lblQuebraFuncicao.BorderStyle = BorderStyle.FixedSingle;
-            lblQuebraFuncicao.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblQuebraFuncicao.Location = new Point(256, 223);
-            lblQuebraFuncicao.Name = "lblQuebraFuncicao";
-            lblQuebraFuncicao.Size = new Size(182, 35);
-            lblQuebraFuncicao.TabIndex = 1;
-            lblQuebraFuncicao.Text = "25,00";
-            lblQuebraFuncicao.TextAlign = ContentAlignment.MiddleRight;
+            lblQuebraTotal.BackColor = SystemColors.GradientInactiveCaption;
+            lblQuebraTotal.BorderStyle = BorderStyle.FixedSingle;
+            lblQuebraTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblQuebraTotal.Location = new Point(256, 223);
+            lblQuebraTotal.Name = "lblQuebraTotal";
+            lblQuebraTotal.Size = new Size(182, 35);
+            lblQuebraTotal.TabIndex = 1;
+            lblQuebraTotal.Text = "25,00";
+            lblQuebraTotal.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblFundicao
+            // lbltotais
             // 
-            lblFundicao.AutoSize = true;
-            lblFundicao.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFundicao.Location = new Point(6, 224);
-            lblFundicao.Name = "lblFundicao";
-            lblFundicao.Size = new Size(156, 32);
-            lblFundicao.TabIndex = 0;
-            lblFundicao.Text = "Quebra Total:";
+            lbltotais.BackColor = SystemColors.WindowFrame;
+            lbltotais.BorderStyle = BorderStyle.FixedSingle;
+            lbltotais.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbltotais.ForeColor = Color.White;
+            lbltotais.Location = new Point(10, 145);
+            lbltotais.Name = "lbltotais";
+            lbltotais.Size = new Size(429, 44);
+            lbltotais.TabIndex = 0;
+            lbltotais.Text = "Totais (gramas)";
+            lbltotais.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblTitleQuebraTotal
+            // 
+            lblTitleQuebraTotal.AutoSize = true;
+            lblTitleQuebraTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitleQuebraTotal.Location = new Point(6, 224);
+            lblTitleQuebraTotal.Name = "lblTitleQuebraTotal";
+            lblTitleQuebraTotal.Size = new Size(156, 32);
+            lblTitleQuebraTotal.TabIndex = 0;
+            lblTitleQuebraTotal.Text = "Quebra Total:";
             // 
             // btnMovimentos
             // 
@@ -248,19 +261,6 @@
             btnBanca.UseVisualStyleBackColor = true;
             btnBanca.Click += btnBanca_Click;
             // 
-            // lbltotais
-            // 
-            lbltotais.BackColor = SystemColors.WindowFrame;
-            lbltotais.BorderStyle = BorderStyle.FixedSingle;
-            lbltotais.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lbltotais.ForeColor = Color.White;
-            lbltotais.Location = new Point(10, 145);
-            lbltotais.Name = "lbltotais";
-            lbltotais.Size = new Size(429, 44);
-            lbltotais.TabIndex = 0;
-            lbltotais.Text = "Totais (gramas)";
-            lbltotais.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // formHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -282,14 +282,14 @@
         #endregion
 
         private Panel panResumo;
-        private Label lblBanca;
-        private Label lblQuebraFuncicao;
-        private Label lblFundicao;
-        private Label lblQuebraBanca;
-        private Label lblQuebraPolitriz;
-        private Label lblQuebraPeroxido;
-        private Label lblPolitriz;
-        private Label lblPeroxido;
+        private Label lblTitleEntradaTotal;
+        private Label lblQuebraTotal;
+        private Label lblTitleQuebraTotal;
+        private Label lblEntradaTotal;
+        private Label lblMaterialNaoUtilizado;
+        private Label lblSaidaTotal;
+        private Label lblTitleMaterialNaoUtilizado;
+        private Label lblTitleSaidaTotal;
         private Button btnMovimentos;
         private Panel panBotoes;
         private Button btnMateriaPrima;

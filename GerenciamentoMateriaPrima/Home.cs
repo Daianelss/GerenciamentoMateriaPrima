@@ -20,8 +20,12 @@ namespace GerenciamentoMateriaPrima
 
         private void Home_Load(object sender, EventArgs e)
         {
+            CarregarTotais();
+        }
 
-
+        private void CarregarTotais()
+        {
+            throw new NotImplementedException();
         }
 
         private void btnFuncionario_Click(object sender, EventArgs e)
@@ -63,11 +67,6 @@ namespace GerenciamentoMateriaPrima
             var controller = new TipoProcessoController(tipoProcesso);
             tipoProcesso.SetControlador(controller);
             tipoProcesso.ShowDialog();
-        }
-
-        private void listarQuebra()
-        {
-
         }
     }
 }
