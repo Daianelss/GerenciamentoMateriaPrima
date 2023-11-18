@@ -7,7 +7,7 @@ using System.Data;
 
 namespace GerenciamentoMateriaPrima.Controller
 {
-    public class TipoProcessoController
+    public class TipoProcessoController : BaseController
     {
         private readonly ITipoProcesso _iTipoProcesso;
         private readonly TipoProcessoDal _tipoProcessoDal;
@@ -18,17 +18,17 @@ namespace GerenciamentoMateriaPrima.Controller
             _tipoProcessoDal = new TipoProcessoDal(new GerenciamentoMateriaPrimaContext());
         }
 
-        public DataTable PreencherTipoProcesso(IEnumerable<TipoProcesso> tipoProcessos)
+        public override DataTable PreencherDataGridView<T>(IEnumerable<T> tipoProcessos)
         {
             return DtTipoProcesso.PreencherTipoProcesso(tipoProcessos);
         }
 
-        public IEnumerable<TipoProcesso> ListarTipoProcessos()
+        public override IEnumerable<TipoProcesso> ListarTodos()
         {
             return _tipoProcessoDal.ListarTodos();
         }
 
-        public void AtualizarTipoProcesso()
+        public override void Atualizar()
         {
             var tipoProcesso = new TipoProcesso
             {
@@ -40,7 +40,7 @@ namespace GerenciamentoMateriaPrima.Controller
             _tipoProcessoDal.Atualizar(tipoProcesso);
         }
 
-        public void SalvarTipoProcesso()
+        public override void Salvar()
         {
             if (string.IsNullOrEmpty(_iTipoProcesso.Nome))
                 throw new Exception("Necessário preencher nome do processo");
@@ -53,12 +53,9 @@ namespace GerenciamentoMateriaPrima.Controller
             _tipoProcessoDal.Salvar(tipoProcesso);
         }
 
-
-
-
-
-
-
-
+        public override IEnumerable<BaseModel> ListarPorFiltro<T>(T item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

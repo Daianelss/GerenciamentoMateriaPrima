@@ -7,7 +7,7 @@ using System.Data;
 
 namespace GerenciamentoMateriaPrima.Controller
 {
-    public class TipoMateriaPrimaController
+    public class TipoMateriaPrimaController : BaseController
     {
         private readonly ITipoMateriaPrima _iTipoMateriaPrima;
         private readonly TipoMateriaPrimaDal _tipoMateriaPrimaDal;
@@ -18,17 +18,16 @@ namespace GerenciamentoMateriaPrima.Controller
             _tipoMateriaPrimaDal = new TipoMateriaPrimaDal(new GerenciamentoMateriaPrimaContext());
         }
 
-        public DataTable PreencherTipoMateriaPrima(IEnumerable<TipoMateriaPrima> tipoMateriaPrimas)
+        public override DataTable PreencherDataGridView<T>(IEnumerable<T> tipoMateriaPrimas)
         {
             return DtTipoMateriaPrima.PreencherTipoMateriaPrima(tipoMateriaPrimas);
         }
 
-        public IEnumerable<TipoMateriaPrima> ListarTipoMateriaPrimas()
+        public override IEnumerable<TipoMateriaPrima> ListarTodos()
         {
             return _tipoMateriaPrimaDal.ListarTodos();
         }
-
-        public void AtualizarTipoMateriaPrima()
+        public override void Atualizar()
         {
             var tipoMateriaPrima = new TipoMateriaPrima
             {
@@ -40,7 +39,7 @@ namespace GerenciamentoMateriaPrima.Controller
 
             _tipoMateriaPrimaDal.Atualizar(tipoMateriaPrima);
         }
-        public void SalvarTipoMateriaPrima()
+        public override void Salvar()
         {
             if (string.IsNullOrEmpty(_iTipoMateriaPrima.Nome))
                 throw new Exception("Necessário preencher nome da materia prima");
@@ -51,6 +50,11 @@ namespace GerenciamentoMateriaPrima.Controller
                 Status = 1
             };
             _tipoMateriaPrimaDal.Salvar(tipoMateriaPrima);
+        }
+
+        public override IEnumerable<BaseModel> ListarPorFiltro<T>(T item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

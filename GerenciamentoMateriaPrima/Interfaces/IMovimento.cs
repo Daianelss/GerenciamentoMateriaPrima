@@ -1,9 +1,8 @@
-﻿using GerenciamentoMateriaPrima.Controller;
-using System.Data;
+﻿using System.Data;
 
 namespace GerenciamentoMateriaPrima.Interfaces
 {
-    public interface IMovimento
+    public interface IMovimento : IBaseForm
     {
         public string Id { get; set; }
         public DateTime Data { get; set; }
@@ -15,6 +14,5 @@ namespace GerenciamentoMateriaPrima.Interfaces
 
         public DataTable DtMovimento { get; set; }
         public bool Editando { get; set; }
-        public void SetControlador(MovimentoController controller);
     }
 }

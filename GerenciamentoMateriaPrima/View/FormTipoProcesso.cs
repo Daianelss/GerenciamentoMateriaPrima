@@ -7,6 +7,11 @@ namespace GerenciamentoMateriaPrima.View
 {
     public partial class FormTipoProcesso : Form, ITipoProcesso
     {
+        public FormTipoProcesso()
+        {
+            InitializeComponent();
+        }
+
         public TipoProcessoController Controlador { get; set; }
         #region Elemento Tela
         public string Id { get => txtId.Text; set => txtId.Text = value; }
@@ -20,15 +25,9 @@ namespace GerenciamentoMateriaPrima.View
         public bool Editando { get; set; }
         #endregion
 
-
-        public FormTipoProcesso()
+        public void SetControlador<T>(T controller) where T : BaseController
         {
-            InitializeComponent();
-        }
-
-        public void SetControlador(TipoProcessoController controller)
-        {
-            Controlador = controller;
+            Controlador = controller as TipoProcessoController;
         }
         #region Acoes
         private void FormTipoProcesso_Load(object sender, EventArgs e)
@@ -41,7 +40,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.AtualizarTipoProcesso();
+                    Controlador.Atualizar();
                     CarregarDataGridView();
                 }
                 catch (Exception ex)
@@ -53,7 +52,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.SalvarTipoProcesso();
+                    Controlador.Salvar();
                     CarregarDataGridView();
                 }
                 catch (Exception ex)
@@ -90,25 +89,29 @@ namespace GerenciamentoMateriaPrima.View
         public void CarregarDataGridView()
         {
             Limpar();
-            IEnumerable<TipoProcesso> tipoProcessos = Controlador.ListarTipoProcessos();
-            DtTipoProcesso = Controlador.PreencherTipoProcesso(tipoProcessos);
+            IEnumerable<TipoProcesso> tipoProcessos = Controlador.ListarTodos();
+            DtTipoProcesso = Controlador.PreencherDataGridView(tipoProcessos);
             dtgTipoProcesso.DataSource = DtTipoProcesso;
             OcultarColunas("StatusValor");
         }
-        private void OcultarColunas(params string[] colunas)
+        public void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgTipoProcesso.Columns[coluna].Visible = false;
 
         }
-        private void Limpar()
+        public void Limpar()
         {
             Id = string.Empty;
             Nome = string.Empty;
             Status = false;
             Descricao = string.Empty;
         }
-        #endregion
 
+        public void ValidarNumero(object sender, KeyPressEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

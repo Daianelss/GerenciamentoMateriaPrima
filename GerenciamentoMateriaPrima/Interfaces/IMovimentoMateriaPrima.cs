@@ -1,9 +1,8 @@
-﻿using GerenciamentoMateriaPrima.Controller;
-using System.Data;
+﻿using System.Data;
 
 namespace GerenciamentoMateriaPrima.Interfaces
 {
-    public interface IMovimentoMateriaPrima
+    public interface IMovimentoMateriaPrima : IBaseForm
     {
         #region Elementos de Tela
         public string Id { get; set; }
@@ -18,6 +17,5 @@ namespace GerenciamentoMateriaPrima.Interfaces
         public DataTable DtMovimento { get; set; }
         public bool Editando { get; set; }
         #endregion
-        public void SetControlador(MovimentoMateriaPrimaController controller);
     }
 }

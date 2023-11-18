@@ -1,10 +1,11 @@
-﻿using System.ComponentModel;
+﻿using GerenciamentoMateriaPrima.Interfaces;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GerenciamentoMateriaPrima.Model
 {
     [Table("movimento")]
-    public class Movimento
+    public class Movimento : BaseModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("MOVI_ID")]

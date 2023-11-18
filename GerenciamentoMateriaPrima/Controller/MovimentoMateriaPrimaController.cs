@@ -8,7 +8,7 @@ using System.Data;
 
 namespace GerenciamentoMateriaPrima.Controller
 {
-    public class MovimentoMateriaPrimaController
+    public class MovimentoMateriaPrimaController : BaseController
     {
         private readonly IMovimentoMateriaPrima _iMovimentoMateriaPrima;
         private readonly MovimentoMateriaPrimaDal _movimentoMateriaPrimaDal;
@@ -21,15 +21,15 @@ namespace GerenciamentoMateriaPrima.Controller
             _tipoMateriaPrimaDal = new TipoMateriaPrimaDal(new GerenciamentoMateriaPrimaContext());
         }
 
-        public DataTable PreencherMovimentoMateriaPrima(IEnumerable<MovimentoMateriaPrima> movimentoMateriaPrimas)
+        public override DataTable PreencherDataGridView<T>(IEnumerable<T> movimentoMateriaPrimas)
         {
             return DtMovimentoMateriaPrima.PreencherMovimentoMateriaPrima(movimentoMateriaPrimas);
         }
-        public IEnumerable<MovimentoMateriaPrima> ListarMovimentoMateriaPrima()
+        public override IEnumerable<MovimentoMateriaPrima> ListarTodos()
         {
             return _movimentoMateriaPrimaDal.ListarTodos();
         }
-        public void AtualizarMovimentoMateriaPrima()
+        public override void Atualizar()
         {
             var movimentoMateriaPrima = new MovimentoMateriaPrima
             {
@@ -43,7 +43,7 @@ namespace GerenciamentoMateriaPrima.Controller
             _movimentoMateriaPrimaDal.Atualizar(movimentoMateriaPrima);
         }
 
-        public void SalvarMovimentoMateriaPrima()
+        public override void Salvar()
         {
             if (string.IsNullOrEmpty(_iMovimentoMateriaPrima.Descricao) && string.IsNullOrEmpty(_iMovimentoMateriaPrima.Peso))
                 throw new Exception("Necessário Preencher Todos os dados.");
@@ -59,7 +59,7 @@ namespace GerenciamentoMateriaPrima.Controller
             _movimentoMateriaPrimaDal.Salvar(movimentoMateriaPrima);
         }
 
-        public object ListarTipoMateriaPrimas()
+        public IEnumerable<TipoMateriaPrima> ListarTipoMateriaPrimas()
         {
             return _tipoMateriaPrimaDal.ListarTodos();
         }
@@ -69,6 +69,12 @@ namespace GerenciamentoMateriaPrima.Controller
             var servico = new PlanilhaService(nomeArquivo, nomePlanilha);
 
             servico.GerarPlanilhaDoDataGridView(dataGridView);
+        }
+
+
+        public override IEnumerable<BaseModel> ListarPorFiltro<T>(T item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

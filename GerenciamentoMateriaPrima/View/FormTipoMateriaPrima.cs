@@ -7,6 +7,10 @@ namespace GerenciamentoMateriaPrima.View
 {
     public partial class FormTipoMateriaPrima : Form, ITipoMateriaPrima
     {
+        public FormTipoMateriaPrima()
+        {
+            InitializeComponent();
+        }
         public TipoMateriaPrimaController Controlador { get; set; }
 
         #region Elemento Tela
@@ -21,15 +25,9 @@ namespace GerenciamentoMateriaPrima.View
         public bool Editando { get; set; }
         #endregion
 
-
-        public FormTipoMateriaPrima()
+        public void SetControlador<T>(T controller) where T : BaseController
         {
-            InitializeComponent();
-        }
-
-        public void SetControlador(TipoMateriaPrimaController controller)
-        {
-            Controlador = controller;
+            Controlador = controller as TipoMateriaPrimaController;
         }
 
         #region Acoes
@@ -43,7 +41,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.AtualizarTipoMateriaPrima();
+                    Controlador.Atualizar();
                     CarregarDataGridView();
                 }
                 catch (Exception ex)
@@ -56,7 +54,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.SalvarTipoMateriaPrima();
+                    Controlador.Salvar();
                     CarregarDataGridView();
                 }
                 catch (Exception ex)
@@ -90,7 +88,7 @@ namespace GerenciamentoMateriaPrima.View
         #endregion
 
         #region Metodos
-        private void Limpar()
+        public void Limpar()
         {
             Nome = string.Empty;
             Id = string.Empty;
@@ -101,16 +99,22 @@ namespace GerenciamentoMateriaPrima.View
         public void CarregarDataGridView()
         {
             Limpar();
-            IEnumerable<TipoMateriaPrima> tipoMateriaPrimas = Controlador.ListarTipoMateriaPrimas();
-            DtTipoMateriaPrima = Controlador.PreencherTipoMateriaPrima(tipoMateriaPrimas);
+            IEnumerable<TipoMateriaPrima> tipoMateriaPrimas = Controlador.ListarTodos();
+            DtTipoMateriaPrima = Controlador.PreencherDataGridView(tipoMateriaPrimas);
             dtgTipoMateriaPrima.DataSource = DtTipoMateriaPrima;
             OcultarColunas("StatusValor");
         }
-        private void OcultarColunas(params string[] colunas)
+        public void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgTipoMateriaPrima.Columns[coluna].Visible = false;
         }
+
+        public void ValidarNumero(object sender, KeyPressEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

@@ -1,6 +1,4 @@
-﻿using GerenciamentoMateriaPrima.Controller;
-
-namespace GerenciamentoMateriaPrima.Interfaces
+﻿namespace GerenciamentoMateriaPrima.Interfaces
 {
     public interface IHome
     {
@@ -9,7 +7,5 @@ namespace GerenciamentoMateriaPrima.Interfaces
         public string EntradaMateriaPrimaTotal { get; set; }
         public string SaidaMateriaPrimaTotal { get; set; }
         public string MateriaPrimaTotalNaoUtilizada { get; set; }
-
-        public void SetControlador(HomeController controller);
     }
 }

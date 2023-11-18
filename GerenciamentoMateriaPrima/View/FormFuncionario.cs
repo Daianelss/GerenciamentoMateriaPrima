@@ -7,6 +7,10 @@ namespace GerenciamentoMateriaPrima.View
 {
     public partial class FormFuncionario : Form, IFuncionario
     {
+        public FormFuncionario()
+        {
+            InitializeComponent();
+        }
         public FuncionarioController Controlador { get; set; }
 
         #region Elemento Tela
@@ -19,14 +23,7 @@ namespace GerenciamentoMateriaPrima.View
         public DataTable DtFuncionario { get; set; }
         public bool Editando { get; set; }
         #endregion
-        public void SetControlador(FuncionarioController funcionarioControlador)
-        {
-            Controlador = funcionarioControlador;
-        }
-        public FormFuncionario()
-        {
-            InitializeComponent();
-        }
+
         #region Acoes
         private void FormFuncionario_Load(object sender, EventArgs e)
         {
@@ -38,7 +35,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.AtualizarFuncionario();
+                    Controlador.Atualizar();
                     CarregarDataGridView();
                 }
                 catch (Exception ex)
@@ -51,7 +48,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.SalvarFuncionario();
+                    Controlador.Salvar();
                     CarregarDataGridView();
                 }
                 catch (Exception ex)
@@ -84,7 +81,7 @@ namespace GerenciamentoMateriaPrima.View
         #endregion
 
         #region Metodos
-        private void Limpar()
+        public void Limpar()
         {
             Nome = string.Empty;
             Id = string.Empty;
@@ -95,15 +92,26 @@ namespace GerenciamentoMateriaPrima.View
         public void CarregarDataGridView()
         {
             Limpar();
-            IEnumerable<Funcionario> funcionarios = Controlador.ListarFuncionarios();
-            DtFuncionario = Controlador.PreencherFuncionario(funcionarios);
+            var funcionarios = Controlador.ListarTodos() as IEnumerable<Funcionario>;
+            DtFuncionario = Controlador.PreencherDataGridView(funcionarios);
             dtgFuncionario.DataSource = DtFuncionario;
             OcultarColunas("StatusValor");
         }
-        private void OcultarColunas(params string[] colunas)
+        public void OcultarColunas(params string[] colunas)
         {
             foreach (var coluna in colunas)
                 dtgFuncionario.Columns[coluna].Visible = false;
+        }
+
+        public void ValidarNumero(object sender, KeyPressEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void SetControlador<T>(T controller) where T : BaseController
+        {
+            Controlador = controller as FuncionarioController;
         }
         #endregion
 

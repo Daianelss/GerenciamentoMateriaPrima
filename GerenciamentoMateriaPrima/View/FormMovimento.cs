@@ -6,8 +6,13 @@ using System.Data;
 
 namespace GerenciamentoMateriaPrima.View
 {
-    public partial class FormMovimento : Form, IMovimento, IBaseForm
+    public partial class FormMovimento : Form, IMovimento
     {
+        public FormMovimento()
+        {
+            InitializeComponent();
+        }
+
         public MovimentoController Controlador { get; set; }
 
         #region Elemento Tela
@@ -45,13 +50,10 @@ namespace GerenciamentoMateriaPrima.View
         public bool Editando { get; set; }
         #endregion
 
-        public FormMovimento()
+
+        public void SetControlador<T>(T controller) where T : BaseController
         {
-            InitializeComponent();
-        }
-        public void SetControlador(MovimentoController controller)
-        {
-            Controlador = controller;
+            Controlador = controller as MovimentoController;
         }
 
         #region Acoes
@@ -68,7 +70,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.AtualizarMovimento();
+                    Controlador.Atualizar();
                 }
                 catch (Exception ex)
                 {
@@ -79,7 +81,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.SalvarMovimento();
+                    Controlador.Salvar();
                 }
                 catch (Exception ex)
                 {
@@ -163,8 +165,8 @@ namespace GerenciamentoMateriaPrima.View
         public void CarregarDataGridView()
         {
             Limpar();
-            IEnumerable<Movimento> movimentos = Controlador.ListarMovimento();
-            DtMovimento = Controlador.PreencherMovimento(movimentos);
+            IEnumerable<Movimento> movimentos = Controlador.ListarTodos();
+            DtMovimento = Controlador.PreencherDataGridView(movimentos);
             dtgMovimento.DataSource = DtMovimento;
             OcultarColunas("FuncionarioId", "TipoProcessoId");
         }
@@ -203,8 +205,5 @@ namespace GerenciamentoMateriaPrima.View
             Validacao.ValidarNumeros(sender, e);
         }
         #endregion
-
-
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using GerenciamentoMateriaPrima.Model;
+﻿using GerenciamentoMateriaPrima.Interfaces;
+using GerenciamentoMateriaPrima.Model;
 using System.Data;
 
 namespace GerenciamentoMateriaPrima.DataTables
@@ -21,10 +22,14 @@ namespace GerenciamentoMateriaPrima.DataTables
             Dt.Columns.Add("Quebra", typeof(string));
         }
 
-        public static DataTable PreencherMovimento(IEnumerable<Movimento> movimentos)
+        public static DataTable PreencherMovimento(IEnumerable<BaseModel> movimentos)
         {
             SetColunas();
-            foreach (var movimento in movimentos)
+
+            if (movimentos == null)
+                return Dt;
+
+            foreach (var movimento in movimentos as IEnumerable<Movimento>)
             {
                 Dt.Rows.Add(
                     movimento.Id,

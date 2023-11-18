@@ -1,4 +1,5 @@
-﻿using GerenciamentoMateriaPrima.Model;
+﻿using GerenciamentoMateriaPrima.Interfaces;
+using GerenciamentoMateriaPrima.Model;
 using System.Data;
 
 namespace GerenciamentoMateriaPrima.DataTables
@@ -18,10 +19,10 @@ namespace GerenciamentoMateriaPrima.DataTables
 
         }
 
-        public static DataTable PreencherTipoMateriaPrima(IEnumerable<TipoMateriaPrima> materiaPrimas)
+        public static DataTable PreencherTipoMateriaPrima<T>(IEnumerable<T> materiaPrimas) where T : BaseModel
         {
             SetColunas();
-            foreach (var materiaPrima in materiaPrimas)
+            foreach (var materiaPrima in materiaPrimas as IEnumerable<TipoMateriaPrima>)
             {
                 Dt.Rows.Add(materiaPrima.Id, materiaPrima.Nome, materiaPrima.Descricao, materiaPrima.Status, materiaPrima.Status == 1 ? "Ativo" : "Inativo");
             }

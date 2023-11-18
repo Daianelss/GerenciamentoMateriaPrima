@@ -1,11 +1,11 @@
-﻿using GerenciamentoMateriaPrima.Model;
+﻿using GerenciamentoMateriaPrima.Interfaces;
+using GerenciamentoMateriaPrima.Model;
 using System.Data;
 
 namespace GerenciamentoMateriaPrima.DataTables
 {
     public static class DtFuncionario
     {
-
         public static DataTable Dt { get; set; }
         private static void SetColunas()
         {
@@ -17,17 +17,19 @@ namespace GerenciamentoMateriaPrima.DataTables
         }
 
 
-        public static DataTable PreencherFuncionarios(IEnumerable<Funcionario> funcionarios)
+        public static DataTable PreencherFuncionarios(IEnumerable<BaseModel> funcionarios)
         {
             SetColunas();
-            foreach (var funcionario in funcionarios)
+
+            if (funcionarios == null)
+                return Dt;
+
+            foreach (var funcionario in funcionarios as IEnumerable<Funcionario>)
             {
                 Dt.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Status, funcionario.Status == 1 ? "Ativo" : "Inativo");
             }
 
             return Dt;
         }
-
-
     }
 }

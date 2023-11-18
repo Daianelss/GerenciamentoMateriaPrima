@@ -6,8 +6,13 @@ using System.Data;
 
 namespace GerenciamentoMateriaPrima.View
 {
-    public partial class FormMovimentoMateriaPrima : Form, IMovimentoMateriaPrima, IBaseForm
+    public partial class FormMovimentoMateriaPrima : Form, IMovimentoMateriaPrima
     {
+        public FormMovimentoMateriaPrima()
+        {
+            InitializeComponent();
+        }
+
         public MovimentoMateriaPrimaController Controlador { get; set; }
         #region Elementos de tela
         public string Id { get => txtId.Text; set => txtId.Text = value; }
@@ -33,13 +38,9 @@ namespace GerenciamentoMateriaPrima.View
         public DataTable DtMovimento { get; set; }
         public bool Editando { get; set; }
         #endregion
-        public FormMovimentoMateriaPrima()
+        public void SetControlador<T>(T controller) where T : BaseController
         {
-            InitializeComponent();
-        }
-        public void SetControlador(MovimentoMateriaPrimaController controller)
-        {
-            Controlador = controller;
+            Controlador = controller as MovimentoMateriaPrimaController;
         }
 
         #region Acoes
@@ -55,7 +56,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.AtualizarMovimentoMateriaPrima();
+                    Controlador.Atualizar();
                     CarregarDataGridView();
                 }
                 catch (Exception ex)
@@ -68,7 +69,7 @@ namespace GerenciamentoMateriaPrima.View
             {
                 try
                 {
-                    Controlador.SalvarMovimentoMateriaPrima();
+                    Controlador.Salvar();
                     CarregarDataGridView();
 
                 }
@@ -123,8 +124,8 @@ namespace GerenciamentoMateriaPrima.View
         public void CarregarDataGridView()
         {
             Limpar();
-            IEnumerable<MovimentoMateriaPrima> movimentoMateriaPrimas = Controlador.ListarMovimentoMateriaPrima();
-            DtMovimento = Controlador.PreencherMovimentoMateriaPrima(movimentoMateriaPrimas);
+            IEnumerable<MovimentoMateriaPrima> movimentoMateriaPrimas = Controlador.ListarTodos();
+            DtMovimento = Controlador.PreencherDataGridView(movimentoMateriaPrimas);
             dtgListaMovimento.DataSource = DtMovimento;
             OcultarColunas("EntradaSaidaValor", "TipoMateriaPrimaId");
         }

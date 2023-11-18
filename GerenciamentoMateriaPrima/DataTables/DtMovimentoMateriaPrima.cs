@@ -1,4 +1,5 @@
-﻿using GerenciamentoMateriaPrima.Model;
+﻿using GerenciamentoMateriaPrima.Interfaces;
+using GerenciamentoMateriaPrima.Model;
 using System.Data;
 
 namespace GerenciamentoMateriaPrima.DataTables
@@ -20,10 +21,14 @@ namespace GerenciamentoMateriaPrima.DataTables
 
         }
 
-        public static DataTable PreencherMovimentoMateriaPrima(IEnumerable<MovimentoMateriaPrima> movimentoMateriaPrimas)
+        public static DataTable PreencherMovimentoMateriaPrima<T>(IEnumerable<T> movimentoMateriaPrimas)
         {
             SetColunas();
-            foreach (var movimentoMateriaPrima in movimentoMateriaPrimas)
+
+            if (movimentoMateriaPrimas == null)
+                return Dt;
+
+            foreach (var movimentoMateriaPrima in movimentoMateriaPrimas as IEnumerable<MovimentoMateriaPrima>)
             {
                 Dt.Rows.Add
                     (

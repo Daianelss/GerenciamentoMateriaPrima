@@ -7,7 +7,7 @@ using System.Data;
 
 namespace GerenciamentoMateriaPrima.Controller
 {
-    public class FuncionarioController
+    public class FuncionarioController : BaseController
     {
         private readonly IFuncionario _iFuncionario;
         private readonly FuncionarioDal _funcionarioDal;
@@ -18,18 +18,18 @@ namespace GerenciamentoMateriaPrima.Controller
             _funcionarioDal = new FuncionarioDal(new GerenciamentoMateriaPrimaContext());
         }
 
-        public DataTable PreencherFuncionario(IEnumerable<Funcionario> funcionarios)
+        public override DataTable PreencherDataGridView<T>(IEnumerable<T> funcionarios)
         {
             return DtFuncionario.PreencherFuncionarios(funcionarios);
         }
 
-        public IEnumerable<Funcionario> ListarFuncionarios()
+        public override IEnumerable<BaseModel> ListarTodos()
         {
             return _funcionarioDal.ListarTodos();
         }
 
 
-        public void AtualizarFuncionario()
+        public override void Atualizar()
         {
             var funcionario = new Funcionario
             {
@@ -41,7 +41,7 @@ namespace GerenciamentoMateriaPrima.Controller
             _funcionarioDal.Atualizar(funcionario);
         }
 
-        public void SalvarFuncionario()
+        public override void Salvar()
         {
             if (string.IsNullOrEmpty(_iFuncionario.Nome))
                 throw new Exception("Necessário preencher nome de funcionário");
@@ -53,6 +53,11 @@ namespace GerenciamentoMateriaPrima.Controller
             };
 
             _funcionarioDal.Salvar(funcionario);
+        }
+
+        public override IEnumerable<BaseModel> ListarPorFiltro<T>(T item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

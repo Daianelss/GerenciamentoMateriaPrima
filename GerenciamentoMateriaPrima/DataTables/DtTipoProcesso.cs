@@ -1,4 +1,5 @@
-﻿using GerenciamentoMateriaPrima.Model;
+﻿using GerenciamentoMateriaPrima.Interfaces;
+using GerenciamentoMateriaPrima.Model;
 using System.Data;
 
 namespace GerenciamentoMateriaPrima.DataTables
@@ -16,10 +17,14 @@ namespace GerenciamentoMateriaPrima.DataTables
             Dt.Columns.Add("Status", typeof(string));
         }
 
-        public static DataTable PreencherTipoProcesso(IEnumerable<TipoProcesso> tipoProcessos)
+        public static DataTable PreencherTipoProcesso<T>(IEnumerable<T> tipoProcessos) where T : BaseModel
         {
             SetColunas();
-            foreach (var tipoProcesso in tipoProcessos)
+
+            if (tipoProcessos == null)
+                return Dt;
+
+            foreach (var tipoProcesso in tipoProcessos as IEnumerable<TipoProcesso>)
             {
                 Dt.Rows.Add(tipoProcesso.Id, tipoProcesso.Nome, tipoProcesso.Descricao, tipoProcesso.Status, tipoProcesso.Status == 1 ? "Ativo" : "Inativo");
             }

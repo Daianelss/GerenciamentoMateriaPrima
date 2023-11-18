@@ -1,10 +1,11 @@
-﻿using System.ComponentModel;
+﻿using GerenciamentoMateriaPrima.Interfaces;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GerenciamentoMateriaPrima.Model
 {
     [Table("tipo_processo")]
-    public class TipoProcesso
+    public class TipoProcesso : BaseModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("TIPR_ID")]
