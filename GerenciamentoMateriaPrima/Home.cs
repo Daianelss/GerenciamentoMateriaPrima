@@ -8,6 +8,11 @@ namespace GerenciamentoMateriaPrima
     {
 
         public HomeController HomeControlador { get; set; }
+        public string QuebraBancaTotal { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string EntradaMateriaPrimaTotal { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string SaidaMateriaPrimaTotal { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string MateriaPrimaTotalNaoUtilizada { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public formHome()
         {
             InitializeComponent();
@@ -25,7 +30,6 @@ namespace GerenciamentoMateriaPrima
 
         private void CarregarTotais()
         {
-            throw new NotImplementedException();
         }
 
         private void btnFuncionario_Click(object sender, EventArgs e)

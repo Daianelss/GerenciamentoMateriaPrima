@@ -54,6 +54,7 @@
             // 
             // panResumo
             // 
+            panResumo.BorderStyle = BorderStyle.FixedSingle;
             panResumo.Controls.Add(lblMaterialNaoUtilizado);
             panResumo.Controls.Add(lblSaidaTotal);
             panResumo.Controls.Add(lblTitleMaterialNaoUtilizado);
@@ -183,6 +184,7 @@
             // 
             // panBotoes
             // 
+            panBotoes.BorderStyle = BorderStyle.FixedSingle;
             panBotoes.Controls.Add(grpCadastro);
             panBotoes.Controls.Add(gprGerenciamento);
             panBotoes.Dock = DockStyle.Fill;
