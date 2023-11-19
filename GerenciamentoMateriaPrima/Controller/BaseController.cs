@@ -1,4 +1,4 @@
-﻿using GerenciamentoMateriaPrima.Interfaces;
+﻿using GerenciamentoMateriaPrima.Model.DAL;
 using System.Data;
 
 namespace GerenciamentoMateriaPrima.Controller

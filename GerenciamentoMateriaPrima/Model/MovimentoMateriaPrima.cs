@@ -1,4 +1,4 @@
-﻿using GerenciamentoMateriaPrima.Interfaces;
+﻿using GerenciamentoMateriaPrima.Model.DAL;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 

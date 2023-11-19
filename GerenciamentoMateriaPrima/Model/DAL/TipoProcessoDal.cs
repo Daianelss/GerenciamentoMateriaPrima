@@ -1,7 +1,7 @@
 ﻿using GerenciamentoMateriaPrima.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace GerenciamentoMateriaPrima.DAL
+namespace GerenciamentoMateriaPrima.Model.DAL
 {
     public class TipoProcessoDal : BaseDal<TipoProcesso>
     {

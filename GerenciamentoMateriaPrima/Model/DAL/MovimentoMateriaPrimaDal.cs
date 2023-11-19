@@ -1,7 +1,7 @@
-﻿using GerenciamentoMateriaPrima.Model;
+﻿using GerenciamentoMateriaPrima.Entidades.DTO;
 using Microsoft.EntityFrameworkCore;
 
-namespace GerenciamentoMateriaPrima.DAL
+namespace GerenciamentoMateriaPrima.Model.DAL
 {
 
     public class MovimentoMateriaPrimaDal : BaseDal<MovimentoMateriaPrima>
@@ -22,7 +22,20 @@ namespace GerenciamentoMateriaPrima.DAL
             }
             catch (Exception ex)
             {
+                throw new Exception("Não foi possível listar todos itens!" + ex.Message);
+            }
+        }
 
+        public List<TotaisMovimentoMateriaPrima> ListarTotais()
+        {
+            try
+            {
+                return _context.Set<MovimentoMateriaPrima>()
+                    .GroupBy(p => p.EntradaSaida)
+                    .Select(p => new TotaisMovimentoMateriaPrima { EntradaSaida = p.Key, Total = p.Sum(s => s.Peso) }).ToList();
+            }
+            catch (Exception ex)
+            {
                 throw new Exception("Não foi possível listar todos itens!" + ex.Message);
             }
         }

@@ -1,4 +1,4 @@
-﻿namespace GerenciamentoMateriaPrima.Utils
+﻿namespace GerenciamentoMateriaPrima.Helpers.Utils
 {
     public static class Validacao
     {
@@ -6,10 +6,10 @@
         {
             var textBox = sender as TextBox;
 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
                 e.Handled = true;
 
-            if ((e.KeyChar == ',') && (textBox.Text.Contains(',')))
+            if (e.KeyChar == ',' && textBox.Text.Contains(','))
                 e.Handled = true;
 
             if (!e.Handled && !char.IsControl(e.KeyChar))

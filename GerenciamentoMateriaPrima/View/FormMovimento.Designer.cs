@@ -1,6 +1,4 @@
-﻿using GerenciamentoMateriaPrima.Utils;
-
-namespace GerenciamentoMateriaPrima.View
+﻿namespace GerenciamentoMateriaPrima.View
 {
     partial class FormMovimento
     {

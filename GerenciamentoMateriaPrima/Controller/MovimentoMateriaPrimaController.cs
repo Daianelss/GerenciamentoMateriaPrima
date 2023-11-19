@@ -1,9 +1,9 @@
 ﻿using GerenciamentoMateriaPrima.Context;
-using GerenciamentoMateriaPrima.DAL;
-using GerenciamentoMateriaPrima.DataTables;
+using GerenciamentoMateriaPrima.Controller.Services;
+using GerenciamentoMateriaPrima.Entidades.DataTables;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
-using GerenciamentoMateriaPrima.Services;
+using GerenciamentoMateriaPrima.Model.DAL;
 using System.Data;
 
 namespace GerenciamentoMateriaPrima.Controller

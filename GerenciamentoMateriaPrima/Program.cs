@@ -13,7 +13,7 @@ namespace GerenciamentoMateriaPrima
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            var home = new formHome();
+            var home = new FormHome();
             var controller = new HomeController(home);
             home.SetControlador(controller);
             Application.Run(home);

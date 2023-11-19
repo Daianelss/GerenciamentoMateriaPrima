@@ -1,8 +1,8 @@
-﻿using GerenciamentoMateriaPrima.Interfaces;
-using GerenciamentoMateriaPrima.Model;
+﻿using GerenciamentoMateriaPrima.Model;
+using GerenciamentoMateriaPrima.Model.DAL;
 using System.Data;
 
-namespace GerenciamentoMateriaPrima.DataTables
+namespace GerenciamentoMateriaPrima.Entidades.DataTables
 {
     public static class DtFuncionario
     {

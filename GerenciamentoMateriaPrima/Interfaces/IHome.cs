@@ -3,9 +3,9 @@
     public interface IHome
     {
 
-        public string QuebraBancaTotal { get; set; }
-        public string EntradaMateriaPrimaTotal { get; set; }
-        public string SaidaMateriaPrimaTotal { get; set; }
-        public string MateriaPrimaTotalNaoUtilizada { get; set; }
+        public double QuebraBancaTotal { get; set; }
+        public double EntradaMateriaPrimaTotal { get; set; }
+        public double SaidaMateriaPrimaTotal { get; set; }
+        public double MateriaPrimaTotalNaoUtilizada { get; set; }
     }
 }

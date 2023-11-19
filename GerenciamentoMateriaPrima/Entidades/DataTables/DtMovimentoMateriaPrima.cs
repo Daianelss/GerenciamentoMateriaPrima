@@ -2,7 +2,7 @@
 using GerenciamentoMateriaPrima.Model;
 using System.Data;
 
-namespace GerenciamentoMateriaPrima.DataTables
+namespace GerenciamentoMateriaPrima.Entidades.DataTables
 {
     public class DtMovimentoMateriaPrima
     {

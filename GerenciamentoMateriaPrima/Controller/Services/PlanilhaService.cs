@@ -1,7 +1,7 @@
 ﻿using ClosedXML.Excel;
 using System.Data;
 
-namespace GerenciamentoMateriaPrima.Services
+namespace GerenciamentoMateriaPrima.Controller.Services
 {
     public class PlanilhaService
     {

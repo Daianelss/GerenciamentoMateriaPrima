@@ -1,22 +1,23 @@
 using GerenciamentoMateriaPrima.Controller;
+using GerenciamentoMateriaPrima.Helpers.Extensions;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.View;
 
 namespace GerenciamentoMateriaPrima
 {
-    public partial class formHome : Form, IHome
+    public partial class FormHome : Form, IHome
     {
-
-        public HomeController HomeControlador { get; set; }
-        public string QuebraBancaTotal { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string EntradaMateriaPrimaTotal { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string SaidaMateriaPrimaTotal { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string MateriaPrimaTotalNaoUtilizada { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public formHome()
+        public FormHome()
         {
             InitializeComponent();
         }
+
+        public HomeController HomeControlador { get; set; }
+        public double QuebraBancaTotal { get => lblQuebraTotal.Text.ConverterParaDouble(); set => lblQuebraTotal.Text = value.ToString("F2"); }
+        public double EntradaMateriaPrimaTotal { get => lblEntradaTotal.Text.ConverterParaDouble(); set => lblEntradaTotal.Text = value.ToString("F2"); }
+        public double SaidaMateriaPrimaTotal { get => lblSaidaTotal.Text.ConverterParaDouble(); set => lblSaidaTotal.Text = value.ToString("F2"); }
+        public double MateriaPrimaTotalNaoUtilizada { get => lblMaterialNaoUtilizado.Text.ConverterParaDouble(); set => lblMaterialNaoUtilizado.Text = value.ToString("F2"); }
+
 
         public void SetControlador(HomeController homeControlador)
         {
@@ -30,47 +31,48 @@ namespace GerenciamentoMateriaPrima
 
         private void CarregarTotais()
         {
+            HomeControlador.PreencherTotais();
         }
 
-        private void btnFuncionario_Click(object sender, EventArgs e)
+        private void btnAbrirForm_Click(object sender, EventArgs e)
         {
-            var funcionario = new FormFuncionario();
-            var controller = new FuncionarioController(funcionario);
-            funcionario.SetControlador(controller);
-            funcionario.ShowDialog();
+            var botao = sender as Button;
+            var form = new Form();
+
+            switch (botao.Name)
+            {
+                case "btnBanca":
+                    var movimento = new FormMovimento();
+                    movimento.SetControlador(new MovimentoController(movimento));
+                    form = movimento;
+                    break;
+                case "btnMateriaPrima":
+                    var tipoMateriaPrima = new FormTipoMateriaPrima();
+                    tipoMateriaPrima.SetControlador(new TipoMateriaPrimaController(tipoMateriaPrima));
+                    form = tipoMateriaPrima;
+                    break;
+                case "btnProcesso":
+                    var tipoProcesso = new FormTipoProcesso();
+                    tipoProcesso.SetControlador(new TipoProcessoController(tipoProcesso));
+                    form = tipoProcesso;
+                    break;
+                case "btnMovimentos":
+                    var movimentoMateriaPrima = new FormMovimentoMateriaPrima();
+                    movimentoMateriaPrima.SetControlador(new MovimentoMateriaPrimaController(movimentoMateriaPrima));
+                    form = movimentoMateriaPrima;
+                    break;
+                case "btnFuncionario":
+                    var funcionario = new FormFuncionario();
+                    funcionario.SetControlador(new FuncionarioController(funcionario));
+                    form = funcionario;
+                    break;
+                default:
+                    break;
+            }
+
+            form.ShowDialog();
+            HomeControlador.PreencherTotais();
         }
 
-        private void btnMovimentos_Click(object sender, EventArgs e)
-        {
-            var movimentoMateriaPrima = new FormMovimentoMateriaPrima();
-            var controller = new MovimentoMateriaPrimaController(movimentoMateriaPrima);
-            movimentoMateriaPrima.SetControlador(controller);
-            movimentoMateriaPrima.ShowDialog();
-        }
-
-        private void btnMateriaPrima_Click(object sender, EventArgs e)
-        {
-            var tipoMateriaPrima = new FormTipoMateriaPrima();
-            var controller = new TipoMateriaPrimaController(tipoMateriaPrima);
-            tipoMateriaPrima.SetControlador(controller);
-            tipoMateriaPrima.ShowDialog();
-        }
-
-        private void btnBanca_Click(object sender, EventArgs e)
-        {
-            var movimento = new FormMovimento();
-            var controller = new MovimentoController(movimento);
-            movimento.SetControlador(controller);
-            movimento.ShowDialog();
-
-        }
-
-        private void btnProcesso_Click(object sender, EventArgs e)
-        {
-            var tipoProcesso = new FormTipoProcesso();
-            var controller = new TipoProcessoController(tipoProcesso);
-            tipoProcesso.SetControlador(controller);
-            tipoProcesso.ShowDialog();
-        }
     }
 }

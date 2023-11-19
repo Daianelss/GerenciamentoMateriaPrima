@@ -1,7 +1,7 @@
 ﻿using GerenciamentoMateriaPrima.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace GerenciamentoMateriaPrima.DAL
+namespace GerenciamentoMateriaPrima.Model.DAL
 {
     public class BaseDal<T> : IBaseDal<T> where T : class
     {

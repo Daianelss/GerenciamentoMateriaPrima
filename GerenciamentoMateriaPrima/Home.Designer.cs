@@ -1,6 +1,6 @@
 ﻿namespace GerenciamentoMateriaPrima
 {
-    partial class formHome
+    partial class FormHome
     {
         /// <summary>
         ///  Required designer variable.
@@ -79,7 +79,7 @@
             lblMaterialNaoUtilizado.Name = "lblMaterialNaoUtilizado";
             lblMaterialNaoUtilizado.Size = new Size(182, 35);
             lblMaterialNaoUtilizado.TabIndex = 7;
-            lblMaterialNaoUtilizado.Text = "9475,00";
+            lblMaterialNaoUtilizado.Text = "0,00";
             lblMaterialNaoUtilizado.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblSaidaTotal
@@ -91,7 +91,7 @@
             lblSaidaTotal.Name = "lblSaidaTotal";
             lblSaidaTotal.Size = new Size(182, 35);
             lblSaidaTotal.TabIndex = 6;
-            lblSaidaTotal.Text = "1000,00";
+            lblSaidaTotal.Text = "0,00";
             lblSaidaTotal.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblTitleMaterialNaoUtilizado
@@ -123,7 +123,7 @@
             lblEntradaTotal.Name = "lblEntradaTotal";
             lblEntradaTotal.Size = new Size(182, 35);
             lblEntradaTotal.TabIndex = 3;
-            lblEntradaTotal.Text = "10500,00";
+            lblEntradaTotal.Text = "0,00";
             lblEntradaTotal.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblTitleEntradaTotal
@@ -145,7 +145,7 @@
             lblQuebraTotal.Name = "lblQuebraTotal";
             lblQuebraTotal.Size = new Size(182, 35);
             lblQuebraTotal.TabIndex = 1;
-            lblQuebraTotal.Text = "25,00";
+            lblQuebraTotal.Text = "0,00";
             lblQuebraTotal.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lbltotais
@@ -180,7 +180,7 @@
             btnMovimentos.TabIndex = 1;
             btnMovimentos.Text = "Entrada / Saída";
             btnMovimentos.UseVisualStyleBackColor = true;
-            btnMovimentos.Click += btnMovimentos_Click;
+            btnMovimentos.Click += btnAbrirForm_Click;
             // 
             // panBotoes
             // 
@@ -215,7 +215,7 @@
             btnFuncionario.TabIndex = 12;
             btnFuncionario.Text = "Funcionário";
             btnFuncionario.UseVisualStyleBackColor = true;
-            btnFuncionario.Click += btnFuncionario_Click;
+            btnFuncionario.Click += btnAbrirForm_Click;
             // 
             // btnProcesso
             // 
@@ -226,7 +226,7 @@
             btnProcesso.TabIndex = 7;
             btnProcesso.Text = "Processo";
             btnProcesso.UseVisualStyleBackColor = true;
-            btnProcesso.Click += btnProcesso_Click;
+            btnProcesso.Click += btnAbrirForm_Click;
             // 
             // btnMateriaPrima
             // 
@@ -237,7 +237,7 @@
             btnMateriaPrima.TabIndex = 9;
             btnMateriaPrima.Text = "Matéria Prima";
             btnMateriaPrima.UseVisualStyleBackColor = true;
-            btnMateriaPrima.Click += btnMateriaPrima_Click;
+            btnMateriaPrima.Click += btnAbrirForm_Click;
             // 
             // gprGerenciamento
             // 
@@ -261,16 +261,16 @@
             btnBanca.TabIndex = 5;
             btnBanca.Text = "Banca";
             btnBanca.UseVisualStyleBackColor = true;
-            btnBanca.Click += btnBanca_Click;
+            btnBanca.Click += btnAbrirForm_Click;
             // 
-            // formHome
+            // FormHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1184, 618);
             Controls.Add(panBotoes);
             Controls.Add(panResumo);
-            Name = "formHome";
+            Name = "FormHome";
             Text = "Home";
             Load += Home_Load;
             panResumo.ResumeLayout(false);

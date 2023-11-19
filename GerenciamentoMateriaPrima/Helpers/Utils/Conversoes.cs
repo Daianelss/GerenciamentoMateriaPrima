@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace GerenciamentoMateriaPrima.Utils
+namespace GerenciamentoMateriaPrima.Helpers.Utils
 {
     public static class Conversoes
     {
