@@ -41,8 +41,6 @@ namespace GerenciamentoMateriaPrima.Controller
         }
         public override void Salvar()
         {
-            if (string.IsNullOrEmpty(_iTipoMateriaPrima.Nome))
-                throw new Exception("Necessário preencher nome da materia prima");
             var tipoMateriaPrima = new TipoMateriaPrima
             {
                 Nome = _iTipoMateriaPrima.Nome,

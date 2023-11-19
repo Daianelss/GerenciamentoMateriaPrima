@@ -9,5 +9,6 @@ namespace GerenciamentoMateriaPrima.Interfaces
         public void CarregarDataGridView();
         public void OcultarColunas(params string[] colunas);
         public void SetControlador<T>(T controller) where T : BaseController;
+        public bool ValidarCampos();
     }
 }

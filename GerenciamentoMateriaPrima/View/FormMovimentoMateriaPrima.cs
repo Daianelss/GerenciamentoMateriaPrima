@@ -3,6 +3,7 @@ using GerenciamentoMateriaPrima.Helpers.Utils;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
 using System.Data;
+using System.Text;
 
 namespace GerenciamentoMateriaPrima.View
 {
@@ -58,6 +59,9 @@ namespace GerenciamentoMateriaPrima.View
                 {
                     try
                     {
+                        if (!ValidarCampos())
+                            return;
+
                         Controlador.Atualizar();
                     }
                     catch (Exception ex)
@@ -69,6 +73,9 @@ namespace GerenciamentoMateriaPrima.View
                 {
                     try
                     {
+                        if (!ValidarCampos())
+                            return;
+
                         Controlador.Salvar();
                     }
                     catch (Exception ex)
@@ -180,6 +187,28 @@ namespace GerenciamentoMateriaPrima.View
             {
                 MessageBox.Show($"Houve um erro ao tentar gerar o excel. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        public bool ValidarCampos()
+        {
+            var sb = new StringBuilder();
+
+            if (string.IsNullOrEmpty(Peso?.Trim()))
+                sb.AppendLine("É necessário preencher o peso");
+
+            if (string.IsNullOrEmpty(Descricao?.Trim()))
+                sb.AppendLine("É necessário adicionar uma descrição");
+
+            if (string.IsNullOrEmpty(TipoMateriaPrimaId?.Trim()))
+                sb.AppendLine("É necessário selecionar o tipo de matéria prima");
+
+            if (sb.Length > 0)
+            {
+                MessageBox.Show(sb.ToString(), this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            return true;
         }
     }
 }

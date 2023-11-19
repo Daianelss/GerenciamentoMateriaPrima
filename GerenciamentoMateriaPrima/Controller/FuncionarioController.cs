@@ -43,9 +43,6 @@ namespace GerenciamentoMateriaPrima.Controller
 
         public override void Salvar()
         {
-            if (string.IsNullOrEmpty(_iFuncionario.Nome))
-                throw new Exception("Necessário preencher nome de funcionário");
-
             var funcionario = new Funcionario
             {
                 Nome = _iFuncionario.Nome,

@@ -156,7 +156,7 @@
             dtData.Location = new Point(402, 26);
             dtData.Name = "dtData";
             dtData.Size = new Size(164, 39);
-            dtData.TabIndex = 2;
+            dtData.TabIndex = 1;
             dtData.Value = new DateTime(2023, 11, 12, 16, 5, 34, 0);
             // 
             // lblTipoMateriaPrima
@@ -170,7 +170,6 @@
             // 
             // cmbTipoMateriaPrima
             // 
-            cmbTipoMateriaPrima.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipoMateriaPrima.FormattingEnabled = true;
             cmbTipoMateriaPrima.Location = new Point(204, 79);
             cmbTipoMateriaPrima.Name = "cmbTipoMateriaPrima";
@@ -209,7 +208,7 @@
             txtPeso.Location = new Point(221, 26);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(100, 39);
-            txtPeso.TabIndex = 1;
+            txtPeso.TabIndex = 2;
             txtPeso.KeyPress += ValidarNumero;
             txtPeso.Leave += txtPeso_Leave;
             // 

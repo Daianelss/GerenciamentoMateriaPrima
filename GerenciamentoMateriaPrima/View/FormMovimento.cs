@@ -3,6 +3,7 @@ using GerenciamentoMateriaPrima.Helpers.Utils;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
 using System.Data;
+using System.Text;
 
 namespace GerenciamentoMateriaPrima.View
 {
@@ -72,6 +73,9 @@ namespace GerenciamentoMateriaPrima.View
                 {
                     try
                     {
+                        if (!ValidarCampos())
+                            return;
+
                         Controlador.Atualizar();
                     }
                     catch (Exception ex)
@@ -83,6 +87,9 @@ namespace GerenciamentoMateriaPrima.View
                 {
                     try
                     {
+                        if (!ValidarCampos())
+                            return;
+
                         Controlador.Salvar();
                     }
                     catch (Exception ex)
@@ -213,6 +220,31 @@ namespace GerenciamentoMateriaPrima.View
         public void ValidarNumero(object sender, KeyPressEventArgs e)
         {
             Validacao.ValidarNumeros(sender, e);
+        }
+
+        public bool ValidarCampos()
+        {
+            var sb = new StringBuilder();
+
+            if (string.IsNullOrEmpty(PesoEntrada?.Trim()) || string.IsNullOrEmpty(PesoSaida?.Trim()))
+                sb.AppendLine("É necessário o preenchimento do Peso de Entrada ou de Saída");
+
+            if (string.IsNullOrEmpty(Descricao?.Trim()))
+                sb.AppendLine("É necessário adicionar uma descrição");
+
+            if (string.IsNullOrEmpty(FuncionarioId?.Trim()))
+                sb.AppendLine("É necessário selecionar um funcionário");
+
+            if (string.IsNullOrEmpty(TipoProcessoId?.Trim()))
+                sb.AppendLine("É necessário selecionar o processo");
+
+            if (sb.Length > 0)
+            {
+                MessageBox.Show(sb.ToString(), this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            return true;
         }
         #endregion
     }

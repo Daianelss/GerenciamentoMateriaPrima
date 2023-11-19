@@ -42,8 +42,6 @@ namespace GerenciamentoMateriaPrima.Controller
 
         public override void Salvar()
         {
-            if (string.IsNullOrEmpty(_iTipoProcesso.Nome))
-                throw new Exception("Necessário preencher nome do processo");
             var tipoProcesso = new TipoProcesso
             {
                 Nome = _iTipoProcesso.Nome,

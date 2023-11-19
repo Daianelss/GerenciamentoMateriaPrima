@@ -45,9 +45,6 @@ namespace GerenciamentoMateriaPrima.Controller
 
         public override void Salvar()
         {
-            if (string.IsNullOrEmpty(_iMovimentoMateriaPrima.Descricao) && string.IsNullOrEmpty(_iMovimentoMateriaPrima.Peso))
-                throw new Exception("Necessário Preencher Todos os dados.");
-
             var movimentoMateriaPrima = new MovimentoMateriaPrima
             {
                 Peso = Convert.ToDouble(_iMovimentoMateriaPrima.Peso),
