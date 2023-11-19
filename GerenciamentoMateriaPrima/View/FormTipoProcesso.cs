@@ -36,33 +36,40 @@ namespace GerenciamentoMateriaPrima.View
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (Editando)
+            try
             {
-                try
+                if (Editando)
                 {
-                    Controlador.Atualizar();
-                    CarregarDataGridView();
+                    try
+                    {
+                        Controlador.Atualizar();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Houve um erro ao tentar alterar o processo. {ex.Message}", ex);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Houve um erro ao tentar alterar o processo. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    try
+                    {
+                        Controlador.Salvar();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Houve um erro ao tentar salvar o processo. {ex.Message}", ex);
+                    }
                 }
-            }
-            else
-            {
-                try
-                {
-                    Controlador.Salvar();
-                    CarregarDataGridView();
-                }
-                catch (Exception ex)
-                {
 
-                    MessageBox.Show($"Houve um erro ao tentar salvar o processo", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                CarregarDataGridView();
             }
-            Editando = false;
+            catch (Exception ex)
+            {
+                Editando = false;
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
+
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             Limpar();

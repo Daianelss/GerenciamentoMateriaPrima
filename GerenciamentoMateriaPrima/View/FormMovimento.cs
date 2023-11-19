@@ -66,31 +66,41 @@ namespace GerenciamentoMateriaPrima.View
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (Editando)
+            try
             {
-                try
+                if (Editando)
                 {
-                    Controlador.Atualizar();
+                    try
+                    {
+                        Controlador.Atualizar();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Houve um erro ao tentar alterar o Movimento. {ex.Message}", ex);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Houve um erro ao tentar alterar o Movimento. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    try
+                    {
+                        Controlador.Salvar();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Houve um erro ao tentar salvar o Movimento. {ex.Message}", ex);
+                    }
                 }
-            }
-            else
-            {
-                try
-                {
-                    Controlador.Salvar();
-                }
-                catch (Exception ex)
-                {
 
-                    MessageBox.Show($"Houve um erro ao tentar alterar o Movimento. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                CarregarDataGridView();
             }
-            CarregarDataGridView();
+            catch (Exception ex)
+            {
+                Editando = false;
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
+
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             Limpar();

@@ -31,33 +31,38 @@ namespace GerenciamentoMateriaPrima.View
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (Editando)
+            try
             {
-                try
+                if (Editando)
                 {
-                    Controlador.Atualizar();
-                    CarregarDataGridView();
+                    try
+                    {
+                        Controlador.Atualizar();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Houve um erro ao tentar alterar o Funcionário. {ex.Message}", ex);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
+                    try
+                    {
+                        Controlador.Salvar();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Houve um erro ao tentar salvar o Funcionário. {ex.Message}", ex);
+                    }
+                }
 
-                    MessageBox.Show($"Houve um erro ao tentar alterar o funcionário. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                CarregarDataGridView();
             }
-            else
+            catch (Exception ex)
             {
-                try
-                {
-                    Controlador.Salvar();
-                    CarregarDataGridView();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Houve um erro ao tentar salvar o funcionário. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                Editando = false;
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-            Editando = false;
         }
         private void btnLimpar_Click(object sender, EventArgs e)
         {

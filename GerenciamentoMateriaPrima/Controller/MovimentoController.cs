@@ -50,6 +50,7 @@ namespace GerenciamentoMateriaPrima.Controller
         {
             if (string.IsNullOrEmpty(_iMovimento.Descricao) && (string.IsNullOrEmpty(_iMovimento.PesoEntrada) || string.IsNullOrEmpty(_iMovimento.PesoSaida)))
                 throw new Exception("Verifique se o campo descrição e o campo entrada ou saida estão preenchidos");
+
             var movimento = new Movimento
             {
                 Data = Convert.ToDateTime(_iMovimento.Data),

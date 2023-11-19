@@ -37,34 +37,40 @@ namespace GerenciamentoMateriaPrima.View
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (Editando)
+            try
             {
-                try
+                if (Editando)
                 {
-                    Controlador.Atualizar();
-                    CarregarDataGridView();
+                    try
+                    {
+                        Controlador.Atualizar();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Houve um erro ao tentar alterar a Matéria Prima. {ex.Message}", ex);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
+                    try
+                    {
+                        Controlador.Salvar();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Houve um erro ao tentar salvar a Matéria Prima. {ex.Message}", ex);
+                    }
+                }
 
-                    MessageBox.Show($"Houve um erro ao tentar alterar a Materia Prima. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                CarregarDataGridView();
             }
-            else
+            catch (Exception ex)
             {
-                try
-                {
-                    Controlador.Salvar();
-                    CarregarDataGridView();
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show($"Houve um erro ao tentar salvar a Materia Prima. {ex.Message}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                Editando = false;
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            Editando = false;
         }
+
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             Limpar();
