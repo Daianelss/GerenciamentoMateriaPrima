@@ -32,8 +32,13 @@
             panGrid = new Panel();
             dtgMovimento = new DataGridView();
             panBotoes = new Panel();
+            btnFiltrar = new Button();
             btnRelatorio = new Button();
             btnVoltar = new Button();
+            lblA = new Label();
+            dtpFim = new DateTimePicker();
+            lblPeriodo = new Label();
+            dtpInicio = new DateTimePicker();
             panCadastro = new Panel();
             btnLimpar = new Button();
             txtId = new TextBox();
@@ -51,11 +56,6 @@
             lblData = new Label();
             cmbFuncionario = new ComboBox();
             lblFuncionario = new Label();
-            lblPeriodo = new Label();
-            dtpInicio = new DateTimePicker();
-            btnFiltrar = new Button();
-            dtpFim = new DateTimePicker();
-            lblA = new Label();
             panFundo = new Panel();
             panFundo.SuspendLayout();
             panGrid.SuspendLayout();
@@ -117,6 +117,17 @@
             panBotoes.Size = new Size(1184, 65);
             panBotoes.TabIndex = 2;
             // 
+            // btnFiltrar
+            // 
+            btnFiltrar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFiltrar.Location = new Point(490, 6);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(160, 50);
+            btnFiltrar.TabIndex = 7;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
             // btnRelatorio
             // 
             btnRelatorio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
@@ -138,6 +149,48 @@
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
             btnVoltar.Click += btnVoltar_Click;
+            // 
+            // lblA
+            // 
+            lblA.AutoSize = true;
+            lblA.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lblA.Location = new Point(294, 16);
+            lblA.Name = "lblA";
+            lblA.Size = new Size(24, 30);
+            lblA.TabIndex = 2;
+            lblA.Text = "à";
+            // 
+            // dtpFim
+            // 
+            dtpFim.CustomFormat = "dd/MM/yyyy";
+            dtpFim.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpFim.Format = DateTimePickerFormat.Short;
+            dtpFim.Location = new Point(326, 13);
+            dtpFim.Name = "dtpFim";
+            dtpFim.Size = new Size(150, 36);
+            dtpFim.TabIndex = 1;
+            dtpFim.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
+            // 
+            // lblPeriodo
+            // 
+            lblPeriodo.AutoSize = true;
+            lblPeriodo.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPeriodo.Location = new Point(8, 16);
+            lblPeriodo.Name = "lblPeriodo";
+            lblPeriodo.Size = new Size(124, 30);
+            lblPeriodo.TabIndex = 2;
+            lblPeriodo.Text = "Período de:";
+            // 
+            // dtpInicio
+            // 
+            dtpInicio.CustomFormat = "dd/MM/yyyy";
+            dtpInicio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpInicio.Format = DateTimePickerFormat.Short;
+            dtpInicio.Location = new Point(136, 13);
+            dtpInicio.Name = "dtpInicio";
+            dtpInicio.Size = new Size(150, 36);
+            dtpInicio.TabIndex = 1;
+            dtpInicio.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
             // 
             // panCadastro
             // 
@@ -312,59 +365,6 @@
             lblFuncionario.Size = new Size(130, 30);
             lblFuncionario.TabIndex = 0;
             lblFuncionario.Text = "Funcionário:";
-            // 
-            // lblPeriodo
-            // 
-            lblPeriodo.AutoSize = true;
-            lblPeriodo.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPeriodo.Location = new Point(8, 16);
-            lblPeriodo.Name = "lblPeriodo";
-            lblPeriodo.Size = new Size(124, 30);
-            lblPeriodo.TabIndex = 2;
-            lblPeriodo.Text = "Período de:";
-            // 
-            // dtpInicio
-            // 
-            dtpInicio.CustomFormat = "dd/MM/yyyy";
-            dtpInicio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpInicio.Format = DateTimePickerFormat.Short;
-            dtpInicio.Location = new Point(136, 13);
-            dtpInicio.Name = "dtpInicio";
-            dtpInicio.Size = new Size(150, 36);
-            dtpInicio.TabIndex = 1;
-            dtpInicio.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
-            // 
-            // btnFiltrar
-            // 
-            btnFiltrar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFiltrar.Location = new Point(490, 6);
-            btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(160, 50);
-            btnFiltrar.TabIndex = 7;
-            btnFiltrar.Text = "Filtrar";
-            btnFiltrar.UseVisualStyleBackColor = true;
-            btnFiltrar.Click += btnLimpar_Click;
-            // 
-            // dtpFim
-            // 
-            dtpFim.CustomFormat = "dd/MM/yyyy";
-            dtpFim.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpFim.Format = DateTimePickerFormat.Short;
-            dtpFim.Location = new Point(326, 13);
-            dtpFim.Name = "dtpFim";
-            dtpFim.Size = new Size(150, 36);
-            dtpFim.TabIndex = 1;
-            dtpFim.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
-            // 
-            // lblA
-            // 
-            lblA.AutoSize = true;
-            lblA.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblA.Location = new Point(294, 16);
-            lblA.Name = "lblA";
-            lblA.Size = new Size(24, 30);
-            lblA.TabIndex = 2;
-            lblA.Text = "à";
             // 
             // FormMovimento
             // 

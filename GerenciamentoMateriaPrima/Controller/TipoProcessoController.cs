@@ -51,7 +51,7 @@ namespace GerenciamentoMateriaPrima.Controller
             _tipoProcessoDal.Salvar(tipoProcesso);
         }
 
-        public override IEnumerable<BaseModel> ListarPorFiltro<T>(T item)
+        public override IEnumerable<BaseModel> ListarPorFiltro()
         {
             throw new NotImplementedException();
         }

@@ -17,7 +17,7 @@ namespace GerenciamentoMateriaPrima.View
         public MovimentoMateriaPrimaController Controlador { get; set; }
         #region Elementos de tela
         public string Id { get => txtId.Text; set => txtId.Text = value; }
-        public DateTime Data { get => dtData.Value; set => dtData.Value = value; }
+        public DateTime Data { get => dtpData.Value; set => dtpData.Value = value; }
         public string Peso { get => txtPeso.Text; set => txtPeso.Text = value; }
         public string Descricao { get => txtDescricao.Text; set => txtDescricao.Text = value; }
         public bool Entrada { get => rdbEntrada.Checked; set => rdbEntrada.Checked = value; }
@@ -159,7 +159,7 @@ namespace GerenciamentoMateriaPrima.View
         }
         private void CarregarValoresDefault()
         {
-            dtData.Value = DateTime.Now;
+            dtpData.Value = DateTime.Now;
         }
         public void ValidarNumero(object sender, KeyPressEventArgs e)
         {

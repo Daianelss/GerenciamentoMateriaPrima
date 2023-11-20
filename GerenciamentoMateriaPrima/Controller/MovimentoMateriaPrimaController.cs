@@ -69,7 +69,7 @@ namespace GerenciamentoMateriaPrima.Controller
         }
 
 
-        public override IEnumerable<BaseModel> ListarPorFiltro<T>(T item)
+        public override IEnumerable<BaseModel> ListarPorFiltro()
         {
             throw new NotImplementedException();
         }

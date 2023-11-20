@@ -52,7 +52,7 @@ namespace GerenciamentoMateriaPrima.Controller
             _funcionarioDal.Salvar(funcionario);
         }
 
-        public override IEnumerable<BaseModel> ListarPorFiltro<T>(T item)
+        public override IEnumerable<BaseModel> ListarPorFiltro()
         {
             throw new NotImplementedException();
         }
