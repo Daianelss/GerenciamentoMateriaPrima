@@ -12,6 +12,9 @@ namespace GerenciamentoMateriaPrima.Interfaces
         public string TipoProcessoId { get; set; }
         public string FuncionarioId { get; set; }
 
+        public DateTime DataInicio { get; set; }
+        public DateTime DataFim { get; set; }
+
         public DataTable DtMovimento { get; set; }
         public bool Editando { get; set; }
     }

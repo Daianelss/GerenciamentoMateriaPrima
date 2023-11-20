@@ -17,11 +17,13 @@ namespace GerenciamentoMateriaPrima.View
         public MovimentoController Controlador { get; set; }
 
         #region Elemento Tela
-        public string Id { get => txtId.Text; set => txtId.Text = value; }
-        public DateTime Data { get => dtsData.Value; set => dtsData.Value = value; }
-        public string PesoEntrada { get => txtPesoEntrada.Text; set => txtPesoEntrada.Text = value; }
-        public string PesoSaida { get => txtPesoSaida.Text; set => txtPesoSaida.Text = value; }
-        public string Descricao { get => txtDescricao.Text; set => txtDescricao.Text = value; }
+        public string Id { get => txtId.Text.Trim(); set => txtId.Text = value; }
+        public DateTime Data { get => dtpData.Value; set => dtpData.Value = value; }
+        public string PesoEntrada { get => txtPesoEntrada.Text.Trim(); set => txtPesoEntrada.Text = value; }
+        public string PesoSaida { get => txtPesoSaida.Text.Trim(); set => txtPesoSaida.Text = value; }
+        public string Descricao { get => txtDescricao.Text.Trim(); set => txtDescricao.Text = value; }
+        public DateTime DataInicio { get => dtpInicio.Value; set => dtpInicio.Value = value; }
+        public DateTime DataFim { get => dtpFim.Value; set => dtpFim.Value = value; }
         public string TipoProcessoId
         {
             get => cmbProcesso.SelectedValue?.ToString();
@@ -167,8 +169,8 @@ namespace GerenciamentoMateriaPrima.View
         #region Metodos
         public void Limpar()
         {
+            CarregarValoresDefault();
             Id = string.Empty;
-            Data = DateTime.Now;
             PesoEntrada = string.Empty;
             PesoSaida = string.Empty;
             Descricao = string.Empty;
@@ -179,10 +181,12 @@ namespace GerenciamentoMateriaPrima.View
             cmbFuncionario.SelectedIndex = -1;
             cmbProcesso.SelectedIndex = -1;
         }
-        public void CarregarDataGridView()
+        public void CarregarDataGridView(bool limpar = true)
         {
-            Limpar();
-            IEnumerable<Movimento> movimentos = Controlador.ListarTodos();
+            if (limpar)
+                Limpar();
+
+            var movimentos = Controlador.ListarPorFiltro() as IEnumerable<Movimento>;
             DtMovimento = Controlador.PreencherDataGridView(movimentos);
             dtgMovimento.DataSource = DtMovimento;
             OcultarColunas("FuncionarioId", "TipoProcessoId");
@@ -215,7 +219,9 @@ namespace GerenciamentoMateriaPrima.View
         }
         private void CarregarValoresDefault()
         {
-            dtsData.Value = DateTime.Now;
+            dtpData.Value = DateTime.Now.Date;
+            dtpInicio.Value = DateTime.Now.AddMonths(-3).Date;
+            dtpFim.Value = DateTime.Now.AddDays(3).Date;
         }
         public void ValidarNumero(object sender, KeyPressEventArgs e)
         {
@@ -247,5 +253,16 @@ namespace GerenciamentoMateriaPrima.View
             return true;
         }
         #endregion
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+
+            if (DataInicio > DataFim)
+            {
+                MessageBox.Show("Data Início não pode ser maior que a data final!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            CarregarDataGridView(false);
+        }
     }
 }

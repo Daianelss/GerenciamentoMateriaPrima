@@ -109,7 +109,7 @@ namespace GerenciamentoMateriaPrima.View
             Descricao = string.Empty;
 
         }
-        public void CarregarDataGridView()
+        public void CarregarDataGridView(bool limpar = true)
         {
             Limpar();
             IEnumerable<TipoMateriaPrima> tipoMateriaPrimas = Controlador.ListarTodos();

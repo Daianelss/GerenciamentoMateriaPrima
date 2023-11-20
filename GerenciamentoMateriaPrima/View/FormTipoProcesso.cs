@@ -100,7 +100,7 @@ namespace GerenciamentoMateriaPrima.View
         #endregion
 
         #region Metodos
-        public void CarregarDataGridView()
+        public void CarregarDataGridView(bool limpar = true)
         {
             Limpar();
             IEnumerable<TipoProcesso> tipoProcessos = Controlador.ListarTodos();

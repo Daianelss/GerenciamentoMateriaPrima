@@ -101,7 +101,7 @@ namespace GerenciamentoMateriaPrima.View
             Editando = false;
             DtFuncionario = null;
         }
-        public void CarregarDataGridView()
+        public void CarregarDataGridView(bool limpar = true)
         {
             Limpar();
             var funcionarios = Controlador.ListarTodos() as IEnumerable<Funcionario>;

@@ -134,7 +134,7 @@ namespace GerenciamentoMateriaPrima.View
             DtMovimento = null;
             cmbTipoMateriaPrima.SelectedIndex = -1;
         }
-        public void CarregarDataGridView()
+        public void CarregarDataGridView(bool limpar = true)
         {
             Limpar();
             IEnumerable<MovimentoMateriaPrima> movimentoMateriaPrimas = Controlador.ListarTodos();
