@@ -34,7 +34,6 @@ namespace GerenciamentoMateriaPrima.Model.DAL
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Não foi possível listar todos itens!" + ex.Message);
             }
         }

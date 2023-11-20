@@ -19,8 +19,8 @@ namespace GerenciamentoMateriaPrima.View
         #region Elemento Tela
         public string Id { get => txtId.Text.Trim(); set => txtId.Text = value; }
         public DateTime Data { get => dtpData.Value; set => dtpData.Value = value; }
-        public string PesoEntrada { get => txtPesoEntrada.Text.Trim(); set => txtPesoEntrada.Text = value; }
-        public string PesoSaida { get => txtPesoSaida.Text.Trim(); set => txtPesoSaida.Text = value; }
+        public string PesoEntrada { get => string.IsNullOrEmpty(txtPesoEntrada.Text.Trim()) ? "0,00" : txtPesoEntrada.Text.Trim(); set => txtPesoEntrada.Text = value; }
+        public string PesoSaida { get => string.IsNullOrEmpty(txtPesoSaida.Text.Trim()) ? "0,00" : txtPesoSaida.Text.Trim(); set => txtPesoSaida.Text = value; }
         public string Descricao { get => txtDescricao.Text.Trim(); set => txtDescricao.Text = value; }
         public DateTime DataInicio { get => dtpInicio.Value; set => dtpInicio.Value = value; }
         public DateTime DataFim { get => dtpFim.Value; set => dtpFim.Value = value; }
@@ -233,7 +233,7 @@ namespace GerenciamentoMateriaPrima.View
         {
             var sb = new StringBuilder();
 
-            if (string.IsNullOrEmpty(PesoEntrada?.Trim()) || string.IsNullOrEmpty(PesoSaida?.Trim()))
+            if (PesoEntrada == "0,00" && PesoSaida == "0,00")
                 sb.AppendLine("É necessário o preenchimento do Peso de Entrada ou de Saída");
 
             if (string.IsNullOrEmpty(Descricao?.Trim()))

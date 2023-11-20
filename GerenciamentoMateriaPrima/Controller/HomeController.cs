@@ -26,10 +26,10 @@ namespace GerenciamentoMateriaPrima.Controller
 
             if (movimentosMateriaPrima.Any())
             {
-                _iHome.EntradaMateriaPrimaTotal = movimentosMateriaPrima.FirstOrDefault(p => p.TipoMovimentoMateriaPrima == Entidades.Enum.TipoMovimentoMateriaPrima.Entrada).Total;
-                _iHome.SaidaMateriaPrimaTotal = movimentosMateriaPrima.FirstOrDefault(p => p.TipoMovimentoMateriaPrima == Entidades.Enum.TipoMovimentoMateriaPrima.Saida).Total;
-                _iHome.MateriaPrimaTotalNaoUtilizada = _iHome.EntradaMateriaPrimaTotal - _iHome.SaidaMateriaPrimaTotal - _iHome.QuebraBancaTotal;
+                _iHome.EntradaMateriaPrimaTotal =  movimentosMateriaPrima.Any(p => p.TipoMovimentoMateriaPrima == Entidades.Enum.TipoMovimentoMateriaPrima.Entrada)? movimentosMateriaPrima.FirstOrDefault(p => p.TipoMovimentoMateriaPrima == Entidades.Enum.TipoMovimentoMateriaPrima.Entrada).Total:0;
+                _iHome.SaidaMateriaPrimaTotal = movimentosMateriaPrima.Any(p => p.TipoMovimentoMateriaPrima == Entidades.Enum.TipoMovimentoMateriaPrima.Saida) ? movimentosMateriaPrima.FirstOrDefault(p => p.TipoMovimentoMateriaPrima == Entidades.Enum.TipoMovimentoMateriaPrima.Saida).Total : 0;
                 _iHome.QuebraBancaTotal = movimentos;
+                _iHome.MateriaPrimaTotalNaoUtilizada = _iHome.EntradaMateriaPrimaTotal - _iHome.SaidaMateriaPrimaTotal - _iHome.QuebraBancaTotal;
             }
         }
     }
