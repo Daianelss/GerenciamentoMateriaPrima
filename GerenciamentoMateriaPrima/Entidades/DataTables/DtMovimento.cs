@@ -12,8 +12,8 @@ namespace GerenciamentoMateriaPrima.Entidades.DataTables
             Dt = new DataTable();
             Dt.Columns.Add("Id", typeof(int));
             Dt.Columns.Add("Data", typeof(DateTime));
-            Dt.Columns.Add("PesoEntrada", typeof(double));
-            Dt.Columns.Add("PesoSaida", typeof(double));
+            Dt.Columns.Add("PesoEntrada", typeof(string));
+            Dt.Columns.Add("PesoSaida", typeof(string));
             Dt.Columns.Add("Descricao", typeof(string));
             Dt.Columns.Add("TipoProcessoId", typeof(int));
             Dt.Columns.Add("TipoProcesso", typeof(string));
@@ -34,14 +34,14 @@ namespace GerenciamentoMateriaPrima.Entidades.DataTables
                 Dt.Rows.Add(
                     movimento.Id,
                     movimento.Data,
-                    movimento.PesoEntrada,
-                    movimento.PesoSaida,
+                    movimento.PesoEntrada.ToString("F2"),
+                    movimento.PesoSaida.ToString("F2"),
                     movimento.Descricao,
                     movimento.TipoProcessoId,
                     movimento.TipoProcesso.Nome,
                     movimento.FuncionarioId,
                     movimento.Funcionario.Nome,
-                    movimento.Quebra
+                    movimento.Quebra.ToString("F2")
                     );
             }
             return Dt;

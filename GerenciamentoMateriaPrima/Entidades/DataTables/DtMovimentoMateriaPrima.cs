@@ -1,4 +1,5 @@
-﻿using GerenciamentoMateriaPrima.Interfaces;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
 using System.Data;
 using System.Globalization;
@@ -12,7 +13,7 @@ namespace GerenciamentoMateriaPrima.Entidades.DataTables
         {
             Dt = new DataTable();
             Dt.Columns.Add("Id", typeof(int));
-            Dt.Columns.Add("Peso", typeof(double));
+            Dt.Columns.Add("Peso", typeof(string));
             Dt.Columns.Add("Descricao", typeof(string));
             Dt.Columns.Add("Data", typeof(DateTime));
             Dt.Columns.Add("EntradaSaidaValor", typeof(int));
@@ -34,7 +35,7 @@ namespace GerenciamentoMateriaPrima.Entidades.DataTables
                 Dt.Rows.Add
                     (
                         movimentoMateriaPrima.Id,
-                        movimentoMateriaPrima.Peso,
+                        movimentoMateriaPrima.Peso.ToString("F2"),
                         movimentoMateriaPrima.Descricao,
                         movimentoMateriaPrima.Data,
                         movimentoMateriaPrima.EntradaSaida,
