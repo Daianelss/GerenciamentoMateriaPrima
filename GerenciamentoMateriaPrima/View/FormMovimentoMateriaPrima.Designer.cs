@@ -34,9 +34,9 @@
             panOpcoes = new Panel();
             btnFiltrar = new Button();
             lblA = new Label();
-            dtpFim = new DateTimePicker();
+            dtpDataFim = new DateTimePicker();
             lblPeriodo = new Label();
-            dtpInicio = new DateTimePicker();
+            dtpDataInicio = new DateTimePicker();
             btnVoltar = new Button();
             btnRelatorio = new Button();
             panCadastroMovimento = new Panel();
@@ -104,9 +104,9 @@
             // 
             panOpcoes.Controls.Add(btnFiltrar);
             panOpcoes.Controls.Add(lblA);
-            panOpcoes.Controls.Add(dtpFim);
+            panOpcoes.Controls.Add(dtpDataFim);
             panOpcoes.Controls.Add(lblPeriodo);
-            panOpcoes.Controls.Add(dtpInicio);
+            panOpcoes.Controls.Add(dtpDataInicio);
             panOpcoes.Controls.Add(btnVoltar);
             panOpcoes.Controls.Add(btnRelatorio);
             panOpcoes.Dock = DockStyle.Bottom;
@@ -124,6 +124,7 @@
             btnFiltrar.TabIndex = 14;
             btnFiltrar.Text = "Filtrar";
             btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnFiltrar_Click;
             // 
             // lblA
             // 
@@ -135,16 +136,16 @@
             lblA.TabIndex = 12;
             lblA.Text = "à";
             // 
-            // dtpFim
+            // dtpDataFim
             // 
-            dtpFim.CustomFormat = "dd/MM/yyyy";
-            dtpFim.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpFim.Format = DateTimePickerFormat.Short;
-            dtpFim.Location = new Point(338, 13);
-            dtpFim.Name = "dtpFim";
-            dtpFim.Size = new Size(150, 36);
-            dtpFim.TabIndex = 10;
-            dtpFim.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
+            dtpDataFim.CustomFormat = "dd/MM/yyyy";
+            dtpDataFim.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpDataFim.Format = DateTimePickerFormat.Short;
+            dtpDataFim.Location = new Point(338, 13);
+            dtpDataFim.Name = "dtpDataFim";
+            dtpDataFim.Size = new Size(150, 36);
+            dtpDataFim.TabIndex = 10;
+            dtpDataFim.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
             // 
             // lblPeriodo
             // 
@@ -156,16 +157,16 @@
             lblPeriodo.TabIndex = 13;
             lblPeriodo.Text = "Período de:";
             // 
-            // dtpInicio
+            // dtpDataInicio
             // 
-            dtpInicio.CustomFormat = "dd/MM/yyyy";
-            dtpInicio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpInicio.Format = DateTimePickerFormat.Short;
-            dtpInicio.Location = new Point(148, 13);
-            dtpInicio.Name = "dtpInicio";
-            dtpInicio.Size = new Size(150, 36);
-            dtpInicio.TabIndex = 11;
-            dtpInicio.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
+            dtpDataInicio.CustomFormat = "dd/MM/yyyy";
+            dtpDataInicio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpDataInicio.Format = DateTimePickerFormat.Short;
+            dtpDataInicio.Location = new Point(148, 13);
+            dtpDataInicio.Name = "dtpDataInicio";
+            dtpDataInicio.Size = new Size(150, 36);
+            dtpDataInicio.TabIndex = 11;
+            dtpDataInicio.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
             // 
             // btnVoltar
             // 
@@ -400,8 +401,8 @@
         private ComboBox cmbTipoMateriaPrima;
         private Button btnFiltrar;
         private Label lblA;
-        private DateTimePicker dtpFim;
+        private DateTimePicker dtpDataFim;
         private Label lblPeriodo;
-        private DateTimePicker dtpInicio;
+        private DateTimePicker dtpDataInicio;
     }
 }

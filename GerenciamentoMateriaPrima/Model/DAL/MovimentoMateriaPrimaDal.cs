@@ -26,6 +26,26 @@ namespace GerenciamentoMateriaPrima.Model.DAL
             }
         }
 
+        public IEnumerable<BaseModel> ListarPorFiltro(MovimentoMateriaPrimaDto movimentoMateriaPrimaDto)
+        {
+            try
+            {
+                return _context.Set<MovimentoMateriaPrima>()
+                    .Include("TipoMateriaPrima")
+                    .Where(p => p.Data >= movimentoMateriaPrimaDto.DataInicio && p.Data <= movimentoMateriaPrimaDto.DataFim)
+                    .Where(p => string.IsNullOrEmpty(movimentoMateriaPrimaDto.Descricao.Trim()) || p.Descricao.Contains(movimentoMateriaPrimaDto.Descricao.ToLower()))
+                    .Where(p => movimentoMateriaPrimaDto.TipoMateriaPrimaId == 0 || p.TipoMateriaPrimaId == movimentoMateriaPrimaDto.TipoMateriaPrimaId)
+                    .ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível listar todos itens!" + ex.Message);
+            }
+        }
+
+
+
         public List<TotaisMovimentoMateriaPrima> ListarTotais()
         {
             try

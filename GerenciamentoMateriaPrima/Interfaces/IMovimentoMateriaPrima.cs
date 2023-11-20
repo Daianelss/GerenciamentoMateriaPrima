@@ -11,6 +11,9 @@ namespace GerenciamentoMateriaPrima.Interfaces
         public string Descricao { get; set; }
         public bool Entrada { get; set; }
         public string TipoMateriaPrimaId { get; set; }
+        public DateTime DataInicio { get; set; }
+        public DateTime DataFim { get; set; }
+
         #endregion
 
         #region Elementos de Controle

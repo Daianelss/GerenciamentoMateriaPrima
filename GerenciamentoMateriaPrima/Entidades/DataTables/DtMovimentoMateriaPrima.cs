@@ -1,6 +1,7 @@
 ﻿using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
 using System.Data;
+using System.Globalization;
 
 namespace GerenciamentoMateriaPrima.Entidades.DataTables
 {

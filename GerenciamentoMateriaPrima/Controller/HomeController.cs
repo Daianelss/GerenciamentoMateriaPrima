@@ -28,7 +28,7 @@ namespace GerenciamentoMateriaPrima.Controller
             {
                 _iHome.EntradaMateriaPrimaTotal = movimentosMateriaPrima.FirstOrDefault(p => p.TipoMovimentoMateriaPrima == Entidades.Enum.TipoMovimentoMateriaPrima.Entrada).Total;
                 _iHome.SaidaMateriaPrimaTotal = movimentosMateriaPrima.FirstOrDefault(p => p.TipoMovimentoMateriaPrima == Entidades.Enum.TipoMovimentoMateriaPrima.Saida).Total;
-                _iHome.MateriaPrimaTotalNaoUtilizada = _iHome.EntradaMateriaPrimaTotal - _iHome.SaidaMateriaPrimaTotal;
+                _iHome.MateriaPrimaTotalNaoUtilizada = _iHome.EntradaMateriaPrimaTotal - _iHome.SaidaMateriaPrimaTotal - _iHome.QuebraBancaTotal;
                 _iHome.QuebraBancaTotal = movimentos;
             }
         }

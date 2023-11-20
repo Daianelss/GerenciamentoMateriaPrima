@@ -180,6 +180,7 @@ namespace GerenciamentoMateriaPrima.View
             DtMovimento = null;
             cmbFuncionario.SelectedIndex = -1;
             cmbProcesso.SelectedIndex = -1;
+            CarregarDataGridView(false);
         }
         public void CarregarDataGridView(bool limpar = true)
         {

@@ -1,6 +1,7 @@
 ﻿using GerenciamentoMateriaPrima.Context;
 using GerenciamentoMateriaPrima.Controller.Services;
 using GerenciamentoMateriaPrima.Entidades.DataTables;
+using GerenciamentoMateriaPrima.Entidades.DTO;
 using GerenciamentoMateriaPrima.Interfaces;
 using GerenciamentoMateriaPrima.Model;
 using GerenciamentoMateriaPrima.Model.DAL;
@@ -71,7 +72,14 @@ namespace GerenciamentoMateriaPrima.Controller
 
         public override IEnumerable<BaseModel> ListarPorFiltro()
         {
-            throw new NotImplementedException();
+            var movimentoMateriaPrimaDto = new MovimentoMateriaPrimaDto
+            {
+                DataInicio = _iMovimentoMateriaPrima.DataInicio,
+                DataFim = _iMovimentoMateriaPrima.DataFim,
+                Descricao = _iMovimentoMateriaPrima.Descricao,
+                TipoMateriaPrimaId = Convert.ToInt32(_iMovimentoMateriaPrima.TipoMateriaPrimaId)
+            };
+            return _movimentoMateriaPrimaDal.ListarPorFiltro(movimentoMateriaPrimaDto);
         }
     }
 }

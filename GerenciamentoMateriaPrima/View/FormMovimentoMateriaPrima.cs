@@ -16,10 +16,12 @@ namespace GerenciamentoMateriaPrima.View
 
         public MovimentoMateriaPrimaController Controlador { get; set; }
         #region Elementos de tela
-        public string Id { get => txtId.Text; set => txtId.Text = value; }
+        public string Id { get => txtId.Text.Trim(); set => txtId.Text = value; }
         public DateTime Data { get => dtpData.Value; set => dtpData.Value = value; }
-        public string Peso { get => txtPeso.Text; set => txtPeso.Text = value; }
-        public string Descricao { get => txtDescricao.Text; set => txtDescricao.Text = value; }
+        public DateTime DataInicio { get => dtpDataInicio.Value; set => dtpDataInicio.Value = value; }
+        public DateTime DataFim { get => dtpDataFim.Value; set => dtpDataFim.Value = value; }
+        public string Peso { get => txtPeso.Text.Trim(); set => txtPeso.Text = value; }
+        public string Descricao { get => txtDescricao.Text.Trim(); set => txtDescricao.Text = value; }
         public bool Entrada { get => rdbEntrada.Checked; set => rdbEntrada.Checked = value; }
         public bool Saida { get => rdbSaida.Checked; set => rdbSaida.Checked = value; }
         public string TipoMateriaPrimaId
@@ -124,8 +126,8 @@ namespace GerenciamentoMateriaPrima.View
         #region Metodos
         public void Limpar()
         {
+            CarregarValoresDefault();
             Id = string.Empty;
-            Data = DateTime.Now;
             Peso = string.Empty;
             Descricao = string.Empty;
             Editando = false;
@@ -133,11 +135,14 @@ namespace GerenciamentoMateriaPrima.View
             TipoMateriaPrimaId = string.Empty;
             DtMovimento = null;
             cmbTipoMateriaPrima.SelectedIndex = -1;
+            CarregarDataGridView(false);
         }
         public void CarregarDataGridView(bool limpar = true)
         {
-            Limpar();
-            IEnumerable<MovimentoMateriaPrima> movimentoMateriaPrimas = Controlador.ListarTodos();
+            if (limpar)
+                Limpar();
+
+            var movimentoMateriaPrimas = Controlador.ListarPorFiltro() as IEnumerable<MovimentoMateriaPrima>;
             DtMovimento = Controlador.PreencherDataGridView(movimentoMateriaPrimas);
             dtgListaMovimento.DataSource = DtMovimento;
             OcultarColunas("EntradaSaidaValor", "TipoMateriaPrimaId");
@@ -160,6 +165,9 @@ namespace GerenciamentoMateriaPrima.View
         private void CarregarValoresDefault()
         {
             dtpData.Value = DateTime.Now;
+            dtpDataInicio.Value = DateTime.Now.AddMonths(-3).Date;
+            dtpDataFim.Value = DateTime.Now.AddDays(3).Date;
+
         }
         public void ValidarNumero(object sender, KeyPressEventArgs e)
         {
@@ -209,6 +217,16 @@ namespace GerenciamentoMateriaPrima.View
             }
 
             return true;
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            if (DataInicio > DataFim)
+            {
+                MessageBox.Show("Data de início não pode ser maior que a data final", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            CarregarDataGridView(false);
         }
     }
 }
