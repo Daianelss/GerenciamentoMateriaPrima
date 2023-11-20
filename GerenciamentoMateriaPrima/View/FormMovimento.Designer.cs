@@ -47,10 +47,15 @@
             lblPesoEntrada = new Label();
             txtDescricao = new TextBox();
             lblDescricao = new Label();
-            dtsData = new DateTimePicker();
+            dtpData = new DateTimePicker();
             lblData = new Label();
             cmbFuncionario = new ComboBox();
             lblFuncionario = new Label();
+            lblPeriodo = new Label();
+            dtpInicio = new DateTimePicker();
+            btnFiltrar = new Button();
+            dtpFim = new DateTimePicker();
+            lblA = new Label();
             panFundo = new Panel();
             panFundo.SuspendLayout();
             panGrid.SuspendLayout();
@@ -99,8 +104,13 @@
             // 
             // panBotoes
             // 
+            panBotoes.Controls.Add(btnFiltrar);
             panBotoes.Controls.Add(btnRelatorio);
             panBotoes.Controls.Add(btnVoltar);
+            panBotoes.Controls.Add(lblA);
+            panBotoes.Controls.Add(dtpFim);
+            panBotoes.Controls.Add(lblPeriodo);
+            panBotoes.Controls.Add(dtpInicio);
             panBotoes.Dock = DockStyle.Bottom;
             panBotoes.Location = new Point(0, 556);
             panBotoes.Name = "panBotoes";
@@ -143,7 +153,7 @@
             panCadastro.Controls.Add(lblPesoEntrada);
             panCadastro.Controls.Add(txtDescricao);
             panCadastro.Controls.Add(lblDescricao);
-            panCadastro.Controls.Add(dtsData);
+            panCadastro.Controls.Add(dtpData);
             panCadastro.Controls.Add(lblData);
             panCadastro.Controls.Add(cmbFuncionario);
             panCadastro.Controls.Add(lblFuncionario);
@@ -266,15 +276,15 @@
             lblDescricao.TabIndex = 4;
             lblDescricao.Text = "Descrição:";
             // 
-            // dtsData
+            // dtpData
             // 
-            dtsData.CustomFormat = "dd/MM/yyyy";
-            dtsData.Format = DateTimePickerFormat.Short;
-            dtsData.Location = new Point(216, 15);
-            dtsData.Name = "dtsData";
-            dtsData.Size = new Size(150, 36);
-            dtsData.TabIndex = 1;
-            dtsData.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
+            dtpData.CustomFormat = "dd/MM/yyyy";
+            dtpData.Format = DateTimePickerFormat.Short;
+            dtpData.Location = new Point(216, 15);
+            dtpData.Name = "dtpData";
+            dtpData.Size = new Size(150, 36);
+            dtpData.TabIndex = 1;
+            dtpData.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
             // 
             // lblData
             // 
@@ -303,6 +313,59 @@
             lblFuncionario.TabIndex = 0;
             lblFuncionario.Text = "Funcionário:";
             // 
+            // lblPeriodo
+            // 
+            lblPeriodo.AutoSize = true;
+            lblPeriodo.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPeriodo.Location = new Point(8, 16);
+            lblPeriodo.Name = "lblPeriodo";
+            lblPeriodo.Size = new Size(124, 30);
+            lblPeriodo.TabIndex = 2;
+            lblPeriodo.Text = "Período de:";
+            // 
+            // dtpInicio
+            // 
+            dtpInicio.CustomFormat = "dd/MM/yyyy";
+            dtpInicio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpInicio.Format = DateTimePickerFormat.Short;
+            dtpInicio.Location = new Point(136, 13);
+            dtpInicio.Name = "dtpInicio";
+            dtpInicio.Size = new Size(150, 36);
+            dtpInicio.TabIndex = 1;
+            dtpInicio.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFiltrar.Location = new Point(490, 6);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(160, 50);
+            btnFiltrar.TabIndex = 7;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnLimpar_Click;
+            // 
+            // dtpFim
+            // 
+            dtpFim.CustomFormat = "dd/MM/yyyy";
+            dtpFim.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpFim.Format = DateTimePickerFormat.Short;
+            dtpFim.Location = new Point(326, 13);
+            dtpFim.Name = "dtpFim";
+            dtpFim.Size = new Size(150, 36);
+            dtpFim.TabIndex = 1;
+            dtpFim.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
+            // 
+            // lblA
+            // 
+            lblA.AutoSize = true;
+            lblA.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lblA.Location = new Point(294, 16);
+            lblA.Name = "lblA";
+            lblA.Size = new Size(24, 30);
+            lblA.TabIndex = 2;
+            lblA.Text = "à";
+            // 
             // FormMovimento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -316,6 +379,7 @@
             panGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgMovimento).EndInit();
             panBotoes.ResumeLayout(false);
+            panBotoes.PerformLayout();
             panCadastro.ResumeLayout(false);
             panCadastro.PerformLayout();
             ResumeLayout(false);
@@ -330,7 +394,7 @@
         private TextBox txtMovimento;
         private TextBox txtDescricao;
         private Label lblDescricao;
-        private DateTimePicker dtsData;
+        private DateTimePicker dtpData;
         private Label lblData;
         private ComboBox cmbFuncionario;
         private Label lblFuncionario;
@@ -346,5 +410,10 @@
         private Label lblId;
         private Button btnLimpar;
         private Panel panGrid;
+        private Button btnFiltrar;
+        private Label lblA;
+        private DateTimePicker dtpFim;
+        private Label lblPeriodo;
+        private DateTimePicker dtpInicio;
     }
 }
