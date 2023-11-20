@@ -233,6 +233,7 @@
             ClientSize = new Size(1184, 621);
             Controls.Add(panTipoProcesso);
             Name = "FormTipoProcesso";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Processo";
             Load += FormTipoProcesso_Load;
             panLista.ResumeLayout(false);

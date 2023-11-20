@@ -210,6 +210,7 @@
             ClientSize = new Size(1184, 621);
             Controls.Add(panFuncionario);
             Name = "FormFuncionario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Funcionario";
             Load += FormFuncionario_Load;
             panCadastroFuncionario.ResumeLayout(false);

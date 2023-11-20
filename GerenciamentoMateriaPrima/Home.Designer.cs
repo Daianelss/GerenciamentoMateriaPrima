@@ -271,6 +271,7 @@
             Controls.Add(panBotoes);
             Controls.Add(panResumo);
             Name = "FormHome";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
             Load += Home_Load;
             panResumo.ResumeLayout(false);

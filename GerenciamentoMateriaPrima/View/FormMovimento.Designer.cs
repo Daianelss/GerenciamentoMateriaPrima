@@ -373,6 +373,7 @@
             ClientSize = new Size(1184, 621);
             Controls.Add(panFundo);
             Name = "FormMovimento";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Banca";
             Load += FormMovimento_Load;
             panFundo.ResumeLayout(false);

@@ -232,6 +232,7 @@
             ClientSize = new Size(1184, 621);
             Controls.Add(panTipoMateriaPrima);
             Name = "FormTipoMateriaPrima";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Materia Prima";
             Load += FormTipoMateriaPrima_Load;
             panCadastroTipoMateriaPrima.ResumeLayout(false);

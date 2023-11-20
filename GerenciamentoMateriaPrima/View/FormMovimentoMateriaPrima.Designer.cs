@@ -32,6 +32,11 @@
             panListaMovimento = new Panel();
             dtgListaMovimento = new DataGridView();
             panOpcoes = new Panel();
+            btnFiltrar = new Button();
+            lblA = new Label();
+            dtpFim = new DateTimePicker();
+            lblPeriodo = new Label();
+            dtpInicio = new DateTimePicker();
             btnVoltar = new Button();
             btnRelatorio = new Button();
             panCadastroMovimento = new Panel();
@@ -50,11 +55,6 @@
             lblPeso = new Label();
             lblData = new Label();
             lblId = new Label();
-            btnFiltrar = new Button();
-            lblA = new Label();
-            dtpFim = new DateTimePicker();
-            lblPeriodo = new Label();
-            dtpInicio = new DateTimePicker();
             panFundo.SuspendLayout();
             panListaMovimento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaMovimento).BeginInit();
@@ -114,6 +114,58 @@
             panOpcoes.Name = "panOpcoes";
             panOpcoes.Size = new Size(1184, 65);
             panOpcoes.TabIndex = 1;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFiltrar.Location = new Point(502, 6);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(160, 50);
+            btnFiltrar.TabIndex = 14;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.UseVisualStyleBackColor = true;
+            // 
+            // lblA
+            // 
+            lblA.AutoSize = true;
+            lblA.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lblA.Location = new Point(306, 16);
+            lblA.Name = "lblA";
+            lblA.Size = new Size(24, 30);
+            lblA.TabIndex = 12;
+            lblA.Text = "à";
+            // 
+            // dtpFim
+            // 
+            dtpFim.CustomFormat = "dd/MM/yyyy";
+            dtpFim.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpFim.Format = DateTimePickerFormat.Short;
+            dtpFim.Location = new Point(338, 13);
+            dtpFim.Name = "dtpFim";
+            dtpFim.Size = new Size(150, 36);
+            dtpFim.TabIndex = 10;
+            dtpFim.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
+            // 
+            // lblPeriodo
+            // 
+            lblPeriodo.AutoSize = true;
+            lblPeriodo.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPeriodo.Location = new Point(20, 16);
+            lblPeriodo.Name = "lblPeriodo";
+            lblPeriodo.Size = new Size(124, 30);
+            lblPeriodo.TabIndex = 13;
+            lblPeriodo.Text = "Período de:";
+            // 
+            // dtpInicio
+            // 
+            dtpInicio.CustomFormat = "dd/MM/yyyy";
+            dtpInicio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpInicio.Format = DateTimePickerFormat.Short;
+            dtpInicio.Location = new Point(148, 13);
+            dtpInicio.Name = "dtpInicio";
+            dtpInicio.Size = new Size(150, 36);
+            dtpInicio.TabIndex = 11;
+            dtpInicio.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
             // 
             // btnVoltar
             // 
@@ -300,58 +352,6 @@
             lblId.TabIndex = 0;
             lblId.Text = "Id:";
             // 
-            // btnFiltrar
-            // 
-            btnFiltrar.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFiltrar.Location = new Point(502, 6);
-            btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(160, 50);
-            btnFiltrar.TabIndex = 14;
-            btnFiltrar.Text = "Filtrar";
-            btnFiltrar.UseVisualStyleBackColor = true;
-            // 
-            // lblA
-            // 
-            lblA.AutoSize = true;
-            lblA.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblA.Location = new Point(306, 16);
-            lblA.Name = "lblA";
-            lblA.Size = new Size(24, 30);
-            lblA.TabIndex = 12;
-            lblA.Text = "à";
-            // 
-            // dtpFim
-            // 
-            dtpFim.CustomFormat = "dd/MM/yyyy";
-            dtpFim.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpFim.Format = DateTimePickerFormat.Short;
-            dtpFim.Location = new Point(338, 13);
-            dtpFim.Name = "dtpFim";
-            dtpFim.Size = new Size(150, 36);
-            dtpFim.TabIndex = 10;
-            dtpFim.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
-            // 
-            // lblPeriodo
-            // 
-            lblPeriodo.AutoSize = true;
-            lblPeriodo.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPeriodo.Location = new Point(20, 16);
-            lblPeriodo.Name = "lblPeriodo";
-            lblPeriodo.Size = new Size(124, 30);
-            lblPeriodo.TabIndex = 13;
-            lblPeriodo.Text = "Período de:";
-            // 
-            // dtpInicio
-            // 
-            dtpInicio.CustomFormat = "dd/MM/yyyy";
-            dtpInicio.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpInicio.Format = DateTimePickerFormat.Short;
-            dtpInicio.Location = new Point(148, 13);
-            dtpInicio.Name = "dtpInicio";
-            dtpInicio.Size = new Size(150, 36);
-            dtpInicio.TabIndex = 11;
-            dtpInicio.Value = new DateTime(2023, 11, 7, 20, 49, 57, 0);
-            // 
             // FormMovimentoMateriaPrima
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -359,6 +359,7 @@
             ClientSize = new Size(1184, 621);
             Controls.Add(panFundo);
             Name = "FormMovimentoMateriaPrima";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Entrada / Saída";
             Load += FormMovimentoMateriaPrima_Load;
             panFundo.ResumeLayout(false);
