@@ -20,7 +20,7 @@ namespace GerenciamentoMateriaPrima.View
         public DateTime Data { get => dtpData.Value; set => dtpData.Value = value; }
         public DateTime DataInicio { get => dtpDataInicio.Value; set => dtpDataInicio.Value = value; }
         public DateTime DataFim { get => dtpDataFim.Value; set => dtpDataFim.Value = value; }
-        public string Peso { get => txtPeso.Text.Trim(); set => txtPeso.Text = value; }
+        public string Peso { get => string.IsNullOrEmpty(txtPeso.Text.Trim()) ? "0,00" : txtPeso.Text.Trim(); set => txtPeso.Text = value; }
         public string Descricao { get => txtDescricao.Text.Trim(); set => txtDescricao.Text = value; }
         public bool Entrada { get => rdbEntrada.Checked; set => rdbEntrada.Checked = value; }
         public bool Saida { get => rdbSaida.Checked; set => rdbSaida.Checked = value; }
@@ -201,7 +201,7 @@ namespace GerenciamentoMateriaPrima.View
         {
             var sb = new StringBuilder();
 
-            if (string.IsNullOrEmpty(Peso?.Trim()))
+            if (Peso == "0,00")
                 sb.AppendLine("É necessário preencher o peso");
 
             if (string.IsNullOrEmpty(Descricao?.Trim()))
